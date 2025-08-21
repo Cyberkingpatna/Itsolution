@@ -1,172 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Expert IT Solution</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Career Expert IT Solution — OTP Login</title>
 
-    /* Header / Hero */
-    header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/1600/600?tech') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    header h1 { font-size: 3rem; margin-bottom: 20px; }
-    header p { font-size: 1.2rem; margin-bottom: 30px; }
-    header a {
-      background: #ff6b00;
-      padding: 12px 30px;
-      color: white;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    header a:hover { background: #ff8533; }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+  /* ---------- Base ---------- */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#111;background:linear-gradient(180deg,#0f1724 0%, #071021 55%, #071021 100%);min-height:100vh}
+  a{color:inherit;text-decoration:none}
 
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: center;
-      padding: 15px;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-    }
-    nav a:hover { color: #ff6b00; }
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(6,9,15,0.55);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.04)}
+  .nav .inner{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;color:#e6f6ff}
+  .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#6ee7ff,#60a5fa,#ff8a3d);box-shadow:0 6px 30px rgba(96,165,250,0.12)}
+  .menu{display:flex;gap:16px;align-items:center}
+  .menu a{color:rgba(230,246,255,0.9);font-weight:600;padding:8px;border-radius:8px;transition:all .18s}
+  .menu a:hover{background:rgba(255,255,255,0.03)}
+  .btn-primary{background:linear-gradient(90deg,#6ee7ff,#60a5fa);color:#041022;padding:8px 12px;border-radius:10px;font-weight:800;display:inline-flex;gap:8px;align-items:center;border:none;cursor:pointer}
 
-    /* Section */
-    section { padding: 80px 10%; text-align: center; }
-    section h2 { font-size: 2rem; margin-bottom: 20px; color: #222; }
-    section p { max-width: 700px; margin: auto; font-size: 1rem; line-height: 1.6; color: #555; }
+  /* ---------- HERO ---------- */
+  .hero{max-width:1100px;margin:28px auto 0;padding:48px 20px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+  .hero-left{color:#e6f6ff;animation:fadeUp .9s ease both}
+  .hero h1{font-size:40px;line-height:1.02;margin-bottom:12px}
+  .grad{background:linear-gradient(90deg,#6ee7ff,#60a5fa,#ff8a3d);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:rgba(230,246,255,0.85);margin-bottom:22px}
+  .hero-cta{display:flex;gap:12px;align-items:center}
+  .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
 
-    /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-    .card:hover { transform: translateY(-10px); }
-    .card h3 { margin-bottom: 15px; color: #ff6b00; }
+  /* ---------- RIGHT PANEL (Auth/info) ---------- */
+  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);padding:20px;border-radius:14px;color:#e6f6ff;box-shadow:0 20px 40px rgba(2,6,23,0.6);animation:pop .7s ease both}
+  .small{font-size:13px;color:rgba(230,246,255,0.75)}
+  .input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.25);color:#fff;margin:8px 0}
+  .row{display:flex;gap:8px}
+  .muted{color:rgba(230,246,255,0.7);font-size:13px;margin-top:8px}
 
-    /* Contact */
-    form {
-      max-width: 600px;
-      margin: auto;
-      text-align: left;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background: #ff6b00;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    form button:hover { background: #ff8533; }
+  /* ---------- SECTIONS ---------- */
+  section{max-width:1100px;margin:0 auto;padding:48px 20px;color:#e6f6ff}
+  h2{font-size:26px;margin-bottom:12px}
+  .muted-light{color:rgba(230,246,255,0.75);max-width:860px}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px}
+  .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .25s}
+  .service:hover{transform:translateY(-10px)}
+  .service h3{color:#60a5fa;margin-bottom:8px}
 
-    /* Footer */
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 50px;
-    }
-  </style>
+  /* ---------- CONTACT ---------- */
+  .contact-form{max-width:700px;margin:18px auto 0}
+  .submit{background:linear-gradient(90deg,#ff8a3d,#ffb37a);border:none;color:#041022;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:28px 20px;text-align:center;color:rgba(230,246,255,0.7);margin-top:30px}
+
+  /* ---------- MODAL / DASHBOARD ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.65);display:none;align-items:center;justify-content:center;z-index:80}
+  .modal{width:360px;background:linear-gradient(180deg,#071226,#0b1b2d);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 50px rgba(2,6,23,.8);color:#e6f6ff}
+  .modal h3{margin-bottom:10px}
+  .modal .actions{display:flex;gap:10px;margin-top:12px}
+  .success{background:linear-gradient(90deg,#6ee7ff,#60a5fa);color:#001018;padding:10px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+
+  /* ---------- small screens ---------- */
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;gap:20px;padding-top:80px}
+    .menu{display:none}
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <!-- Hero Section -->
-  <header id="home">
-    <h1>Career Expert IT Solution</h1>
-    <p>Empowering Businesses with Professional IT & Web Services</p>
-    <a href="#services">Explore Services</a>
-  </header>
-
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <p>We deliver top-class IT & web solutions tailored to your business needs.</p>
-    <div class="services">
-      <div class="card">
-        <h3>MS Office Solutions</h3>
-        <p>Automation, Data Analysis, Word, Excel & PowerPoint solutions.</p>
+  <!-- NAV -->
+  <div class="nav" role="navigation">
+    <div class="inner">
+      <div class="brand"><div class="logo" aria-hidden></div><div style="font-weight:700">Career Expert</div></div>
+      <div class="menu" aria-hidden>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="card">
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn-primary" onclick="openModal('auth')"><i class="fa-solid fa-mobile-screen"></i>&nbsp; Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main class="hero" id="home" role="main">
+    <div class="hero-left">
+      <h1>Professional <span class="grad">MS Office</span> & Web Design for Businesses</h1>
+      <p class="muted-light">Excel dashboards, branded Word documents, high-converting presentations and fast responsive websites — delivered professionally.</p>
+
+      <div class="hero-cta">
+        <a class="btn-primary" href="#services">Our Services</a>
+        <a class="btn-primary" href="#contact" style="background:linear-gradient(90deg,#ffb37a,#ff8a3d)">Get Quote</a>
+      </div>
+
+      <div class="card-grid" style="margin-top:20px">
+        <div class="panel small">
+          <div style="font-weight:700">Fast Delivery</div>
+          <div class="muted">Reliable and on-time work for businesses</div>
+        </div>
+        <div class="panel small">
+          <div style="font-weight:700">Satisfaction</div>
+          <div class="muted">Quality checks and edits until you're happy</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel" aria-label="Login panel">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">Client Portal</div>
+        <div class="small">Secure login</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label class="small">Country code</label>
+        <input id="country" class="input" value="+91" />
+        <label class="small" style="margin-top:8px">Mobile number</label>
+        <input id="mobile" class="input" placeholder="9876543210" />
+        <div id="recaptcha-container" style="margin-top:6px"></div>
+
+        <div class="row" style="margin-top:10px">
+          <button class="success" onclick="sendOTP()">Send OTP</button>
+          <button style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:#e6f6ff;padding:10px;border-radius:10px" onclick="openModal('auth')">More</button>
+        </div>
+
+        <div style="margin-top:12px">
+          <label class="small">Enter OTP</label>
+          <input id="otp" class="input" placeholder="6-digit OTP" />
+          <button class="success" style="width:100%;margin-top:8px" onclick="verifyOTP()">Verify & Login</button>
+          <div id="authMsg" class="muted" style="margin-top:8px"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-heading">
+    <h2 id="services-heading">Our Services</h2>
+    <p class="muted-light">We offer a full stack of MS Office and web services to help your business communicate clearly and operate smarter.</p>
+
+    <div class="services" role="list">
+      <div class="service" role="listitem">
+        <h3>Document Design</h3>
+        <p class="small">Professional MS Word templates, reports and policy documents.</p>
+      </div>
+      <div class="service" role="listitem">
+        <h3>Excel Solutions</h3>
+        <p class="small">Dashboards, VBA automation, data cleaning and reports.</p>
+      </div>
+      <div class="service" role="listitem">
+        <h3>Presentation Design</h3>
+        <p class="small">Investor decks, training slides and corporate templates.</p>
+      </div>
+      <div class="service" role="listitem">
         <h3>Web Design</h3>
-        <p>Responsive, attractive and user-friendly websites for all industries.</p>
-      </div>
-      <div class="card">
-        <h3>IT Consulting</h3>
-        <p>Expert IT guidance and digital solutions for your business growth.</p>
+        <p class="small">Responsive websites, landing pages and small business storefronts.</p>
       </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>At Career Expert IT Solution, we specialize in providing IT consulting, MS Office support, and professional website development. 
-    Our mission is to empower businesses with reliable and innovative solutions.</p>
+    <h2>About Career Expert</h2>
+    <p class="muted-light">We combine technical skill with clean design to deliver documents and websites that represent your brand professionally and convert visitors into customers.</p>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <h2>Contact</h2>
+    <div class="contact-form">
+      <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.');">
+        <input class="input" placeholder="Your name" required />
+        <input class="input" type="email" placeholder="Your email" required />
+        <textarea class="input" rows="5" placeholder="Message" required></textarea>
+        <div style="text-align:center;margin-top:10px"><button class="submit">Send Message</button></div>
+      </form>
+    </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Career Expert IT Solution | All Rights Reserved</p>
+    © 2025 Career Expert IT Solution • Built with care
   </footer>
+
+  <!-- AUTH MODAL -->
+  <div class="overlay" id="overlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3>Login / Signup</h3>
+      <div style="font-size:13px;color:rgba(230,246,255,0.8);margin-bottom:8px">Use mobile number to receive OTP</div>
+
+      <label class="small">Country</label>
+      <input id="m_country" class="input" value="+91" />
+      <label class="small">Mobile</label>
+      <input id="m_mobile" class="input" placeholder="9876543210" />
+      <div id="recaptcha-modal" style="margin:8px 0 6px"></div>
+
+      <div class="actions">
+        <button class="success" style="flex:1" onclick="sendOTPModal()">Send OTP</button>
+        <button style="flex:1;background:transparent;border:1px solid rgba(255,255,255,0.06);color:#e6f6ff" onclick="closeModal()">Close</button>
+      </div>
+
+      <div style="margin-top:10px">
+        <label class="small">Enter OTP</label>
+        <input id="m_otp" class="input" placeholder="Enter OTP" />
+        <button class="success" style="width:100%;margin-top:8px" onclick="verifyOTPModal()">Verify & Login</button>
+        <div id="modalMsg" class="muted" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIREBASE (compat to work easily on CodePen) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+
+  <script>
+    /***********************
+     * 1) REPLACE CONFIG BELOW with YOUR Firebase config
+     * Go to Firebase Console → Project Settings → SDK setup and config
+     ***********************/
+    const firebaseConfig = {
+      // example:
+      // apiKey: "ABC...",
+      // authDomain: "yourproject.firebaseapp.com",
+      // projectId: "yourproject",
+      // storageBucket: "yourproject.appspot.com",
+      // messagingSenderId: "123456789",
+      // appId: "1:123:web:abcd"
+      ...FIREBASE_CONFIG_HERE
+    };
+
+    // init
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    /* UI Helpers */
+    function openModal(which){
+      document.getElementById('overlay').style.display = 'flex';
+      // init recaptcha for modal if not already
+      if(!window.modalRecap){
+        window.modalRecap = new firebase.auth.RecaptchaVerifier('recaptcha-modal', {size:'normal'});
+        window.modalRecap.render();
+      }
+    }
+    function closeModal(){ document.getElementById('overlay').style.display = 'none'; document.getElementById('modalMsg').innerText=''; }
+
+    function openAuth(){ openModal('auth') } // for compatibility
+
+    /* Small right-panel recaptcha init */
+    if(!window.rightRecap){
+      // render invisible recaptcha container for right panel
+      window.rightRecap = new firebase.auth.RecaptchaVerifier('recaptcha-container',{size:'invisible'});
+      // don't call render() here — firebase will render on first use
+    }
+
+    /***********************
+     * OTP SEND / VERIFY (right panel)
+     ***********************/
+    let confirmationResultGlobal = null;
+    async function sendOTP(){
+      const cc = (document.getElementById('country').value || '+91').trim();
+      const ph = (document.getElementById('mobile').value || '').trim();
+      const phone = cc + ph;
+      if(!ph){ alert('Please enter mobile number'); return; }
+      try{
+        // ensure recaptcha verifier exists
+        if(!window.rightRecap) window.rightRecap = new firebase.auth.RecaptchaVerifier('recaptcha-container',{size:'invisible'});
+        const verifier = window.rightRecap;
+        confirmationResultGlobal = await auth.signInWithPhoneNumber(phone, verifier);
+        document.getElementById('authMsg').innerText = 'OTP sent to ' + phone;
+      }catch(err){
+        alert('Failed to send OTP: ' + err.message);
+        console.error(err);
+      }
+    }
+
+    async function verifyOTP(){
+      try{
+        if(!confirmationResultGlobal){ alert('Please send OTP first'); return; }
+        const code = (document.getElementById('otp').value || '').trim();
+        const res = await confirmationResultGlobal.confirm(code);
+        const user = res.user;
+        await afterLogin(user);
+        document.getElementById('authMsg').innerText = 'Login successful: ' + (user.phoneNumber || '');
+      }catch(err){
+        alert('OTP verify failed: ' + err.message);
+        console.error(err);
+      }
+    }
+
+    /***********************
+     * OTP SEND / VERIFY (modal)
+     ***********************/
+    let confirmationModal = null;
+    async function sendOTPModal(){
+      const cc = (document.getElementById('m_country').value || '+91').trim();
+      const ph = (document.getElementById('m_mobile').value || '').trim();
+      const phone = cc + ph;
+      if(!ph){ document.getElementById('modalMsg').innerText = 'Enter mobile number'; return; }
+      try{
+        if(!window.modalRecap) window.modalRecap = new firebase.auth.RecaptchaVerifier('recaptcha-modal',{size:'normal'});
+        confirmationModal = await auth.signInWithPhoneNumber(phone, window.modalRecap);
+        document.getElementById('modalMsg').innerText = 'OTP sent to ' + phone;
+      }catch(err){ document.getElementById('modalMsg').innerText = 'Send failed: ' + err.message; console.error(err); }
+    }
+
+    async function verifyOTPModal(){
+      try{
+        if(!confirmationModal){ document.getElementById('modalMsg').innerText='Send OTP first'; return; }
+        const code = (document.getElementById('m_otp').value || '').trim();
+        const res = await confirmationModal.confirm(code);
+        await afterLogin(res.user);
+        document.getElementById('modalMsg').innerText = 'Login success';
+        closeModal();
+      }catch(err){ document.getElementById('modalMsg').innerText = 'Verify failed: ' + err.message; console.error(err); }
+    }
+
+    /***********************
+     * AFTER LOGIN: create/load profile (Firestore) + show dashboard bar
+     ***********************/
+    async function afterLogin(user){
+      try{
+        const uid = user.uid;
+        const phone = user.phoneNumber || '';
+        localStorage.setItem('uid', uid);
+        localStorage.setItem('phone', phone);
+        // create profile doc if not exists
+        const ref = db.collection('users').doc(uid);
+        const snap = await ref.get();
+        if(!snap.exists){
+          await ref.set({ phone, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+        }
+        showDashboard(phone, uid);
+      }catch(err){ console.error('afterLogin err', err); }
+    }
+
+    function showDashboard(phone, uid){
+      // replace hero content with a small dashboard / welcome
+      document.querySelector('.hero-left').innerHTML = '<div style="font-size:18px;font-weight:700">Welcome</div><div style="margin-top:10px;font-size:20px">'+ (phone || '') +'</div><div style="margin-top:18px"><button onclick="goToProfile()" class="btn-primary">Edit Profile</button> <button onclick="logout()" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:#e6f6ff;padding:8px;border-radius:8px">Logout</button></div>';
+      // also hide right panel inputs
+      document.querySelector('aside.panel').style.display='none';
+      // scroll to top
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function goToProfile(){
+      alert('Profile edit coming soon. For now profile stored in Firestore under users collection.');
+    }
+
+    async function logout(){
+      try{
+        await auth.signOut();
+      }catch(e){}
+      localStorage.removeItem('uid'); localStorage.removeItem('phone');
+      // reload to restore UI
+      window.location.reload();
+    }
+
+    /* AUTO reattach session on page load */
+    window.addEventListener('load', ()=>{
+      auth.onAuthStateChanged(async (user)=>{
+        if(user){
+          // user already logged in
+          await afterLogin(user);
+        }
+      });
+    });
+  </script>
+
+  <script>
+    /* small helpers for opening modal from top bar */
+    function openModal(){ document.getElementById('overlay').style.display='flex' }
+    function closeModal(){ document.getElementById('overlay').style.display='none' }
+    // keep helper alias used in markup
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+    window.openAuth = openModal;
+  </script>
 </body>
 </html>
