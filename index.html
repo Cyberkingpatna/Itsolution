@@ -5,146 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Career Expert IT Solution</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-    }
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; }
+
+    /* Header / Hero */
     header {
-      background: linear-gradient(135deg, #0077b6, #0096c7);
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/1600/600?tech') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
+      text-align: center;
       padding: 20px;
-      text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header h1 { font-size: 3rem; margin-bottom: 20px; }
+    header p { font-size: 1.2rem; margin-bottom: 30px; }
+    header a {
+      background: #ff6b00;
+      padding: 12px 30px;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
     }
+    header a:hover { background: #ff8533; }
+
+    /* Navbar */
     nav {
-      background: #023e8a;
-      padding: 10px;
-      text-align: center;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      z-index: 1000;
     }
     nav a {
-      color: white;
+      margin: 0 20px;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      color: #333;
+      font-weight: 600;
     }
-    nav a:hover {
-      color: #ffdd00;
-    }
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
+    nav a:hover { color: #ff6b00; }
+
+    /* Section */
+    section { padding: 80px 10%; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 20px; color: #222; }
+    section p { max-width: 700px; margin: auto; font-size: 1rem; line-height: 1.6; color: #555; }
+
+    /* Services */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
     .card {
       background: white;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
     }
-    .card:hover {
-      transform: scale(1.05);
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { margin-bottom: 15px; color: #ff6b00; }
+
+    /* Contact */
+    form {
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
     }
-    footer {
-      background: #023e8a;
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #ff6b00;
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
-    button {
-      background: #0077b6;
-      color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
     }
-    button:hover {
-      background: #0096c7;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    form button:hover { background: #ff8533; }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Career Expert IT Solution</h1>
-    <p>Empowering Businesses with IT & Web Solutions</p>
-  </header>
-
+  <!-- Navbar -->
   <nav>
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="#login">Login</a>
   </nav>
 
-  <section id="home">
-    <h2>Welcome to Career Expert IT Solution</h2>
-    <p>We provide professional MS Office support and modern website design solutions.</p>
-    <button>Get Started</button>
-  </section>
+  <!-- Hero Section -->
+  <header id="home">
+    <h1>Career Expert IT Solution</h1>
+    <p>Empowering Businesses with Professional IT & Web Services</p>
+    <a href="#services">Explore Services</a>
+  </header>
 
+  <!-- Services -->
   <section id="services">
     <h2>Our Services</h2>
+    <p>We deliver top-class IT & web solutions tailored to your business needs.</p>
     <div class="services">
       <div class="card">
-        <h3>MS Office Support</h3>
-        <p>Excel, Word, PowerPoint automation and data management.</p>
+        <h3>MS Office Solutions</h3>
+        <p>Automation, Data Analysis, Word, Excel & PowerPoint solutions.</p>
       </div>
       <div class="card">
         <h3>Web Design</h3>
-        <p>Responsive, modern and SEO-friendly websites for your business.</p>
+        <p>Responsive, attractive and user-friendly websites for all industries.</p>
       </div>
       <div class="card">
-        <h3>IT Solutions</h3>
-        <p>Custom IT support and software services for enterprises.</p>
+        <h3>IT Consulting</h3>
+        <p>Expert IT guidance and digital solutions for your business growth.</p>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about">
     <h2>About Us</h2>
-    <p>Career Expert IT Solution is dedicated to providing businesses with professional IT, MS Office, and Website Development services. 
-    We believe in quality, reliability, and client satisfaction.</p>
+    <p>At Career Expert IT Solution, we specialize in providing IT consulting, MS Office support, and professional website development. 
+    Our mission is to empower businesses with reliable and innovative solutions.</p>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
     <form>
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <section id="login">
-    <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </section>
-
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Career Expert IT Solution | All Rights Reserved</p>
   </footer>
