@@ -1,323 +1,1221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Career Expert IT Solution</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    *{box-sizing:border-box} body{margin:0;font-family:Poppins,Arial,sans-serif;background:#f5f7fa;color:#333;transition:.3s}
-    body.dark{background:#121212;color:#ddd}
-
-    /* Sidebar */
-    .sidebar{position:fixed;inset:0 auto 0 0;width:260px;background:#002a78;color:#fff;display:flex;flex-direction:column;gap:12px;align-items:center;padding:28px 18px}
-    body.dark .sidebar{background:#1e1e1e}
-    .brand{font-weight:700;font-size:22px;margin-bottom:22px}
-    .nav{list-style:none;padding:0;margin:0;width:100%}
-    .nav li{margin:14px 0}
-    .nav a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
-    .nav a:hover{color:#ff7b00}
-    .side-bottom{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:10px}
-    .toggle{cursor:pointer}
-    .social{display:flex;gap:12px}
-    .social a{color:#fff}
-
-    /* Main */
-    .main{margin-left:260px;padding:60px 40px}
-    section{margin-bottom:80px}
-    h1,h2{color:#002a78;margin:0 0 14px}
-    body.dark h1,body.dark h2{color:#ff7b00}
-    .lead{max-width:650px;line-height:1.65}
-    .cta{display:inline-block;background:#ff7b00;color:#fff;padding:12px 20px;border-radius:28px;text-decoration:none;font-weight:600}
-    .cta:hover{background:#002a78}
-
-    /* Cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-    .card{background:#fff;border-radius:14px;padding:22px;box-shadow:0 8px 20px rgba(0,0,0,.08);text-align:center}
-    body.dark .card{background:#1e1e1e;box-shadow:0 8px 20px rgba(255,255,255,.05)}
-    .card i{font-size:40px;color:#ff7b00;margin-bottom:10px}
-
-    /* Contact form */
-    form{max-width:620px;display:flex;flex-direction:column;gap:12px}
-    input,textarea{padding:12px;border:1px solid #ccd2da;border-radius:10px;background:#fff}
-    body.dark input,body.dark textarea{background:#181818;border:1px solid #444;color:#fff}
-    button{background:#002a78;color:#fff;padding:12px 16px;border:none;border-radius:10px;cursor:pointer}
-    button:hover{background:#ff7b00}
-
-    footer{text-align:center;margin-top:40px;color:#666}
-    body.dark footer{color:#aaa}
-
-    /* Auth Popup */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:999}
-    .popup{width:360px;max-width:92%;background:#fff;border-radius:16px;padding:24px;position:relative;box-shadow:0 12px 30px rgba(0,0,0,.25)}
-    body.dark .popup{background:#1f1f1f;color:#eee}
-    .popup h3{margin:0 0 10px;text-align:center}
-    .popup label{font-size:14px;margin-top:8px;display:block}
-    .popup input{width:100%;margin-top:6px;margin-bottom:8px}
-    .row{display:flex;gap:10px;align-items:center}
-    .close{position:absolute;top:10px;right:14px;cursor:pointer;font-size:20px}
-    .muted{font-size:12px;opacity:.85;text-align:center;margin-top:6px}
-
-    /* Dashboard */
-    #dashboard{display:none;margin-left:260px;padding:60px 40px}
-    .panel{background:#fff;border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,.08);max-width:820px}
-    body.dark .panel{background:#1e1e1e;box-shadow:0 8px 20px rgba(255,255,255,.05)}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:880px){.main,#dashboard{margin-left:0;padding:28px 16px}.sidebar{position:static;width:100%;flex-direction:row;justify-content:space-between}.brand{margin:0}.side-bottom{display:none}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER EXPERT IT SOLUTION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D5BFF;
+            --secondary: #6C42FF;
+            --accent: #FF6B6B;
+            --dark: #1A1D2B;
+            --light: #F8FAFF;
+            --gray: #6C757D;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(45, 91, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 91, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 29, 43, 0.9), rgba(26, 29, 43, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3') center/cover;
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .service-link:hover {
+            gap: 12px;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0;
+            margin-top: 80px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .address-card {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .address-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h2 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h2 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 91, 255, 0.3);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: #f9fafe;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            gap: 12px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .modal-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: #f5f7fa;
+            border-radius: 50px;
+            padding: 5px;
+        }
+        
+        .modal-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .modal-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(45, 91, 255, 0.3);
+        }
+        
+        .modal-form .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .otp-verification {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .otp-input {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content, 
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card, 
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-laptop-code logo-icon"></i>
+                <h1>CYBER <span>EXPERT</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="openModal('login')"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button class="btn btn-primary" onclick="openModal('signup')"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </div>
+        </div>
+    </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="brand">Career Expert</div>
-    <ul class="nav">
-      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#services"><i class="fas fa-briefcase"></i> Services</a></li>
-      <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-      <li><a href="#" onclick="openAuth()"><i class="fas fa-mobile-alt"></i> Login / Signup</a></li>
-    </ul>
-    <div class="side-bottom">
-      <div class="toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></div>
-      <div class="social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- MAIN (Public) -->
-  <main class="main" id="mainContent">
-    <section id="home">
-      <h1>Microsoft Office & Web Design Expert</h1>
-      <p class="lead">We help businesses with professional MS Word, Excel, PowerPoint and modern, responsive web design — fast delivery, clean formatting, and reliable support.</p>
-      <a class="cta" href="#services">View Services</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Professional IT Solutions for Your Business</h2>
+            <p>We provide comprehensive computer services including MS Office solutions, website development, data cleaning, and more to help your business thrive in the digital age.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary"><i class="fas fa-concierge-bell"></i> Our Services</button>
+                <button class="btn btn-outline"><i class="fas fa-phone-alt"></i> Contact Us</button>
+            </div>
+        </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
-      <h2>Services</h2>
-      <div class="grid">
-        <div class="card"><i class="fas fa-file-word"></i><h3>MS Word</h3><p>Formatting, templates, reports, letters</p></div>
-        <div class="card"><i class="fas fa-file-excel"></i><h3>MS Excel</h3><p>Dashboards, automation, data analysis</p></div>
-        <div class="card"><i class="fas fa-file-powerpoint"></i><h3>PowerPoint</h3><p>Impactful business presentations</p></div>
-        <div class="card"><i class="fas fa-laptop-code"></i><h3>Web Design</h3><p>Responsive & SEO-friendly websites</p></div>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>Career Expert IT Solution focuses on quality, speed & reliability. From Office automation to beautiful websites—everything under one roof.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.');">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <footer>© 2025 Career Expert IT Solution • All Rights Reserved</footer>
-  </main>
-
-  <!-- DASHBOARD (Private after login) -->
-  <section id="dashboard">
-    <div class="panel">
-      <h2>Welcome, <span id="userPhone"></span> 👋</h2>
-      <p style="margin:6px 0 18px;opacity:.85">You are logged in via verified mobile number.</p>
-
-      <div class="two">
-        <!-- Profile -->
-        <div>
-          <h3 style="margin:0 0 8px">Your Profile</h3>
-          <form onsubmit="event.preventDefault(); saveProfile();">
-            <input id="displayName" placeholder="Full Name">
-            <input id="email" type="email" placeholder="Email (optional)">
-            <button type="submit">Save Profile</button>
-          </form>
-          <p id="saveMsg" class="muted" style="text-align:left"></p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of IT services to meet your business needs</p>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>MS Office Solutions</h3>
+                        <p>Professional services for MS Word, Excel, PowerPoint, and Access. We provide training, templates, and automation solutions.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Computer Formatting</h3>
+                        <p>Complete computer formatting and OS installation services with data backup and recovery options.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Website Development</h3>
+                        <p>Custom website development services including frontend, backend, and full-stack solutions.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Data Cleaning</h3>
+                        <p>Professional data cleaning and preprocessing services for businesses and research purposes.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Design</h3>
+                        <p>Creative and responsive web design services that focus on user experience and conversion.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>IT Infrastructure</h3>
+                        <p>Complete IT infrastructure solutions for small and medium businesses including networking and security.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Session -->
-        <div>
-          <h3 style="margin:0 0 8px">Session</h3>
-          <p class="muted">Logged in as: <span id="userIdSmall"></span></p>
-          <button onclick="logout()" style="background:#ff7b00;margin-top:8px">Logout</button>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About CYBER EXPERT IT SOLUTION</h2>
+                    <p>We are a professional IT service provider based in Barbigha, Sheikhpura, Bihar. With years of experience in the industry, we offer comprehensive computer-related services to both individuals and businesses.</p>
+                    <p>Our team of experts is dedicated to providing high-quality solutions tailored to your specific needs. Whether you need help with MS Office applications, website development, or computer maintenance, we've got you covered.</p>
+                    
+                    <div class="address-card">
+                        <h3>Our Address</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Barbigha, Sheikhpura, Bihar 811107</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3" alt="Cyber Expert IT Solution Office">
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any queries or service requests</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Talk</h2>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 7004863268</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@cyberexpert.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>Barbigha, Sheikhpura, Bihar 811107</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Saturday: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Message</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="Type your message here" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+                <p>Take a look at some of our work and projects</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3" alt="Coding">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-4.0.3" alt="Office Setup">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3" alt="Team Meeting">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3" alt="IT Support">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3" alt="Web Design">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3" alt="Coding">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CYBER EXPERT IT SOLUTION</h3>
+                    <p>Professional IT services and solutions for your business needs. We provide quality service with guaranteed customer satisfaction.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> MS Office Solutions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Computer Formatting</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Website Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Cleaning</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Web Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Barbigha, Sheikhpura, Bihar 811107</li>
+                        <li><i class="fas fa-phone"></i> +91 7004863268</li>
+                        <li><i class="fas fa-envelope"></i> info@cyberexpert.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CYBER EXPERT IT SOLUTION. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/917004863268" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-tabs">
+                <div class="modal-tab active" id="login-tab" onclick="switchTab('login')">Login</div>
+                <div class="modal-tab" id="signup-tab" onclick="switchTab('signup')">Sign Up</div>
+            </div>
+            
+            <div id="login-form" class="modal-form">
+                <h2>Welcome Back</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="login-phone">Mobile Number</label>
+                        <input type="tel" id="login-phone" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Login to Account <i class="fas fa-sign-in-alt"></i></button>
+                </form>
+                
+                <div class="otp-option">
+                    <p style="text-align: center; margin-top: 20px;">
+                        <a href="#" style="color: var(--primary); text-decoration: none;">Login with OTP instead</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="signup-form" class="modal-form" style="display: none;">
+                <h2>Create New Account</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-phone">Mobile Number</label>
+                        <input type="tel" id="signup-phone" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-address">Address</label>
+                        <input type="text" id="signup-address" value="Barbigha, Sheikhpura, Bihar 811107" readonly>
+                    </div>
+                    
+                    <div class="otp-verification">
+                        <input type="text" class="otp-input" placeholder="-">
+                        <input type="text" class="otp-input" placeholder="-">
+                        <input type="text" class="otp-input" placeholder="-">
+                        <input type="text" class="otp-input" placeholder="-">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Create Account <i class="fas fa-user-plus"></i></button>
+                </form>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- AUTH POPUP -->
-  <div class="overlay" id="authPopup">
-    <div class="popup">
-      <span class="close" onclick="closeAuth()">&times;</span>
-      <h3>Login / Signup with Mobile</h3>
-
-      <label for="country">Country Code</label>
-      <input id="country" value="+91" />
-
-      <label for="mobile">Mobile Number</label>
-      <input id="mobile" type="tel" placeholder="e.g. 9876543210" />
-
-      <div id="recaptcha-container" class="muted" style="margin:8px 0 10px"></div>
-
-      <div class="row">
-        <button onclick="sendOTP()">Send OTP</button>
-      </div>
-
-      <label for="otp" style="margin-top:10px">Enter OTP</label>
-      <input id="otp" placeholder="6-digit OTP" />
-
-      <div class="row">
-        <button onclick="verifyOTP()">Verify & Login</button>
-      </div>
-
-      <div class="muted">OTP is powered by Firebase Phone Auth.</div>
-    </div>
-  </div>
-
-  <!-- Firebase (Compat) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
-
-  <script>
-    /* THEME */
-    function toggleTheme(){
-      document.body.classList.toggle("dark");
-      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-    }
-    (function(){ if(localStorage.getItem("theme")==="dark") document.body.classList.add("dark"); })();
-
-    /* FIREBASE CONFIG — REPLACE THIS */
-    const firebaseConfig = {
-      // 👉 Replace with your actual config from Firebase Console
-      // apiKey: "YOUR_API_KEY",
-      // authDomain: "YOUR_PROJECT.firebaseapp.com",
-      // projectId: "YOUR_PROJECT_ID",
-      // storageBucket: "YOUR_PROJECT.appspot.com",
-      // messagingSenderId: "SENDER_ID",
-      // appId: "APP_ID"
-      ...FIREBASE_CONFIG_HERE
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db   = firebase.firestore();
-
-    /* AUTH POPUP */
-    let confirmationResultGlobal = null;
-    let recaptchaVerifier = null;
-
-    function openAuth(){
-      document.getElementById("authPopup").style.display = "flex";
-      if(!recaptchaVerifier){
-        recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { size: 'normal' });
-        recaptchaVerifier.render();
-      }
-    }
-    function closeAuth(){
-      document.getElementById("authPopup").style.display = "none";
-    }
-    function fullPhone(){
-      const cc = (document.getElementById("country").value || "+91").trim();
-      const ph = (document.getElementById("mobile").value || "").trim();
-      return cc + ph;
-    }
-
-    async function sendOTP(){
-      try{
-        const phone = fullPhone();
-        if(phone.length < 8){ alert("Please enter a valid phone number."); return; }
-        confirmationResultGlobal = await auth.signInWithPhoneNumber(phone, recaptchaVerifier);
-        alert("OTP sent to " + phone);
-      }catch(e){ alert("OTP send failed: " + e.message); }
-    }
-
-    async function verifyOTP(){
-      try{
-        if(!confirmationResultGlobal){ alert("Please send OTP first."); return; }
-        const code = document.getElementById("otp").value.trim();
-        const result = await confirmationResultGlobal.confirm(code);
-        const user = result.user;
-        await afterLogin(user);   // Create/Load profile
-        closeAuth();
-      }catch(e){ alert("Invalid OTP: " + e.message); }
-    }
-
-    /* AFTER LOGIN → CREATE/LOAD PROFILE IN FIRESTORE */
-    async function afterLogin(user){
-      const phone = user.phoneNumber || fullPhone();
-      const uid = user.uid;
-      // Save session locally (UI state)
-      localStorage.setItem("loggedIn","true");
-      localStorage.setItem("loggedPhone", phone);
-      localStorage.setItem("uid", uid);
-
-      // Create doc if not exists
-      const ref = db.collection("users").doc(uid);
-      const snap = await ref.get();
-      if(!snap.exists){
-        await ref.set({
-          phone: phone,
-          displayName: "",
-          email: "",
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    <script>
+        // Modal functionality
+        function openModal(type) {
+            document.getElementById('authModal').style.display = 'flex';
+            if (type === 'login') {
+                switchTab('login');
+            } else {
+                switchTab('signup');
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+        
+        function switchTab(tabName) {
+            if (tabName === 'login') {
+                document.getElementById('login-form').style.display = 'block';
+                document.getElementById('signup-form').style.display = 'none';
+                document.getElementById('login-tab').classList.add('active');
+                document.getElementById('signup-tab').classList.remove('active');
+            } else {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('signup-form').style.display = 'block';
+                document.getElementById('login-tab').classList.remove('active');
+                document.getElementById('signup-tab').classList.add('active');
+            }
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('authModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
-      }
-      // Load profile into UI
-      const doc = (await ref.get()).data() || {};
-      document.getElementById("displayName").value = doc.displayName || "";
-      document.getElementById("email").value = doc.email || "";
-
-      // Show dashboard
-      document.getElementById("userPhone").textContent = phone;
-      document.getElementById("userIdSmall").textContent = uid;
-      document.getElementById("mainContent").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
-    }
-
-    /* SAVE PROFILE TO FIRESTORE */
-    async function saveProfile(){
-      try{
-        const uid = localStorage.getItem("uid");
-        if(!uid) return;
-        const displayName = document.getElementById("displayName").value.trim();
-        const email = document.getElementById("email").value.trim();
-        await db.collection("users").doc(uid).set({
-          displayName, email, updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-        }, { merge:true });
-        const msg = document.getElementById("saveMsg");
-        msg.textContent = "Profile saved ✅";
-        setTimeout(()=> msg.textContent="", 2000);
-      }catch(e){ alert("Save failed: " + e.message); }
-    }
-
-    /* LOGOUT */
-    function logout(){
-      auth.signOut().finally(()=>{
-        localStorage.removeItem("loggedIn");
-        localStorage.removeItem("loggedPhone");
-        localStorage.removeItem("uid");
-        document.getElementById("dashboard").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-      });
-    }
-
-    /* AUTO SESSION */
-    window.addEventListener("load", async ()=>{
-      if(localStorage.getItem("loggedIn")==="true"){
-        // Try to reattach session (Firebase preserves on refresh)
-        const unsub = auth.onAuthStateChanged(async (user)=>{
-          if(user){ await afterLogin(user); }
-          unsub && unsub();
+        
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
         });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
