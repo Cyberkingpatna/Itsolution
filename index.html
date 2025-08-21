@@ -219,10 +219,81 @@
             color: var(--primary-color);
         }
         
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: #f2f2f2;
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            border: none;
+            padding: 8px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
         /* About Section */
         .about {
             padding: 80px 0;
-            background-color: #f2f2f2;
+            background-color: white;
         }
         
         .about-content {
@@ -261,7 +332,7 @@
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background-color: white;
+            background-color: #f2f2f2;
         }
         
         .contact-content {
@@ -442,7 +513,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -483,6 +554,40 @@
             margin-bottom: 15px;
         }
         
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -493,6 +598,11 @@
             nav ul {
                 margin-top: 20px;
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
             }
             
             .auth-buttons {
@@ -511,6 +621,10 @@
             .hero h2 {
                 font-size: 32px;
             }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
@@ -526,6 +640,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -616,6 +731,71 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cybersecurity">Cyber Security</button>
+                <button class="filter-btn" data-filter="computer">Computer Services</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="cybersecurity">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cyber Security">
+                    <div class="gallery-item-overlay">
+                        <h3>Cyber Security Protection</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="computer">
+                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Computer Repair">
+                    <div class="gallery-item-overlay">
+                        <h3>Computer Repair Services</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Web Development">
+                    <div class="gallery-item-overlay">
+                        <h3>Web Development</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cybersecurity">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Data Encryption">
+                    <div class="gallery-item-overlay">
+                        <h3>Data Encryption</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="computer">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Support">
+                    <div class="gallery-item-overlay">
+                        <h3>IT Support Services</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Web Design">
+                    <div class="gallery-item-overlay">
+                        <h3>Web Design</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cybersecurity">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Network Security">
+                    <div class="gallery-item-overlay">
+                        <h3>Network Security</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="computer">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coding">
+                    <div class="gallery-item-overlay">
+                        <h3>Software Development</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -692,6 +872,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#" id="footerLoginBtn">Login</a></li>
@@ -770,6 +951,14 @@
         </div>
     </div>
 
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+        </div>
+        <span class="lightbox-close">&times;</span>
+    </div>
+
     <script>
         // Modal functionality
         const loginBtn = document.getElementById('loginBtn');
@@ -826,6 +1015,58 @@
             alert('Signup functionality would be implemented here.');
             hideModal(signupModal);
             this.reset();
+        });
+        
+        // Gallery filtering functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').getAttribute('src');
+                const imgAlt = item.querySelector('img').getAttribute('alt');
+                lightboxImage.setAttribute('src', imgSrc);
+                lightboxImage.setAttribute('alt', imgAlt);
+                lightboxModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        lightboxClose.addEventListener('click', () => {
+            lightboxModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
