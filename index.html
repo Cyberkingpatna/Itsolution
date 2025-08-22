@@ -254,18 +254,36 @@
             display: block;
         }
         
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Testimonials Section */
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
         }
         
         .testimonial-card {
+            flex: 0 0 calc(33.333% - 30px);
             background: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 15px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: calc(0.2s * var(--i));
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .testimonial-text {
@@ -302,6 +320,26 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            background: var(--primary);
         }
         
         /* Contact Section */
@@ -569,6 +607,10 @@
             .about-image {
                 order: -1;
             }
+            
+            .testimonial-card {
+                flex: 0 0 calc(50% - 30px);
+            }
         }
         
         @media (max-width: 768px) {
@@ -594,6 +636,10 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 24px;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 calc(100% - 30px);
             }
         }
         
@@ -779,34 +825,118 @@
                 <h2>Client Testimonials</h2>
                 <p>What our clients say about our services</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>CYBER EXPERT IT SOLUTION provided exceptional security services for our financial institution. Their team was professional and implemented robust security measures that have significantly reduced our vulnerability to cyber attacks.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
+            <div class="testimonials-container">
+                <div class="testimonials-track">
+                    <div class="testimonial-card" style="--i: 0">
+                        <div class="testimonial-text">
+                            <p>CYBER EXPERT IT SOLUTION provided exceptional security services for our financial institution. Their team was professional and implemented robust security measures that have significantly reduced our vulnerability to cyber attacks.</p>
                         </div>
-                        <div>
-                            <h4>John Smith</h4>
-                            <p>CFO, Financial Services Inc.</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
+                            </div>
+                            <div>
+                                <h4>John Smith</h4>
+                                <p>CFO, Financial Services Inc.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="--i: 1">
+                        <div class="testimonial-text">
+                            <p>The MS Excel automation they created for us has saved countless hours of manual work. Their data analysis services have given us insights we never would have discovered on our own.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <p>Operations Manager, Retail Solutions Ltd.</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="--i: 2">
+                        <div class="testimonial-text">
+                            <p>Their cybersecurity team helped us recover from a ransomware attack and implemented measures to prevent future incidents. Their response was quick and professional.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Robert Williams">
+                            </div>
+                            <div>
+                                <h4>Robert Williams</h4>
+                                <p>IT Director, Healthcare Solutions</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="--i: 3">
+                        <div class="testimonial-text">
+                            <p>The web design service was exceptional. They created a responsive and user-friendly website that has significantly increased our online presence and customer engagement.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emily Davis">
+                            </div>
+                            <div>
+                                <h4>Emily Davis</h4>
+                                <p>Marketing Director, E-Commerce Ventures</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="--i: 4">
+                        <div class="testimonial-text">
+                            <p>Their data cleaning and analysis services transformed our messy database into a valuable business asset. We're now making data-driven decisions with confidence.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                            </div>
+                            <div>
+                                <h4>Michael Chen</h4>
+                                <p>Data Manager, Analytics Pro</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>The MS Excel automation they created for us has saved countless hours of manual work. Their data analysis services have given us insights we never would have discovered on our own.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <p>Operations Manager, Retail Solutions Ltd.</p>
-                        </div>
-                    </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
                 </div>
             </div>
         </div>
@@ -1011,6 +1141,38 @@
                 alert('Please fill in all fields');
             }
         });
+        
+        // Testimonial Carousel
+        const track = document.querySelector('.testimonials-track');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentIndex = 0;
+        
+        function moveTestimonial(index) {
+            // Calculate the transform value based on index
+            const transformValue = -index * (100 / 3) + '%';
+            track.style.transform = `translateX(${transformValue})`;
+            
+            // Update active dot
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === Math.floor(index / 2));
+            });
+            
+            currentIndex = index;
+        }
+        
+        // Set up dot navigation
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                moveTestimonial(i * 2);
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex > 2) nextIndex = 0;
+            moveTestimonial(nextIndex);
+        }, 5000);
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
