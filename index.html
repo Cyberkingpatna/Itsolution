@@ -3,105 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Expert IT Solution</title>
+    <title>CYBER Expert IT Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* This is a very basic CSS for demonstration. 
-           You will need to use a proper CSS framework like Bootstrap 
-           or Tailwind CSS for a good design. */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-        .header { background-color: #333; color: white; padding: 1em 0; text-align: center; }
-        .header h1 { margin: 0; }
-        .navbar { display: flex; justify-content: center; background-color: #444; }
-        .navbar a { color: white; padding: 14px 20px; text-decoration: none; text-align: center; }
-        .navbar a:hover { background-color: #575757; }
-        .content { padding: 20px; }
-        .section { margin-bottom: 40px; }
-        .section h2 { border-bottom: 2px solid #ccc; padding-bottom: 10px; }
-        .services-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-        .services-list li { background-color: #f4f4f4; padding: 10px; border-radius: 5px; flex: 1 1 200px; text-align: center; }
-        .footer { background-color: #333; color: white; text-align: center; padding: 20px 0; }
-        .contact-info a { color: white; text-decoration: none; margin: 0 10px; }
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00bfff;
+        }
+
+        .login-btn {
+            background: #00bfff;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #009acd;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1581091215360-4c7f2d6b1f62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjE3M3wwfDF8c2VhcmNofDR8fGl0fGVufDB8fHx8MTY5MDYxNzM3Mw&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+            color: #1f1f1f;
+        }
+
+        /* Services Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .service-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            background: #00bfff;
+            color: #fff;
+            transform: translateY(-5px);
+        }
+
+        .service-box i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #00bfff;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Customer Reviews */
+        .reviews-container {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .review-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .review-box i {
+            color: gold;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-info {
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        .contact-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f1f1f;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media(max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Cyber Expert IT Solution</h1>
-        <p>Your complete IT and Software Solution Partner</p>
-    </div>
-
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Customer Review</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact Us</a>
-        <a href="#" onclick="alert('Login functionality needs to be implemented on a server.')">Login</a>
-    </div>
-
-    <div id="home" class="content section">
-        <h2>Welcome to Cyber Expert IT Solution</h2>
-        <p>We are a team of dedicated IT professionals committed to providing top-notch technology solutions to businesses and individuals. Our goal is to empower you with the right tools and expertise to succeed in the digital world.</p>
-    </div>
-    
-    <div id="services" class="content section">
-        <h2>Our Services</h2>
-        <ul class="services-list">
-            <li>MS Word</li>
-            <li>MS Excel</li>
-            <li>MS PowerPoint</li>
-            <li>MS Access</li>
-            <li>Data Cleaning</li>
-            <li>Data Analysis</li>
-            <li>Web Design</li>
-            <li>All Types Software Solution</li>
-            <li>All Types Hardware Solution</li>
-        </ul>
-    </div>
-    
-    <div id="gallery" class="content section">
-        <h2>Gallery</h2>
-        <p>A section for showcasing pictures of our work and office.</p>
-    </div>
-
-    <div id="reviews" class="content section">
-        <h2>Customer Reviews</h2>
-        <p>This is where customer testimonials would be displayed.</p>
-    </div>
-
-    <div id="about" class="content section">
-        <h2>About Us</h2>
-        <p>Founded with the mission to solve complex IT challenges, Cyber Expert IT Solution has been serving the Patna community with integrity and excellence. Our team is passionate about technology and customer satisfaction.</p>
-    </div>
-
-    <div id="contact" class="content section">
-        <h2>Contact Us</h2>
-        <p><strong>Address:</strong> Chowk Shikarpur, Patna City, Patna, Bihar, 800009</p>
-        <p><strong>Email:</strong> <a href="mailto:cyberexpertpatna@gmail.com">cyberexpertpatna@gmail.com</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/917004863268" target="_blank">Connect on WhatsApp</a></p>
-        
-        <h3>Find Us on Map</h3>
-        <p>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.203628399557!2d85.1436214!3d25.6133464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f375f45037d45f%3A0x6a2c27b0b230f3c5!2sChowk%20Shikarpur%2C%20Patna%20City%2C%20Patna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1625488566415!5m2!1sen!2sin" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </p>
-    </div>
-    
-    <div class="footer">
-        <p>&copy; 2025 Cyber Expert IT Solution. All Rights Reserved.</p>
-        <div class="contact-info">
-            <a href="mailto:cyberexpertpatna@gmail.com">Email</a> | 
-            <a href="https://wa.me/917004863268" target="_blank">WhatsApp</a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h2>CYBER Expert IT Solution</h2>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Customer Review</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><button class="login-btn" onclick="login()">Login</button></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Welcome to CYBER Expert IT Solution</h1>
+            <p>Your One-Stop Solution for IT Services & Software Solutions</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-box"><i class="fa-solid fa-file-word"></i><h3>MS Word</h3></div>
+            <div class="service-box"><i class="fa-solid fa-file-excel"></i><h3>MS Excel</h3></div>
+            <div class="service-box"><i class="fa-solid fa-file-powerpoint"></i><h3>MS Power Point</h3></div>
+            <div class="service-box"><i class="fa-solid fa-database"></i><h3>MS Access</h3></div>
+            <div class="service-box"><i class="fa-solid fa-broom"></i><h3>Data Cleaning</h3></div>
+            <div class="service-box"><i class="fa-solid fa-chart-line"></i><h3>Data Analysis</h3></div>
+            <div class="service-box"><i class="fa-solid fa-code"></i><h3>Web Design</h3></div>
+            <div class="service-box"><i class="fa-solid fa-laptop-code"></i><h3>All Types Software Solution</h3></div>
+            <div class="service-box"><i class="fa-solid fa-desktop"></i><h3>All Types Hardware Solution</h3></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 1">
+            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 2">
+            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 3">
+            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 4">
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-container">
+            <div class="review-box">
+                <p>"Excellent service and professional staff!"</p>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <div class="review-box">
+                <p>"Highly recommend for all IT solutions."</p>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <div style="width:90%; margin:auto; text-align:center;">
+            <p>CYBER Expert IT Solution is based in Chowk Shikarpur, Patna City, Patna, Bihar. We provide professional IT services including software & hardware solutions, data analysis, web design, and more. Our aim is to provide quality services to our customers with complete satisfaction.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><strong>Address:</strong> Chowk Shikarpur, Patna City, Patna, Bihar, 800009</p>
+                <p><strong>Email:</strong> <a href="mailto:cyberexpertpatna@gmail.com">cyberexpertpatna@gmail.com</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/917004863268" target="_blank">7004863268</a></p>
+                <p><strong>Find us here:</strong></p>
+                <iframe src="https://www.google.com/maps?q=Chowk+Shikarpur,+Patna,+Bihar,+800009&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button>Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CYBER Expert IT Solution. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function login() {
+            let email = prompt("Enter your email:");
+            let password = prompt("Enter your password:");
+            if(email && password){
+                alert("Login Successful!");
+            } else {
+                alert("Login Cancelled or Invalid!");
+            }
+        }
+    </script>
 
 </body>
 </html>
