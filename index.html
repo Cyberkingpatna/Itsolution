@@ -3,80 +3,1125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER EXPERT IT SOLUTION</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DIVYA FURNITURE - Premium Furniture Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2B48C;
+            --accent: #A52A2A;
+            --light: #F5F5DC;
+            --dark: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-icons a {
+            margin-left: 1rem;
+            color: var(--dark);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-icons a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0;
+            color: var(--dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #777;
+            margin-top: 1rem;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 4rem 0;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        /* Featured Products */
+        .featured-products {
+            padding: 4rem 0;
+            background-color: #f5f5f5;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 250px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+        
+        .product-content {
+            padding: 1.5rem;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Location Section */
+        .location {
+            padding: 4rem 0;
+            background-color: #f5f5f5;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .address-info {
+            padding: 2rem;
+        }
+        
+        .address-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .address-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .address-detail i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* Admin Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .otp-container {
+            display: none;
+        }
+        
+        .admin-panel {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .upload-form {
+            margin-top: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .nav-icons {
+                margin-top: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 3000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#gallery" class="nav-link">Photo Gallery</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#login" class="nav-link">Login</a></li>
-            </ul>
-        </nav>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-couch"></i>
+                DIVYA <span>FURNITURE</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" id="adminLoginBtn"><i class="fas fa-user-cog"></i></a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="home" class="section active">
-            <h1>Welcome to CYBER EXPERT IT SOLUTION</h1>
-            <p>Address: Barbigha, Sheikhpura, Sheikhpura, Bihar, 811107</p>
-            <p>Whatsapp No: 7004863268</p>
-            <p>Email id: cyberkingpatna@gmail.com</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transform Your Home With Premium Furniture</h1>
+            <p>Discover the perfect pieces to match your style and create the home of your dreams. Handcrafted quality with timeless designs.</p>
+            <div>
+                <a href="#" class="btn">Explore Collections</a>
+                <a href="#" class="btn btn-secondary">Book Consultation</a>
+            </div>
+        </div>
+    </section>
 
-        <section id="gallery" class="section">
-            <h1>Photo Gallery</h1>
-            <!-- Add images here -->
-        </section>
-
-        <section id="services" class="section">
-            <h1>Our Services</h1>
-            <ul>
-                <li>Ms Word</li>
-                <li>Excel</li>
-                <li>Power Point</li>
-                <li>Access</li>
-                <li>Web Design</li>
-                <li>Data Analysis</li>
-                <li>Data Cleaning</li>
-                <li>Networking</li>
-                <li>All Type Hardware Solution</li>
-            </ul>
-        </section>
-
-        <section id="about" class="section">
-            <h1>About Us</h1>
-            <p>We are a IT solution company providing various services.</p>
-        </section>
-
-        <section id="contact" class="section">
-            <h1>Contact Us</h1>
-            <p>Address: Barbigha, Sheikhpura, Sheikhpura, Bihar, 811107</p>
-            <p>Whatsapp No: 7004863268</p>
-            <p>Email id: cyberkingpatna@gmail.com</p>
-        </section>
-
-        <section id="login" class="section">
-            <h1>Login</h1>
-            <form id="login-form">
-                <div>
-                    <label for="mobile">Mobile Number:</label>
-                    <input type="text" id="mobile" name="mobile" required>
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Collections</h2>
+                <p>Find the perfect furniture for every room in your home</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Living Room</h3>
+                        <p>Sofas, chairs, tables and more</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
                 </div>
-                <button type="button" id="send-otp">Send OTP</button>
-                <div id="otp-field" style="display: none;">
-                    <label for="otp">OTP:</label>
-                    <input type="text" id="otp" name="otp" required>
+                
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Bedroom</h3>
+                        <p>Beds, wardrobes, dressers and more</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
                 </div>
-                <button type="submit" id="verify-otp" style="display: none;">Verify OTP</button>
-            </form>
-        </section>
-    </main>
+                
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Dining Room</h3>
+                        <p>Tables, chairs, sideboards and more</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <div class="category-img">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Office</h3>
+                        <p>Desks, office chairs, bookcases and more</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/main.js"></script>
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Discover our most popular furniture pieces</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Modern Sofa Set</h3>
+                        <p>Elegant and comfortable sofa for your living room</p>
+                        <div class="price">₹24,999</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>King Size Bed</h3>
+                        <p>Luxurious bed with storage and comfortable headboard</p>
+                        <div class="price">₹32,999</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Ergonomic Office Chair</h3>
+                        <p>Comfortable chair for long working hours</p>
+                        <div class="price">₹8,499</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+                <p>Explore our beautiful furniture collection in real settings</p>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically added here -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Living Room Furniture">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Bedroom Furniture">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Outdoor Furniture">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Dining Room Furniture">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="Office Furniture">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1594077244795-d5ff5ebed638?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Minimalist Furniture">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Visit our store in Bihar Sharif, Nalanda</p>
+            </div>
+            
+            <div class="location-content">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115265.3320367605!2d85.40837055000001!3d25.1974448!2m3!1f0!2f0!3f0!4f0!5f0!3m2!1sen!2sin!4v1690557891236!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                
+                <div class="address-info">
+                    <h3>Visit Our Store</h3>
+                    
+                    <div class="address-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Main Road, Bihar Sharif<br>Nalanda, Bihar 803101<br>India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="address-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="address-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@divyafurniture.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="address-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday-Saturday: 10AM to 8PM<br>Sunday: 11AM to 6PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            
+            <h2 class="modal-title">Admin Login</h2>
+            
+            <div id="loginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email Address</label>
+                    <input type="email" id="adminEmail" placeholder="Enter your admin email">
+                </div>
+                
+                <button class="btn" id="requestOtpBtn">Request OTP</button>
+            </div>
+            
+            <div class="otp-container" id="otpForm">
+                <div class="form-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="text" id="otp" placeholder="Enter OTP sent to your email">
+                </div>
+                
+                <button class="btn" id="verifyOtpBtn">Verify OTP</button>
+            </div>
+            
+            <div class="admin-panel" id="adminPanel">
+                <h3>Admin Panel</h3>
+                <p>Welcome to the admin dashboard. You can upload images to the gallery here.</p>
+                
+                <div class="upload-form">
+                    <h4>Upload to Gallery</h4>
+                    <div class="form-group">
+                        <label for="imageUpload">Select Image</label>
+                        <input type="file" id="imageUpload" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="imageTitle">Image Title</label>
+                        <input type="text" id="imageTitle" placeholder="Enter image title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="imageCategory">Category</label>
+                        <select id="imageCategory">
+                            <option value="living-room">Living Room</option>
+                            <option value="bedroom">Bedroom</option>
+                            <option value="dining-room">Dining Room</option>
+                            <option value="office">Office</option>
+                            <option value="outdoor">Outdoor</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" id="uploadBtn">Upload to Gallery</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DIVYA FURNITURE</h3>
+                    <p>Quality furniture for your home at affordable prices. Transforming spaces since 2005.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Main Road, Bihar Sharif, Nalanda, Bihar</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@divyafurniture.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DIVYA FURNITURE. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Admin Login Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminLoginBtn = document.getElementById('adminLoginBtn');
+            const adminModal = document.getElementById('adminModal');
+            const closeModal = document.getElementById('closeModal');
+            const requestOtpBtn = document.getElementById('requestOtpBtn');
+            const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+            const loginForm = document.getElementById('loginForm');
+            const otpForm = document.getElementById('otpForm');
+            const adminPanel = document.getElementById('adminPanel');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const galleryGrid = document.getElementById('galleryGrid');
+            const toast = document.getElementById('toast');
+            
+            // Open modal when admin login button is clicked
+            adminLoginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                adminModal.style.display = 'flex';
+            });
+            
+            // Close modal when X is clicked
+            closeModal.addEventListener('click', function() {
+                adminModal.style.display = 'none';
+                resetLoginForm();
+            });
+            
+            // Close modal when clicking outside the modal content
+            adminModal.addEventListener('click', function(e) {
+                if (e.target === adminModal) {
+                    adminModal.style.display = 'none';
+                    resetLoginForm();
+                }
+            });
+            
+            // Request OTP button click
+            requestOtpBtn.addEventListener('click', function() {
+                const email = document.getElementById('adminEmail').value;
+                
+                if (email && isValidEmail(email)) {
+                    // Simulate OTP request
+                    loginForm.style.display = 'none';
+                    otpForm.style.display = 'block';
+                    
+                    // In a real application, you would send the OTP to the email
+                    showToast('OTP sent to your email! Use 1234 for demonstration.');
+                } else {
+                    showToast('Please enter a valid email address', true);
+                }
+            });
+            
+            // Verify OTP button click
+            verifyOtpBtn.addEventListener('click', function() {
+                const otp = document.getElementById('otp').value;
+                
+                // For demonstration, using 1234 as the valid OTP
+                if (otp === '1234') {
+                    otpForm.style.display = 'none';
+                    adminPanel.style.display = 'block';
+                    showToast('Admin login successful!');
+                } else {
+                    showToast('Invalid OTP. Please try again.', true);
+                }
+            });
+            
+            // Upload button functionality
+            uploadBtn.addEventListener('click', function() {
+                const fileInput = document.getElementById('imageUpload');
+                const imageTitle = document.getElementById('imageTitle').value;
+                const imageCategory = document.getElementById('imageCategory').value;
+                
+                if (fileInput.files.length > 0 && imageTitle) {
+                    const file = fileInput.files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        // Create a new gallery item
+                        const galleryItem = document.createElement('div');
+                        galleryItem.className = 'gallery-item fade-in';
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = imageTitle;
+                        
+                        galleryItem.appendChild(img);
+                        
+                        // Add to the gallery grid
+                        galleryGrid.appendChild(galleryItem);
+                        
+                        // Show success message
+                        showToast('Image uploaded to gallery successfully!');
+                        
+                        // Reset the form
+                        document.getElementById('imageUpload').value = '';
+                        document.getElementById('imageTitle').value = '';
+                    };
+                    
+                    reader.readAsDataURL(file);
+                } else {
+                    showToast('Please select an image and enter a title', true);
+                }
+            });
+            
+            // Helper function to validate email
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            // Reset login form
+            function resetLoginForm() {
+                loginForm.style.display = 'block';
+                otpForm.style.display = 'none';
+                adminPanel.style.display = 'none';
+                document.getElementById('adminEmail').value = '';
+                document.getElementById('otp').value = '';
+            }
+            
+            // Show toast notification
+            function showToast(message, isError = false) {
+                toast.textContent = message;
+                toast.style.background = isError ? '#e74c3c' : 'var(--primary)';
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Fade in elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+                    
+                    if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial state for fade elements
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Check fade on load and scroll
+            window.addEventListener('load', checkFade);
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // Initial check
+        });
+    </script>
 </body>
 </html>
