@@ -591,10 +591,13 @@
             color: #cbd5e1;
             text-decoration: none;
             transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
         }
         
         .footer-section ul li a:hover {
             color: var(--primary);
+            transform: translateX(5px);
         }
         
         .social-icons {
@@ -628,7 +631,7 @@
             color: #94a3b8;
         }
         
-        /* Login Modal */
+        /* Admin Modal */
         .modal {
             display: none;
             position: fixed;
@@ -648,7 +651,7 @@
             padding: 40px;
             border-radius: 15px;
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             position: relative;
             transform: scale(0.9);
@@ -679,6 +682,34 @@
             margin-bottom: 20px;
             color: var(--dark);
             text-align: center;
+        }
+        
+        .admin-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .admin-option {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .admin-option:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .admin-option i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
         }
         
         /* Animations */
@@ -726,6 +757,10 @@
             
             .about-image::after {
                 display: none;
+            }
+            
+            .admin-options {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -785,7 +820,7 @@
                         <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact US</a></li>
-                        <li><a href="#" id="loginBtn">Login</a></li>
+                        <li><a href="#" id="adminBtn">Admin Login</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1155,33 +1190,51 @@
         </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
+    <!-- Admin Modal -->
+    <div id="adminModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
+            <h2>Admin Login</h2>
+            <form id="adminForm">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="Username" required>
+                    <input type="text" id="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="Password" required>
+                    <input type="password" id="password" required>
                 </div>
                 <button type="submit" class="btn">Login</button>
-                <p style="margin-top: 20px; text-align: center;">Don't have an account? <a href="#" style="color: var(--primary);">Contact us</a></p>
+                
+                <div class="admin-options">
+                    <div class="admin-option">
+                        <i class="fas fa-users"></i>
+                        <span>User Management</span>
+                    </div>
+                    <div class="admin-option">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </div>
+                    <div class="admin-option">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                    <div class="admin-option">
+                        <i class="fas fa-database"></i>
+                        <span>Database</span>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 
     <script>
-        // Login Modal Functionality
-        const modal = document.getElementById("loginModal");
-        const loginBtn = document.getElementById("loginBtn");
+        // Admin Modal Functionality
+        const modal = document.getElementById("adminModal");
+        const adminBtn = document.getElementById("adminBtn");
         const closeBtn = document.getElementsByClassName("close")[0];
         
-        loginBtn.addEventListener("click", function(e) {
+        adminBtn.addEventListener("click", function(e) {
             e.preventDefault();
             modal.style.display = "flex";
             setTimeout(() => {
@@ -1206,9 +1259,9 @@
         });
         
         // Form Submissions
-        document.getElementById("loginForm").addEventListener("submit", function(e) {
+        document.getElementById("adminForm").addEventListener("submit", function(e) {
             e.preventDefault();
-            alert("Login functionality would be implemented here.");
+            alert("Admin login functionality would be implemented here.");
             modal.classList.remove("show");
             setTimeout(() => {
                 modal.style.display = "none";
