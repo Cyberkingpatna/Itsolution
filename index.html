@@ -712,6 +712,51 @@
             display: block;
         }
         
+        .error-message {
+            color: #e53e3e;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        /* Admin Dashboard */
+        .admin-dashboard {
+            display: none;
+        }
+        
+        .dashboard-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .dashboard-content {
+            padding: 20px;
+            background: white;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1194,8 +1239,9 @@
     <div id="adminModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Admin Login</h2>
-            <form id="adminForm">
+            
+            <div id="loginForm">
+                <h2>Admin Login</h2>
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" required>
@@ -1204,27 +1250,65 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" required>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="button" id="loginBtn" class="btn">Login</button>
                 
-                <div class="admin-options">
-                    <div class="admin-option">
-                        <i class="fas fa-users"></i>
-                        <span>User Management</span>
-                    </div>
-                    <div class="admin-option">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Reports</span>
-                    </div>
-                    <div class="admin-option">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
-                    </div>
-                    <div class="admin-option">
-                        <i class="fas fa-database"></i>
-                        <span>Database</span>
-                    </div>
+                <p class="error-message" id="errorMsg">Invalid username or password. Please try again.</p>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <p>Demo Credentials:</p>
+                    <p>Username: <strong>Aman</strong></p>
+                    <p>Password: <strong>Admin</strong></p>
                 </div>
-            </form>
+            </div>
+            
+            <div id="adminDashboard" class="admin-dashboard">
+                <div class="dashboard-header">
+                    <h2>Admin Dashboard</h2>
+                    <p>Welcome, Aman!</p>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3>128</h3>
+                            <p>Total Users</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>42</h3>
+                            <p>Pending Requests</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>96</h3>
+                            <p>Completed Projects</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>₹2,48,000</h3>
+                            <p>Revenue</p>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-options">
+                        <div class="admin-option">
+                            <i class="fas fa-users"></i>
+                            <span>User Management</span>
+                        </div>
+                        <div class="admin-option">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reports</span>
+                        </div>
+                        <div class="admin-option">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </div>
+                        <div class="admin-option">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </div>
+                    </div>
+                    
+                    <button id="logoutBtn" class="btn" style="margin-top: 20px; width: 100%; background: #64748b;">Logout</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1233,6 +1317,11 @@
         const modal = document.getElementById("adminModal");
         const adminBtn = document.getElementById("adminBtn");
         const closeBtn = document.getElementsByClassName("close")[0];
+        const loginBtn = document.getElementById("loginBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+        const errorMsg = document.getElementById("errorMsg");
+        const loginForm = document.getElementById("loginForm");
+        const adminDashboard = document.getElementById("adminDashboard");
         
         adminBtn.addEventListener("click", function(e) {
             e.preventDefault();
@@ -1258,16 +1347,31 @@
             }
         });
         
-        // Form Submissions
-        document.getElementById("adminForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            alert("Admin login functionality would be implemented here.");
-            modal.classList.remove("show");
-            setTimeout(() => {
-                modal.style.display = "none";
-            }, 300);
+        // Login functionality
+        loginBtn.addEventListener("click", function() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if (username === "Aman" && password === "Admin") {
+                // Successful login
+                loginForm.style.display = "none";
+                adminDashboard.style.display = "block";
+                errorMsg.style.display = "none";
+            } else {
+                // Failed login
+                errorMsg.style.display = "block";
+            }
         });
         
+        // Logout functionality
+        logoutBtn.addEventListener("click", function() {
+            loginForm.style.display = "block";
+            adminDashboard.style.display = "none";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        });
+        
+        // Form Submissions
         document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
             alert("Thank you for your message. We will get back to you soon.");
