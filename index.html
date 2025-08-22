@@ -5,352 +5,902 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBER Expert IT Solution</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and basic styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
         body {
+            background-color: #f9f9f9;
+            color: #333;
             line-height: 1.6;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        /* Header Styles */
+        
+        /* Header & Navigation */
         header {
-            background: #1f1f1f;
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
             padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        nav ul {
-            list-style: none;
+        
+        .logo {
             display: flex;
-            gap: 20px;
+            align-items: center;
         }
-
+        
+        .logo h1 {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
         nav ul li a {
-            color: #fff;
-            font-weight: bold;
-            transition: 0.3s;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
-
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
         nav ul li a:hover {
-            color: #00bfff;
+            color: var(--secondary);
         }
-
-        .login-btn {
-            background: #00bfff;
-            color: #fff;
-            padding: 8px 15px;
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--secondary);
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
         }
-
-        .login-btn:hover {
-            background: #009acd;
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
         }
-
+        
         /* Hero Section */
         .hero {
-            background: url('https://images.unsplash.com/photo-1581091215360-4c7f2d6b1f62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjE3M3wwfDF8c2VhcmNofDR8fGl0fGVufDB8fHx8MTY5MDYxNzM3Mw&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1315&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: 3em;
+        
+        .hero h2 {
+            font-size: 48px;
             margin-bottom: 20px;
         }
-
+        
         .hero p {
-            font-size: 1.2em;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
-
-        /* Sections */
-        section {
-            padding: 60px 0;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2em;
-            color: #1f1f1f;
-        }
-
+        
         /* Services Section */
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 90%;
-            margin: auto;
+        .services {
+            padding: 80px 0;
+            background: white;
         }
-
-        .service-box {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
+        
+        .section-title {
             text-align: center;
-            transition: 0.3s;
+            margin-bottom: 50px;
         }
-
-        .service-box:hover {
-            background: #00bfff;
-            color: #fff;
-            transform: translateY(-5px);
-        }
-
-        .service-box i {
-            font-size: 3em;
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
             margin-bottom: 15px;
-            color: #00bfff;
+            position: relative;
+            display: inline-block;
         }
-
-        /* Gallery Section */
-        .gallery-container {
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 90%;
-            margin: auto;
+            gap: 30px;
         }
-
-        .gallery-container img {
-            width: 100%;
+        
+        .service-card {
+            background: var(--light);
             border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        .gallery-container img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Customer Reviews */
-        .reviews-container {
-            width: 90%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .review-box {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-
-        .review-box i {
-            color: gold;
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-
-        /* Contact Section */
-        .contact-container {
-            width: 90%;
-            margin: auto;
+        
+        .service-card i {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: #f2f2f2;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .review-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .review-card .stars {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        
+        .review-card p {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .review-card .customer {
+            display: flex;
+            align-items: center;
+        }
+        
+        .review-card .customer img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f2f2f2;
+        }
+        
+        .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 50px;
+            align-items: center;
         }
-
-        .contact-info {
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 10px;
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
-
-        .contact-info p {
-            margin: 10px 0;
-        }
-
-        .contact-form {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
+        
+        .about-text p {
             margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
         }
-
-        .contact-form button {
-            background: #00bfff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-item i {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .map {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
         /* Footer */
         footer {
-            background: #1f1f1f;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
         }
-
-        @media(max-width: 768px) {
-            .contact-container {
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .about-content,
+            .contact-content {
                 grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
         <div class="container">
-            <h2>CYBER Expert IT Solution</h2>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#reviews">Customer Review</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><button class="login-btn" onclick="login()">Login</button></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <h1>CYBER Expert IT Solution</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reviews">Customer Reviews</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact US</a></li>
+                        <li><a href="#" id="loginBtn">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div>
-            <h1>Welcome to CYBER Expert IT Solution</h1>
-            <p>Your One-Stop Solution for IT Services & Software Solutions</p>
+        <div class="container">
+            <h2>Professional IT Solutions for Your Business</h2>
+            <p>We provide comprehensive software, hardware, and data solutions to help your business thrive in the digital age.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services-container">
-            <div class="service-box"><i class="fa-solid fa-file-word"></i><h3>MS Word</h3></div>
-            <div class="service-box"><i class="fa-solid fa-file-excel"></i><h3>MS Excel</h3></div>
-            <div class="service-box"><i class="fa-solid fa-file-powerpoint"></i><h3>MS Power Point</h3></div>
-            <div class="service-box"><i class="fa-solid fa-database"></i><h3>MS Access</h3></div>
-            <div class="service-box"><i class="fa-solid fa-broom"></i><h3>Data Cleaning</h3></div>
-            <div class="service-box"><i class="fa-solid fa-chart-line"></i><h3>Data Analysis</h3></div>
-            <div class="service-box"><i class="fa-solid fa-code"></i><h3>Web Design</h3></div>
-            <div class="service-box"><i class="fa-solid fa-laptop-code"></i><h3>All Types Software Solution</h3></div>
-            <div class="service-box"><i class="fa-solid fa-desktop"></i><h3>All Types Hardware Solution</h3></div>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive IT solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-file-word"></i>
+                    <h3>MS Word</h3>
+                    <p>Document creation, formatting, and professional templates</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-excel"></i>
+                    <h3>MS Excel</h3>
+                    <p>Spreadsheets, data analysis, and financial modeling</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-powerpoint"></i>
+                    <h3>MS Power Point</h3>
+                    <p>Professional presentations and slideshow design</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>MS Access</h3>
+                    <p>Database management and custom business solutions</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-broom"></i>
+                    <h3>Data Cleaning</h3>
+                    <p>Data validation, correction, and preparation</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Analysis</h3>
+                    <p>Business intelligence and data visualization</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Design</h3>
+                    <p>Responsive websites and user-friendly interfaces</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Software Solutions</h3>
+                    <p>Custom software development and integration</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Hardware Solutions</h3>
+                    <p>Hardware installation, maintenance, and support</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 1">
-            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 2">
-            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 3">
-            <img src="https://via.placeholder.com/300x200" alt="Gallery Image 4">
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+                <p>See our work and projects</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1547082299-de25ea203640?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT Solution 6">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Customer Reviews -->
-    <section id="reviews">
-        <h2>Customer Reviews</h2>
-        <div class="reviews-container">
-            <div class="review-box">
-                <p>"Excellent service and professional staff!"</p>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>What our clients say about us</p>
             </div>
-            <div class="review-box">
-                <p>"Highly recommend for all IT solutions."</p>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+            <div class="review-cards">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"CYBER Expert IT Solution transformed our business operations with their custom software. Highly recommended!"</p>
+                    <div class="customer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 1">
+                        <div>
+                            <h4>Rajesh Kumar</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"The data analysis service helped us identify key growth opportunities. Professional and timely delivery."</p>
+                    <div class="customer">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer 2">
+                        <div>
+                            <h4>Priya Singh</h4>
+                            <p>Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Their hardware solutions resolved our network issues completely. Great service and support team!"</p>
+                    <div class="customer">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Customer 3">
+                        <div>
+                            <h4>Amit Sharma</h4>
+                            <p>IT Manager</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <div style="width:90%; margin:auto; text-align:center;">
-            <p>CYBER Expert IT Solution is based in Chowk Shikarpur, Patna City, Patna, Bihar. We provide professional IT services including software & hardware solutions, data analysis, web design, and more. Our aim is to provide quality services to our customers with complete satisfaction.</p>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Get to know our company</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>We Provide Quality IT Services</h2>
+                    <p>CYBER Expert IT Solution is a Patna-based company providing comprehensive IT services to businesses and individuals. With years of experience in the industry, we have helped numerous clients achieve their technology goals.</p>
+                    <p>Our team of skilled professionals is dedicated to delivering high-quality solutions tailored to your specific needs. Whether you need software development, data analysis, or hardware support, we have the expertise to help.</p>
+                    <p>We believe in building long-term relationships with our clients by providing reliable, efficient, and cost-effective solutions.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Us">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <p><strong>Address:</strong> Chowk Shikarpur, Patna City, Patna, Bihar, 800009</p>
-                <p><strong>Email:</strong> <a href="mailto:cyberexpertpatna@gmail.com">cyberexpertpatna@gmail.com</a></p>
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/917004863268" target="_blank">7004863268</a></p>
-                <p><strong>Find us here:</strong></p>
-                <iframe src="https://www.google.com/maps?q=Chowk+Shikarpur,+Patna,+Bihar,+800009&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us</p>
             </div>
-            <div class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button>Send Message</button>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Chowk Shikarpur, Patna City, Patna, Bihar, 800009</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 70048 63268</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>cyberexpertpatna@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>+91 70048 63268</p>
+                            <a href="https://wa.me/917004863268" class="btn" style="margin-top: 10px;">Message Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.847155716954!2d85.1771105754877!3d25.60826247748068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58fcee1c7d0d%3A0x5ff19a76c43bd699!2sPatna%20City%2C%20Patna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1689847526956!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 CYBER Expert IT Solution. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>CYBER Expert IT Solution provides comprehensive software, hardware, and data solutions to help your business thrive in the digital age.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reviews">Customer Reviews</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact US</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Chowk Shikarpur, Patna City, Patna, Bihar, 800009</p>
+                    <p><i class="fas fa-phone"></i> +91 70048 63268</p>
+                    <p><i class="fas fa-envelope"></i> cyberexpertpatna@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/917004863268"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CYBER Expert IT Solution. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        function login() {
-            let email = prompt("Enter your email:");
-            let password = prompt("Enter your password:");
-            if(email && password){
-                alert("Login Successful!");
-            } else {
-                alert("Login Cancelled or Invalid!");
-            }
-        }
-    </script>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
 
+    <script>
+        // Login Modal Functionality
+        const modal = document.getElementById("loginModal");
+        const loginBtn = document.getElementById("loginBtn");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        
+        loginBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            modal.style.display = "flex";
+        });
+        
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+        
+        window.addEventListener("click", function(e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        // Form Submissions
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Login functionality would be implemented here.");
+            modal.style.display = "none";
+        });
+        
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Thank you for your message. We will get back to you soon.");
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
