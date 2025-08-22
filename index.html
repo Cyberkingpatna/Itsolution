@@ -106,6 +106,7 @@
             left: 0;
             background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             transition: width 0.3s;
+            border-radius: 3px;
         }
         
         nav ul li a:hover {
@@ -719,6 +720,25 @@
             display: none;
         }
         
+        .demo-credentials {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .show-credentials {
+            background: none;
+            border: none;
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
         /* Admin Dashboard */
         .admin-dashboard {
             display: none;
@@ -1211,7 +1231,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#reviews">Customer Reviews</a></li>
+                        <li><a href-#reviews">Customer Reviews</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact US</a></li>
                     </ul>
@@ -1254,7 +1274,9 @@
                 
                 <p class="error-message" id="errorMsg">Invalid username or password. Please try again.</p>
                 
-                <div style="margin-top: 20px; text-align: center;">
+                <button class="show-credentials" id="showCredentials">Show Demo Credentials</button>
+                
+                <div class="demo-credentials" id="demoCredentials">
                     <p>Demo Credentials:</p>
                     <p>Username: <strong>Aman</strong></p>
                     <p>Password: <strong>Admin</strong></p>
@@ -1322,6 +1344,8 @@
         const errorMsg = document.getElementById("errorMsg");
         const loginForm = document.getElementById("loginForm");
         const adminDashboard = document.getElementById("adminDashboard");
+        const showCredentials = document.getElementById("showCredentials");
+        const demoCredentials = document.getElementById("demoCredentials");
         
         adminBtn.addEventListener("click", function(e) {
             e.preventDefault();
@@ -1335,6 +1359,12 @@
             modal.classList.remove("show");
             setTimeout(() => {
                 modal.style.display = "none";
+                // Reset forms and hide credentials when modal is closed
+                loginForm.style.display = "block";
+                adminDashboard.style.display = "none";
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+                demoCredentials.style.display = "none";
             }, 300);
         });
         
@@ -1343,8 +1373,20 @@
                 modal.classList.remove("show");
                 setTimeout(() => {
                     modal.style.display = "none";
+                    // Reset forms and hide credentials when modal is closed
+                    loginForm.style.display = "block";
+                    adminDashboard.style.display = "none";
+                    document.getElementById("username").value = "";
+                    document.getElementById("password").value = "";
+                    demoCredentials.style.display = "none";
                 }, 300);
             }
+        });
+        
+        // Show demo credentials
+        showCredentials.addEventListener("click", function() {
+            demoCredentials.style.display = "block";
+            this.style.display = "none";
         });
         
         // Login functionality
@@ -1369,6 +1411,8 @@
             adminDashboard.style.display = "none";
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
+            demoCredentials.style.display = "none";
+            showCredentials.style.display = "block";
         });
         
         // Form Submissions
