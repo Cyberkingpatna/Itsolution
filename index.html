@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIVYA FURNITURE - Premium Furniture Store</title>
+    <title>SHRI GANESH FURNITURE - Premium Furniture Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -115,10 +115,26 @@
             color: var(--dark);
             font-size: 1.2rem;
             transition: color 0.3s ease;
+            position: relative;
         }
         
         .nav-icons a:hover {
             color: var(--primary);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Hero Section */
@@ -180,6 +196,14 @@
         .btn-secondary:hover {
             background: white;
             color: var(--primary);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
         }
         
         /* Section Styles */
@@ -274,6 +298,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
+            position: relative;
         }
         
         .product-card:hover {
@@ -304,6 +329,12 @@
             color: var(--primary);
             font-weight: 700;
             margin: 0.5rem 0;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
         }
         
         /* Gallery Section */
@@ -374,6 +405,7 @@
         .address-info h3 {
             color: var(--primary);
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         
         .address-detail {
@@ -387,6 +419,127 @@
             color: var(--primary);
             margin-right: 1rem;
             margin-top: 0.3rem;
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-modal.open {
+            transform: translateX(0);
+        }
+        
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-cart {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .cart-items {
+            padding: 1rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            border-radius: 4px;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background: #eee;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.2rem;
+        }
+        
+        .remove-item {
+            color: #ff0000;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        
+        .cart-total {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .cart-actions {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1rem;
         }
         
         /* Admin Login Modal */
@@ -566,6 +719,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .cart-modal {
+                width: 100%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -618,6 +775,18 @@
             transform: translateY(0);
             opacity: 1;
         }
+        
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+        }
     </style>
 </head>
 <body>
@@ -626,7 +795,7 @@
         <div class="container header-container">
             <a href="#" class="logo">
                 <i class="fas fa-couch"></i>
-                DIVYA <span>FURNITURE</span>
+                SHRI GANESH <span>FURNITURE</span>
             </a>
             
             <nav>
@@ -641,7 +810,10 @@
             
             <div class="nav-icons">
                 <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
                 <a href="#" id="adminLoginBtn"><i class="fas fa-user-cog"></i></a>
             </div>
         </div>
@@ -732,7 +904,7 @@
                         <h3>Modern Sofa Set</h3>
                         <p>Elegant and comfortable sofa for your living room</p>
                         <div class="price">₹24,999</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <button class="btn add-to-cart" data-id="1" data-name="Modern Sofa Set" data-price="24999">Add to Cart</button>
                     </div>
                 </div>
                 
@@ -744,7 +916,7 @@
                         <h3>King Size Bed</h3>
                         <p>Luxurious bed with storage and comfortable headboard</p>
                         <div class="price">₹32,999</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <button class="btn add-to-cart" data-id="2" data-name="King Size Bed" data-price="32999">Add to Cart</button>
                     </div>
                 </div>
                 
@@ -756,7 +928,43 @@
                         <h3>Ergonomic Office Chair</h3>
                         <p>Comfortable chair for long working hours</p>
                         <div class="price">₹8,499</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <button class="btn add-to-cart" data-id="3" data-name="Ergonomic Office Chair" data-price="8499">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Dining Table Set</h3>
+                        <p>6-seater dining table with chairs</p>
+                        <div class="price">₹18,999</div>
+                        <button class="btn add-to-cart" data-id="4" data-name="Dining Table Set" data-price="18999">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-cabinet-filing"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Wooden Wardrobe</h3>
+                        <p>Spacious wardrobe with mirror</p>
+                        <div class="price">₹22,499</div>
+                        <button class="btn add-to-cart" data-id="5" data-name="Wooden Wardrobe" data-price="22499">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-img">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>TV Unit Cabinet</h3>
+                        <p>Modern TV unit with storage</p>
+                        <div class="price">₹12,999</div>
+                        <button class="btn add-to-cart" data-id="6" data-name="TV Unit Cabinet" data-price="12999">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -828,7 +1036,7 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+91 98765 43210</p>
+                            <p>+91 8114510583</p>
                         </div>
                     </div>
                     
@@ -836,7 +1044,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>info@divyafurniture.com</p>
+                            <p>sv542204@gmail.com</p>
                         </div>
                     </div>
                     
@@ -847,10 +1055,40 @@
                             <p>Monday-Saturday: 10AM to 8PM<br>Sunday: 11AM to 6PM</p>
                         </div>
                     </div>
+
+                    <div class="address-detail">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <h4>Admin Username</h4>
+                            <p>sv542204@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Shopping Cart -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="close-cart" id="closeCart">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <p class="empty-cart-message">Your cart is empty</p>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+        <div class="cart-actions">
+            <a href="#" class="btn checkout-btn btn-whatsapp" id="checkoutBtn">Checkout via WhatsApp</a>
+            <button class="btn" id="continueShopping">Continue Shopping</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
 
     <!-- Admin Login Modal -->
     <div class="modal" id="adminModal">
@@ -862,7 +1100,7 @@
             <div id="loginForm">
                 <div class="form-group">
                     <label for="adminEmail">Email Address</label>
-                    <input type="email" id="adminEmail" placeholder="Enter your admin email">
+                    <input type="email" id="adminEmail" value="sv542204@gmail.com" readonly>
                 </div>
                 
                 <button class="btn" id="requestOtpBtn">Request OTP</button>
@@ -918,7 +1156,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>DIVYA FURNITURE</h3>
+                    <h3>SHRI GANESH FURNITURE</h3>
                     <p>Quality furniture for your home at affordable prices. Transforming spaces since 2005.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -954,21 +1192,222 @@
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Main Road, Bihar Sharif, Nalanda, Bihar</li>
-                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                        <li><i class="fas fa-envelope"></i> info@divyafurniture.com</li>
+                        <li><i class="fas fa-phone"></i> +91 8114510583</li>
+                        <li><i class="fas fa-envelope"></i> sv542204@gmail.com</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 DIVYA FURNITURE. All Rights Reserved.</p>
+                <p>&copy; 2023 SHRI GANESH FURNITURE. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Admin Login Modal Functionality
+        // Shopping Cart Functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const cartIcon = document.getElementById('cartIcon');
+            const cartModal = document.getElementById('cartModal');
+            const closeCart = document.getElementById('closeCart');
+            const overlay = document.getElementById('overlay');
+            const continueShopping = document.getElementById('continueShopping');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartCount = document.querySelector('.cart-count');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            let cart = [];
+            
+            // Open cart when cart icon is clicked
+            cartIcon.addEventListener('click', function(e) {
+                e.preventDefault();
+                cartModal.classList.add('open');
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close cart when X is clicked
+            closeCart.addEventListener('click', function() {
+                cartModal.classList.remove('open');
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close cart when overlay is clicked
+            overlay.addEventListener('click', function() {
+                cartModal.classList.remove('open');
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Continue shopping button
+            continueShopping.addEventListener('click', function(e) {
+                e.preventDefault();
+                cartModal.classList.remove('open');
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Add to cart functionality
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseInt(this.dataset.price);
+                    
+                    // Check if item already exists in cart
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            quantity: 1
+                        });
+                    }
+                    
+                    updateCart();
+                    showToast(`${name} added to cart!`);
+                });
+            });
+            
+            // Update cart UI
+            function updateCart() {
+                // Clear cart items
+                cartItems.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+                    cartTotal.textContent = '₹0';
+                    cartCount.textContent = '0';
+                    return;
+                }
+                
+                // Add items to cart
+                let total = 0;
+                let count = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    count += item.quantity;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-img">
+                            <i class="fas fa-${getItemIcon(item.name)}"></i>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                                <button class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItem);
+                });
+                
+                // Update total and count
+                cartTotal.textContent = `₹${total.toLocaleString()}`;
+                cartCount.textContent = count;
+                
+                // Add event listeners to quantity buttons
+                const decreaseButtons = document.querySelectorAll('.decrease');
+                const increaseButtons = document.querySelectorAll('.increase');
+                const quantityInputs = document.querySelectorAll('.quantity-input');
+                const removeButtons = document.querySelectorAll('.remove-item');
+                
+                decreaseButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                            updateCart();
+                        }
+                    });
+                });
+                
+                increaseButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        
+                        item.quantity += 1;
+                        updateCart();
+                    });
+                });
+                
+                quantityInputs.forEach(input => {
+                    input.addEventListener('change', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        const value = parseInt(this.value);
+                        
+                        if (value > 0) {
+                            item.quantity = value;
+                            updateCart();
+                        } else {
+                            this.value = item.quantity;
+                        }
+                    });
+                });
+                
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        cart = cart.filter(item => item.id !== id);
+                        updateCart();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+            
+            // Get appropriate icon for cart item
+            function getItemIcon(name) {
+                if (name.includes('Sofa')) return 'couch';
+                if (name.includes('Bed')) return 'bed';
+                if (name.includes('Chair')) return 'chair';
+                if (name.includes('Table')) return 'table';
+                if (name.includes('Wardrobe')) return 'cabinet-filing';
+                if (name.includes('TV')) return 'tv';
+                return 'box';
+            }
+            
+            // Checkout via WhatsApp
+            checkoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (cart.length === 0) {
+                    showToast('Your cart is empty', true);
+                    return;
+                }
+                
+                let message = "Hello, I would like to place an order:%0A%0A";
+                
+                cart.forEach(item => {
+                    message += `${item.name} x ${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}%0A`;
+                });
+                
+                message += `%0ATotal: ₹${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString()}%0A%0A`;
+                message += "Please confirm my order. Thank you!";
+                
+                window.open(`https://wa.me/918114510583?text=${message}`, '_blank');
+            });
+            
+            // Admin Login Modal Functionality
             const adminLoginBtn = document.getElementById('adminLoginBtn');
             const adminModal = document.getElementById('adminModal');
             const closeModal = document.getElementById('closeModal');
@@ -1080,7 +1519,6 @@
                 loginForm.style.display = 'block';
                 otpForm.style.display = 'none';
                 adminPanel.style.display = 'none';
-                document.getElementById('adminEmail').value = '';
                 document.getElementById('otp').value = '';
             }
             
