@@ -47,6 +47,7 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            animation: slideDown 0.7s ease;
         }
         
         header.scrolled {
@@ -203,6 +204,14 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-title h2.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .section-title h2:after {
@@ -222,6 +231,14 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .section-title p.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .services-grid {
@@ -239,10 +256,10 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
         }
         
-        .service-card.animate {
+        .service-card.animated {
             opacity: 1;
             transform: translateY(0);
         }
@@ -289,13 +306,13 @@
             position: relative;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.5s ease;
+            transform: scale(0.8) rotate(5deg);
+            transition: all 0.8s ease;
         }
         
-        .gallery-item.animate {
+        .gallery-item.animated {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) rotate(0);
         }
         
         .gallery-item img {
@@ -344,10 +361,10 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
         }
         
-        .review-card.animate {
+        .review-card.animated {
             opacity: 1;
             transform: translateY(0);
         }
@@ -408,6 +425,17 @@
             align-items: center;
         }
         
+        .about-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .about-text.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
         .about-text h2 {
             font-size: 2.5rem;
             color: var(--dark);
@@ -427,6 +455,14 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.6s ease;
+        }
+        
+        .about-feature.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .about-feature i {
@@ -437,6 +473,14 @@
         
         .about-image {
             position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .about-image.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .about-image img {
@@ -472,6 +516,14 @@
         .contact-info {
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .contact-info.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .contact-info-item {
@@ -482,6 +534,13 @@
             background: var(--light);
             border-radius: 10px;
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        
+        .contact-info-item.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .contact-info-item:hover {
@@ -500,10 +559,26 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .contact-form.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .form-group {
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .form-group.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .form-group label {
@@ -541,6 +616,14 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             grid-column: 1 / -1;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .map.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Footer */
@@ -555,6 +638,17 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .footer-section.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .footer-section h3 {
@@ -630,6 +724,14 @@
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #94a3b8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .copyright.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Admin Modal */
@@ -801,6 +903,15 @@
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
                 transform: translateY(0);
             }
         }
@@ -1231,7 +1342,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href-#reviews">Customer Reviews</a></li>
+                        <li><a href="#reviews">Customer Reviews</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact US</a></li>
                     </ul>
@@ -1452,33 +1563,152 @@
         
         // Animation on scroll
         function checkScroll() {
+            const sectionTitles = document.querySelectorAll('.section-title h2, .section-title p');
             const serviceCards = document.querySelectorAll('.service-card');
             const galleryItems = document.querySelectorAll('.gallery-item');
             const reviewCards = document.querySelectorAll('.review-card');
+            const aboutText = document.querySelector('.about-text');
+            const aboutImage = document.querySelector('.about-image');
+            const aboutFeatures = document.querySelectorAll('.about-feature');
+            const contactInfo = document.querySelector('.contact-info');
+            const contactForm = document.querySelector('.contact-form');
+            const contactInfoItems = document.querySelectorAll('.contact-info-item');
+            const formGroups = document.querySelectorAll('.form-group');
+            const map = document.querySelector('.map');
+            const footerSections = document.querySelectorAll('.footer-section');
+            const copyright = document.querySelector('.copyright');
             
+            // Section titles
+            sectionTitles.forEach(title => {
+                const titlePosition = title.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (titlePosition < screenPosition) {
+                    title.classList.add('animated');
+                }
+            });
+            
+            // Service cards
             serviceCards.forEach(card => {
                 const cardPosition = card.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
                 if (cardPosition < screenPosition) {
-                    card.classList.add('animate');
+                    card.classList.add('animated');
                 }
             });
             
+            // Gallery items
             galleryItems.forEach(item => {
                 const itemPosition = item.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
                 if (itemPosition < screenPosition) {
-                    item.classList.add('animate');
+                    item.classList.add('animated');
                 }
             });
             
+            // Review cards
             reviewCards.forEach(card => {
                 const cardPosition = card.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.3;
                 if (cardPosition < screenPosition) {
-                    card.classList.add('animate');
+                    card.classList.add('animated');
                 }
             });
+            
+            // About section
+            if (aboutText) {
+                const aboutTextPosition = aboutText.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (aboutTextPosition < screenPosition) {
+                    aboutText.classList.add('animated');
+                }
+            }
+            
+            if (aboutImage) {
+                const aboutImagePosition = aboutImage.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (aboutImagePosition < screenPosition) {
+                    aboutImage.classList.add('animated');
+                }
+            }
+            
+            // About features
+            aboutFeatures.forEach((feature, index) => {
+                const featurePosition = feature.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (featurePosition < screenPosition) {
+                    setTimeout(() => {
+                        feature.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Contact section
+            if (contactInfo) {
+                const contactInfoPosition = contactInfo.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (contactInfoPosition < screenPosition) {
+                    contactInfo.classList.add('animated');
+                }
+            }
+            
+            if (contactForm) {
+                const contactFormPosition = contactForm.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (contactFormPosition < screenPosition) {
+                    contactForm.classList.add('animated');
+                }
+            }
+            
+            // Contact info items
+            contactInfoItems.forEach((item, index) => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (itemPosition < screenPosition) {
+                    setTimeout(() => {
+                        item.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Form groups
+            formGroups.forEach((group, index) => {
+                const groupPosition = group.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (groupPosition < screenPosition) {
+                    setTimeout(() => {
+                        group.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Map
+            if (map) {
+                const mapPosition = map.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (mapPosition < screenPosition) {
+                    map.classList.add('animated');
+                }
+            }
+            
+            // Footer sections
+            footerSections.forEach((section, index) => {
+                const sectionPosition = section.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (sectionPosition < screenPosition) {
+                    setTimeout(() => {
+                        section.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Copyright
+            if (copyright) {
+                const copyrightPosition = copyright.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (copyrightPosition < screenPosition) {
+                    copyright.classList.add('animated');
+                }
+            }
         }
         
         window.addEventListener('scroll', checkScroll);
