@@ -573,7 +573,6 @@
             width: 50px;
             height: 3px;
             background: var(--accent);
-            transition: var(--transition);
         }
         
         .contact-detail {
@@ -881,7 +880,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(极速加速器, 极速加速器, 极速加速器, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         
         .stat-card h3 {
@@ -899,7 +898,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 极速加速器;
+            margin: 20px 0;
         }
         
         table th, table td {
@@ -951,7 +950,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes fade极速加速器Left {
+        @keyframes fadeInLeft {
             from { opacity: 0; transform: translateX(-50px); }
             to { opacity: 1; transform: translateX(0); }
         }
@@ -978,7 +977,7 @@
                 justify-content: center;
             }
             
-            nav ul极速加速器 li {
+            nav ul li {
                 margin: 8px;
             }
             
@@ -1010,7 +1009,7 @@
             }
             
             .stats-grid {
-                grid-template-columns: 1极速加速器fr;
+                grid-template-columns: 1fr;
             }
             
             .about-stats {
@@ -1039,297 +1038,12 @@
             }
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 8px 25px rgba(29, 191, 115, 极速加速器0.6);
+                box-shadow: 0 8px 25px rgba(29, 191, 115, 0.6);
             }
             100% {
                 transform: scale(1);
-                box-shadow: 0 5极速加速器px 15px rgba(29, 191, 115, 0.4);
+                box-shadow: 0 5px 15px rgba(29, 191, 115, 0.4);
             }
-        }
-        
-        /* NEW FEATURES */
-        
-        /* Live Chat */
-        .live-chat {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            z-index: 999;
-        }
-        
-        .chat-btn {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-        
-        .chat-btn:hover {
-            background: var(--accent);
-            color: var(--dark);
-            transform: scale(1.1);
-        }
-        
-        .chat-box {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 300px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: none;
-        }
-        
-        .chat-header {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .chat-body {
-            padding: 15px;
-            height: 300px;
-            overflow-y: auto;
-        }
-        
-        .chat-footer {
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-        
-        .chat-footer input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-        }
-        
-        /* Service Filter */
-        .service-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .filter-btn {
-            padding: 8px 20px;
-            background: #f1f1f1;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        /* FAQ Section */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .faq-question {
-            background: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            background: white;
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-answer.open {
-            padding: 20px;
-            max-height: 200px;
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 30px auto;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 50px 0 0 50px;
-        }
-        
-        .newsletter-form button {
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 0 25px;
-            border-radius: 0 50px 50px 0;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .blog-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .blog-image img {
-            transform: scale(1.1);
-        }
-        
-        .blog-content {
-            padding: 20px;
-        }
-        
-        .blog-date {
-            color: var(--gray);
-            font-size: 14px;
-        }
-        
-        .blog-title {
-            margin: 10px 0;
-            color: var(--primary);
-        }
-        
-        .blog-excerpt {
-            color: var(--gray);
-            margin-bottom: 15px;
-        }
-        
-        /* Pricing Comparison */
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .pricing-table th, .pricing-table td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #eee;
-        }
-        
-        .pricing-table th {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .pricing-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        
-        .pricing-table tr:hover {
-            background: #f1f1f1;
-        }
-        
-        /* Animation Enhancements */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -1370,18 +1084,8 @@
                 <h2>Our Services</h2>
                 <p>We offer a wide range of IT services to meet your business needs</p>
             </div>
-            
-            <!-- Service Filters -->
-            <div class="service-filters">
-                <button class="filter-btn active" data-filter="all">All Services</button>
-                <button class="filter-btn" data-filter="software">Software</button>
-                <button class="filter-btn" data-filter="data">Data Services</button>
-                <button class="filter-btn" data-filter="web">Web & Design</button>
-                <button class="filter-btn" data-filter="hardware">Hardware</button>
-            </div>
-            
             <div class="services-grid">
-                <div class="service-item" data-category="software">
+                <div class="service-item">
                     <i class="fas fa-file-word"></i>
                     <h3>MS Word</h3>
                     <div class="service-price">Starting at ₹499/Project</div>
@@ -1394,7 +1098,7 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="software">
+                <div class="service-item">
                     <i class="fas fa-file-excel"></i>
                     <h3>MS Excel</h3>
                     <div class="service-price">Starting at ₹799/Project</div>
@@ -1407,12 +1111,12 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="software">
+                <div class="service-item">
                     <i class="fas fa-file-powerpoint"></i>
                     <h3>MS Power Point</h3>
                     <div class="service-price">Starting at ₹699/Project</div>
                     <p class="service-details">Creating impactful presentations for business meetings, conferences, and educational purposes.</p>
-                    <ul极速加速器 class="service-features">
+                    <ul class="service-features">
                         <li>Presentation design</li>
                         <li>Template creation</li>
                         <li>Animation effects</li>
@@ -1420,20 +1124,20 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="software">
+                <div class="service-item">
                     <i class="fas fa-database"></i>
                     <h3>MS Access</h3>
                     <div class="service-price">Starting at ₹999/Project</div>
                     <p class="service-details">Database management and custom application development tailored to your specific needs.</p>
                     <ul class="service-features">
-                        <极速加速器li>Database design</li>
+                        <li>Database design</li>
                         <li>Custom applications</li>
                         <li>Data migration</li>
                         <li>Report generation</li>
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="data">
+                <div class="service-item">
                     <i class="fas fa-broom"></i>
                     <h3>Data Cleaning</h3>
                     <div class="service-price">Starting at ₹1,499/project</div>
@@ -1446,8 +1150,8 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="data">
-                    <i class="fas fa-chart-line"></极速加速器i>
+                <div class="service-item">
+                    <i class="fas fa-chart-line"></i>
                     <h3>Data Analysis</h3>
                     <div class="service-price">Starting at ₹2,499/project</div>
                     <p class="service-details">Extracting insights from your data to drive informed business decisions and strategies.</p>
@@ -1459,7 +1163,7 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="web">
+                <div class="service-item">
                     <i class="fas fa-code"></i>
                     <h3>Web Design</h3>
                     <div class="service-price">Starting at ₹9,999/website</div>
@@ -1472,7 +1176,7 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="software">
+                <div class="service-item">
                     <i class="fas fa-cogs"></i>
                     <h3>Software Solutions</h3>
                     <div class="service-price">Custom pricing</div>
@@ -1485,7 +1189,7 @@
                     </ul>
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
-                <div class="service-item" data-category="hardware">
+                <div class="service-item">
                     <i class="fas fa-server"></i>
                     <h3>Hardware Solutions</h3>
                     <div class="service-price">Custom pricing</div>
@@ -1499,55 +1203,6 @@
                     <a href="#contact" class="btn">Get Quote</a>
                 </div>
             </div>
-            
-            <!-- Pricing Comparison Table -->
-            <div class="section-title" style="margin-top: 80px;">
-                <h2>Service Pricing Comparison</h2>
-                <p>Compare our service packages to find the best fit for your needs</p>
-            </div>
-            
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Basic</th>
-                        <th>Standard</th>
-                        <th>Premium</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MS Office Services</td>
-                        <td>₹499/project</td>
-                        <td>₹799/project</td>
-                        <td>₹1,299/project</td>
-                    </tr>
-                    <tr>
-                        <td>Data Analysis</td>
-                        <td>₹1,499/project</td>
-                        <td>₹2,499/project</td>
-                        <td>₹3,999/project</td>
-                    </tr>
-                    <tr>
-                        <td>Web Design</td>
-                        <td>₹9,999/website</td>
-                        <td>₹14,999/website</td>
-                        <td>₹24,999/website</td>
-                    </tr>
-                    <tr>
-                        <td>Software Solutions</td>
-                        <td>Custom Quote</td>
-                        <td>Custom Quote</td>
-                        <td>Custom Quote</td>
-                    </tr>
-                    <tr>
-                        <td>Support & Maintenance</td>
-                        <td>₹1,999/month</td>
-                        <td>₹3,499/month</td>
-                        <td>₹5,999/month</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </section>
 
@@ -1567,17 +1222,17 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="极速加速器https://images.unsplash.com/极速加速器photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development">
                     <div class="gallery-overlay">
                         <h3>Web Development</h3>
                         <p>E-commerce platform development</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib极速加速器=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IT Consulting">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IT Consulting">
                     <div class="gallery-overlay">
-                        <h极速加速器3>IT Consulting</h3>
-                        <p>Business technology strategy</极速加速器p>
+                        <h3>IT Consulting</h3>
+                        <p>Business technology strategy</p>
                     </div>
                 </div>
                 <div class="gallery-item">
@@ -1595,7 +1250,7 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1550439062-609极速加速器e1531270e?ixlib=rb-4.0.3&auto=format&极速加速器fit=crop&w=600&q=80" alt="Data Analytics">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analytics">
                     <div class="gallery-overlay">
                         <h3>Data Analytics</h3>
                         <p>Business intelligence dashboard</p>
@@ -1632,7 +1287,7 @@
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
                             <div>
                                 <div class="review-name">Priya Singh</div>
-                                <极速加速器div class="review-position">HR Manager</div>
+                                <div class="review-position">HR Manager</div>
                             </div>
                         </div>
                         <div class="review-text">
@@ -1729,7 +1384,7 @@
                             <p>Happy Clients</p>
                         </div>
                         <div class="about-stat">
-                            <h4>15+</极速加速器h4>
+                            <h4>15+</h4>
                             <p>Years Experience</p>
                         </div>
                         <div class="about-stat">
@@ -1740,106 +1395,6 @@
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our services</p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How long does a typical project take to complete?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Project timelines vary based on complexity. Simple MS Office projects can be completed in 1-3 days, while comprehensive web design projects may take 2-4 weeks. We provide a detailed timeline during our initial consultation.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you offer ongoing support after project completion?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we offer various support packages to ensure your solutions continue to work perfectly. Our support plans include troubleshooting, updates, and minor modifications.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What payment methods do you accept?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We accept bank transfers, UPI payments, credit/debit cards, and payments through platforms like Fiverr. For larger projects, we typically require a 30% advance payment.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq极速加速器-question">
-                        <span>Can you work with remote clients?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! We regularly work with clients across India and internationally. We use video calls, screen sharing, and project management tools to ensure smooth communication.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest From Our Blog</h2>
-                <p>Stay updated with the latest trends and insights in IT solutions</p>
-            </div>
-            
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Security">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">June 15, 2023</div>
-                        <h3 class="blog-title">5 Essential Data Security Practices for Small Businesses</h3>
-                        <p class="blog-excerpt">Learn how to protect your business data from cyber threats with these essential security practices...</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">May 28, 2023</div>
-                        <h3 class="blog-title">How Responsive Design Improves User Experience</h3>
-                        <p class="blog-excerpt">Discover why responsive web design is crucial for engaging users and improving conversion rates...</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Solutions">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">April 12, 2023</div>
-                        <h3 class="blog-title">Migrating to the Cloud: A Beginner's Guide</h3>
-                        <p class="blog-excerpt">Thinking about moving your business to the cloud? Here's what you need to know before making the transition...</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1875,7 +1430,7 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><极速加速器i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1892,7 +1447,7 @@
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" placeholder="Enter subject" required>
-                        </极速加速器div>
+                        </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" placeholder="Enter your message" required></textarea>
@@ -1901,24 +1456,9 @@
                     </form>
                 </div>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.847853725914!2d85.1784973143662!3d25.60862172010825!2m3极速加速器!1f0!2f0!3f0!3m2!1i1024!2i极速加速器768!4f13.1!3m3!1m2!1s0x39ed5848d3cbb5c5%3A0x5a0b8b6a6e0f0b7a!2sChowk%2C%20Sheikhpura%2C%20Patna%20City%2C%20Patna%2C%20Bihar%20800009!5e0!3m2!1sen!2sin!4v1623939667594!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.847853725914!2d85.1784973143662!3d25.60862172010825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5848d3cbb5c5%3A0x5a0b8b6a6e0f0b7a!2sChowk%2C%20Sheikhpura%2C%20Patna%20City%2C%20Patna%2C%20Bihar%20800009!5e0!3m2!1sen!2sin!4v1623939667594!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="section-title" style="color: white;">
-                <h2>Stay Updated</h2>
-                <p>Subscribe to our newsletter for the latest updates and offers</p>
-            </div>
-            
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
         </div>
     </section>
 
@@ -1946,7 +1486,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 CYBER Expert IT Solutions. All Rights Reserved.</p>
-                <p class="update-info">Last updated: November 28, 2023</极速加速器p>
+                <p class="update-info">Last updated: November 28, 2023</p>
             </div>
         </div>
     </footer>
@@ -1956,32 +1496,6 @@
         <a href="https://www.fiverr.com/aman70503" target="_blank" class="btn btn-fiverr">
             <i class="fab fa-fiverr"></i> Get Quote on Fiverr
         </a>
-    </div>
-
-    <!-- Live Chat -->
-    <div class="live-chat">
-        <div class="chat-btn">
-            <i class="fas fa-comment"></i>
-        </div>
-        <div class="chat-box">
-            <div class="chat-header">
-                <h3>Live Chat Support</h3>
-                <span class="close-chat"><i class="fas fa-times"></i></span>
-            </div>
-            <div class="chat-body">
-                <div class="chat-message bot-message">
-                    <p>Hello! How can we help you today?</p>
-                </div>
-            </div>
-            <div class="chat-footer">
-                <input type="text" placeholder="Type your message here...">
-            </div>
-        </div>
-    </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
     </div>
 
     <!-- Admin Access Key (Hidden from normal users) -->
@@ -2014,7 +1528,7 @@
     <div class="admin-panel" id="adminPanel">
         <div class="admin-header">
             <h2>CYBER Expert IT Solutions - Admin Dashboard</h2>
-            <button class="btn极速加速器" id="logoutBtn">Logout</button>
+            <button class="btn" id="logoutBtn">Logout</button>
         </div>
         
         <div class="admin-nav">
@@ -2044,7 +1558,7 @@
                     </div>
                     <div class="stat-card">
                         <h3>Orders</h3>
-                        <p>76</极速加速器p>
+                        <p>76</p>
                     </div>
                     <div class="stat-card">
                         <h3>Revenue</h3>
@@ -2056,7 +1570,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>User</极速加速器th>
+                            <th>User</th>
                             <th>Action</th>
                             <th>Time</th>
                         </tr>
@@ -2119,13 +1633,13 @@
                             <td>priya@example.com</td>
                             <td>Customer</td>
                             <td>Active</td>
-                            <极速加速器td>
+                            <td>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
                         </tr>
                         <tr>
-                            <td极速加速器>103</td>
+                            <td>103</td>
                             <td>Amit Sharma</td>
                             <td>amit@example.com</td>
                             <td>Admin</td>
@@ -2193,7 +1707,7 @@
                             <td>₹9,999/website</td>
                             <td>Active</td>
                             <td>
-                                <button class="action-btn edit-btn">极速加速器Edit</button>
+                                <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
                         </tr>
@@ -2218,7 +1732,7 @@
                 <h2>Manage Gallery</h2>
                 
                 <div style="border: 2px dashed #ddd; padding: 20px; text-align: center; margin-bottom: 20px;">
-                    <i class="fas fa-cloud-upload-alt" style="font-size: 48极速加速器px; color: #ddd; margin-bottom: 15px;"></i>
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 48px; color: #ddd; margin-bottom: 15px;"></i>
                     <p>Drag and drop images here or click to upload</p>
                     <input type="file" style="display: none;" id="galleryUpload" multiple accept="image/*">
                     <button class="btn" onclick="document.getElementById('galleryUpload').click()">Select Images</button>
@@ -2236,8 +1750,8 @@
                     </div>
                     <div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery Image" style="width: 100%; height: 150px; object-fit: cover;">
-                        <div style极速加速器="padding: 10px;">
-                            <p>Web Development</极速加速器p>
+                        <div style="padding: 10px;">
+                            <p>Web Development</p>
                             <button class="action-btn edit-btn">Edit</button>
                             <button class="action-btn delete-btn">Delete</button>
                         </div>
@@ -2248,7 +1762,7 @@
                             <p>IT Consulting</p>
                             <button class="action-btn edit-btn">Edit</button>
                             <button class="action-btn delete-btn">Delete</button>
-                        </极速加速器div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2264,7 +1778,7 @@
                             <th>Customer</th>
                             <th>Rating</th>
                             <th>Review</th>
-                            <极速加速器th>Status</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -2294,7 +1808,7 @@
                         <tr>
                             <td>303</td>
                             <td>Amit Sharma</td>
-                            <td>★★★★☆</极速加速器td>
+                            <td>★★★★☆</td>
                             <td>Good service but delivery was slightly delayed.</td>
                             <td>Pending</td>
                             <td>
@@ -2330,13 +1844,13 @@
                 
                 <div class="form-group">
                     <label for="adminEmail">Admin Email</label>
-                    <极速加速器input type="email" id="adminEmail" value="cyberexpertpatna@gmail.com">
+                    <input type="email" id="adminEmail" value="cyberexpertpatna@gmail.com">
                 </div>
                 
                 <div class="form-group">
                     <label for="whatsappNumber">WhatsApp Number</label>
                     <input type="text" id="whatsappNumber" value="+91 7004863268">
-                </极速加速器div>
+                </div>
                 
                 <div class="form-group">
                     <label for="websiteAddress">Business Address</label>
@@ -2420,91 +1934,6 @@
                     this.reset();
                 });
             }
-            
-            // Service filtering
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const serviceItems = document.querySelectorAll('.service-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    const filter = button.getAttribute('data-filter');
-                    
-                    serviceItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // FAQ functionality
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    answer.classList.toggle('open');
-                    
-                    const icon = question.querySelector('i');
-                    icon.classList.toggle('fa-chevron-down');
-                    icon.classList.toggle('fa-chevron-up');
-                });
-            });
-            
-            // Live chat functionality
-            const chatBtn = document.querySelector('.chat-btn');
-            const chatBox = document.querySelector('.chat-box');
-            const closeChat = document.querySelector('.close-chat');
-            
-            chatBtn.addEventListener('click', () => {
-                chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
-            });
-            
-            closeChat.addEventListener('click', () => {
-                chatBox.style.display = 'none';
-            });
-            
-            // Back to top button
-            const backToTopBtn = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Animation on scroll
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            animatedElements.forEach(el => {
-                observer.observe(el);
-            });
         });
 
         // Admin access functionality
@@ -2530,7 +1959,7 @@
             }
         });
 
-        document.getElementById('logoutBtn').addEventListener极速加速器('click', function() {
+        document.getElementById('logoutBtn').addEventListener('click', function() {
             document.getElementById('adminPanel').style.display = 'none';
             document.body.style.overflow = 'auto';
             document.getElementById('username').value = '';
