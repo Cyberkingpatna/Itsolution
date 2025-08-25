@@ -78,6 +78,7 @@
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         nav ul li {
@@ -111,6 +112,31 @@
         
         nav ul li a:hover {
             color: var(--accent);
+        }
+        
+        /* NEW: Fiverr button in navigation */
+        .fiverr-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #1dbf73;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-left: 15px;
+        }
+        
+        .fiverr-btn:hover {
+            background: #19a463;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fiverr-btn i {
+            margin-right: 8px;
         }
         
         .mobile-menu-btn {
@@ -1246,8 +1272,8 @@
             font-weight: 700;
         }
         
-        /* NEW: Live Chat Widget */
-        .live-chat {
+        /* NEW: Advanced AI Chat Widget */
+        .ai-chatbot {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -1277,10 +1303,10 @@
             position: absolute;
             bottom: 70px;
             right: 0;
-            width: 300px;
-            height: 400px;
+            width: 350px;
+            height: 450px;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
             display: none;
             flex-direction: column;
@@ -1288,7 +1314,7 @@
         }
         
         .chat-header {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 15px;
             display: flex;
@@ -1296,43 +1322,91 @@
             align-items: center;
         }
         
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-title img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        
+        .chat-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
         .chat-messages {
             flex: 1;
             padding: 15px;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
         .message {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 8px;
-            max-width: 80%;
+            display: flex;
+            gap: 10px;
+            max-width: 85%;
         }
         
-        .message.incoming {
-            background: #f1f1f1;
+        .message.bot {
             align-self: flex-start;
         }
         
-        .message.outgoing {
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .message.user .message-avatar {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .message-content {
+            background: #f1f1f1;
+            padding: 12px;
+            border-radius: 18px;
+            line-height: 1.4;
+        }
+        
+        .message.user .message-content {
             background: var(--primary);
             color: white;
-            align-self: flex-end;
-            margin-left: auto;
         }
         
         .chat-input {
             display: flex;
-            padding: 10px;
+            padding: 15px;
             border-top: 1px solid #ddd;
+            background: #f9f9f9;
         }
         
         .chat-input input {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 20px;
             margin-right: 10px;
+            outline: none;
         }
         
         .chat-input button {
@@ -1343,6 +1417,36 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .chat-input button:hover {
+            background: var(--secondary);
+        }
+        
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        
+        .quick-reply {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quick-reply:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
         
         /* NEW: Cookie Consent Banner */
@@ -1464,6 +1568,11 @@
             nav ul li {
                 margin: 10px 0;
             }
+            
+            /* NEW: Fiverr button in mobile view */
+            .fiverr-btn {
+                margin: 10px 0;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1511,13 +1620,13 @@
             }
             
             /* NEW: Mobile adjustments for chat */
-            .live-chat {
+            .ai-chatbot {
                 bottom: 100px;
                 right: 15px;
             }
             
             .chat-window {
-                width: 280px;
+                width: 300px;
                 right: -20px;
             }
             
@@ -1579,20 +1688,39 @@
         <button class="btn" id="acceptCookies">Accept</button>
     </div>
 
-    <!-- Live Chat Widget -->
-    <div class="live-chat">
+    <!-- Advanced AI Chat Widget -->
+    <div class="ai-chatbot">
         <div class="chat-btn" id="chatBtn" aria-label="Open chat">
-            <i class="fas fa-comments"></i>
+            <i class="fas fa-robot"></i>
         </div>
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <h3>Chat with us</h3>
+                <div class="chat-title">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3>Cyber Assistant</h3>
+                        <div class="chat-status">Online • AI-powered</div>
+                    </div>
+                </div>
                 <button id="closeChat" aria-label="Close chat"><i class="fas fa-times"></i></button>
             </div>
             <div class="chat-messages" id="chatMessages">
-                <div class="message incoming">
-                    <p>Hello! How can we help you today?</p>
+                <div class="message bot">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm Cyber Assistant, your AI helper. How can I assist you with our IT services today?</p>
+                    </div>
                 </div>
+            </div>
+            <div class="quick-replies" id="quickReplies">
+                <div class="quick-reply" data-message="What services do you offer?">Services</div>
+                <div class="quick-reply" data-message="How much does web design cost?">Web Design Pricing</div>
+                <div class="quick-reply" data-message="How can I contact you?">Contact Info</div>
+                <div class="quick-reply" data-message="Do you offer support?">Support</div>
             </div>
             <div class="chat-input">
                 <input type="text" placeholder="Type your message..." id="chatInput">
@@ -1619,6 +1747,8 @@
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <!-- NEW: Fiverr button in navigation -->
+                    <li><a href="https://www.fiverr.com/aman70503" target="_blank" class="fiverr-btn"><i class="fab fa-fiverr"></i> Order Now</a></li>
                 </ul>
             </nav>
         </div>
@@ -2238,12 +2368,7 @@
         </div>
     </footer>
 
-    <!-- Order Now Button -->
-    <div class="get-quote-btn">
-        <a href="https://www.fiverr.com/aman70503" target="_blank" class="btn btn-fiverr">
-            <i class="fab fa-fiverr"></i> Order Now
-        </a>
-    </div>
+    <!-- Order Now Button (Removed from bottom) -->
 
     <!-- Admin Access Key (Hidden from normal users) -->
     <div class="admin-access">
@@ -2636,7 +2761,7 @@
             initContactForm();
             initMobileMenu();
             initAdminFeatures();
-            initLiveChat();
+            initAIChatbot();
             initCookieConsent();
             initLazyLoading();
         }
@@ -2828,7 +2953,7 @@
                     }
                     
                     const emailInput = document.getElementById('email');
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const emailRegex = /^[^\s@]+@[^\s@]+@[^\s@]+$/;
                     if (!emailRegex.test(emailInput.value)) {
                         emailInput.parentElement.classList.add('error');
                         isValid = false;
@@ -2908,128 +3033,190 @@
 
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 document.getElementById('adminPanel').style.display = 'none';
-                document.body.style.overflow = 'auto';
-                document.getElementById('username').value = '';
-                document.getElementById('password').value = '';
-            });
-
-            document.querySelectorAll('.admin-nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    document.querySelectorAll('.admin-nav-link').forEach(l => {
-                        l.classList.remove('active');
-                    });
-                    
-                    this.classList.add('active');
-                    
-                    document.querySelectorAll('.admin-section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    
-                    const targetId = this.getAttribute('href').substring(1);
-                    document.getElementById(targetId).classList.add('active');
+                    document.body.style.overflow = 'auto';
+                    document.getElementById('username').value = '';
+                    document.getElementById('password').value = '';
                 });
-            });
-
-            document.querySelectorAll('.action-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (this.classList.contains('edit-btn')) {
-                        alert('Edit functionality would open a form here.');
-                    } else if (this.classList.contains('delete-btn')) {
-                        if (confirm('Are you sure you want to delete this item?')) {
-                            alert('Item would be deleted in a real application.');
-                        }
-                    }
-                });
-            });
-        }
-
-        function initLiveChat() {
-            const chatBtn = document.getElementById('chatBtn');
-            const chatWindow = document.getElementById('chatWindow');
-            const closeChat = document.getElementById('closeChat');
-            const sendMessage = document.getElementById('sendMessage');
-            const chatInput = document.getElementById('chatInput');
-            const chatMessages = document.getElementById('chatMessages');
-            
-            if (chatBtn && chatWindow) {
-                chatBtn.addEventListener('click', () => {
-                    chatWindow.style.display = 'flex';
-                });
-                
-                closeChat.addEventListener('click', () => {
-                    chatWindow.style.display = 'none';
-                });
-                
-                sendMessage.addEventListener('click', () => {
-                    if (chatInput.value.trim() !== '') {
-                        const messageDiv = document.createElement('div');
-                        messageDiv.classList.add('message', 'outgoing');
-                        messageDiv.innerHTML = `<p>${chatInput.value}</p>`;
-                        chatMessages.appendChild(messageDiv);
-                        chatInput.value = '';
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+                document.querySelectorAll('.admin-nav-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
                         
-                        // Simulate response after a short delay
-                        setTimeout(() => {
-                            const responseDiv = document.createElement('div');
-                            responseDiv.classList.add('message', 'incoming');
-                            responseDiv.innerHTML = '<p>Thanks for your message! We\'ll get back to you shortly.</p>';
-                            chatMessages.appendChild(responseDiv);
-                            chatMessages.scrollTop = chatMessages.scrollHeight;
-                        }, 1000);
-                    }
+                        document.querySelectorAll('.admin-nav-link').forEach(l => {
+                            l.classList.remove('active');
+                        });
+                        
+                        this.classList.add('active');
+                        
+                        document.querySelectorAll('.admin-section').forEach(section => {
+                            section.classList.remove('active');
+                        });
+                        
+                        const targetId = this.getAttribute('href').substring(1);
+                        document.getElementById(targetId).classList.add('active');
+                    });
                 });
-                
-                chatInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        sendMessage.click();
-                    }
-                });
-            }
-        }
-
-        function initCookieConsent() {
-            const cookieConsent = document.getElementById('cookieConsent');
-            const acceptCookies = document.getElementById('acceptCookies');
-            
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    cookieConsent.classList.add('visible');
-                }, 2000);
-            }
-            
-            acceptCookies.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieConsent.classList.remove('visible');
-            });
-        }
-
-        function initLazyLoading() {
-            const lazyImages = document.querySelectorAll('.lazy-load');
-            
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.classList.add('loaded');
-                            imageObserver.unobserve(img);
+    
+                document.querySelectorAll('.action-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (this.classList.contains('edit-btn')) {
+                            alert('Edit functionality would open a form here.');
+                        } else if (this.classList.contains('delete-btn')) {
+                            if (confirm('Are you sure you want to delete this item?')) {
+                                alert('Item would be deleted in a real application.');
+                            }
                         }
                     });
                 });
+            }
+    
+            function initAIChatbot() {
+                const chatBtn = document.getElementById('chatBtn');
+                const chatWindow = document.getElementById('chatWindow');
+                const closeChat = document.getElementById('closeChat');
+                const sendMessage = document.getElementById('sendMessage');
+                const chatInput = document.getElementById('chatInput');
+                const chatMessages = document.getElementById('chatMessages');
+                const quickReplies = document.getElementById('quickReplies');
                 
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-            } else {
-                // Fallback for browsers without IntersectionObserver support
-                lazyImages.forEach(img => {
-                    img.classList.add('loaded');
+                // AI responses database
+                const aiResponses = {
+                    "hello": "Hello! How can I help you with our IT services today?",
+                    "hi": "Hi there! What can I assist you with?",
+                    "services": "We offer a wide range of IT services including: MS Office solutions, data analysis, web design, software development, and hardware support. Which service are you interested in?",
+                    "pricing": "Our pricing varies based on the service: MS Office projects start at ₹499, data analysis at ₹1,499, and web design at ₹9,999. Would you like more specific pricing information?",
+                    "web design": "Our web design service includes responsive design, SEO optimization, e-commerce solutions, and content management systems. Starting at ₹9,999 per website.",
+                    "contact": "You can contact us at +91 7004863268, email cyberexpertpatna@gmail.com, or through WhatsApp. Our address is Chowk Shikarpur, Patna City, Patna, Bihar.",
+                    "support": "Yes, we offer ongoing support and maintenance services. We have different support packages available based on your needs.",
+                    "time": "Our business hours are 9 AM to 6 PM, Monday to Saturday. We're available for emergency support outside these hours as well.",
+                    "default": "I'm sorry, I didn't understand that. Could you please rephrase? You can ask me about our services, pricing, or contact information."
+                };
+                
+                if (chatBtn && chatWindow) {
+                    chatBtn.addEventListener('click', () => {
+                        chatWindow.style.display = 'flex';
+                        chatInput.focus();
+                    });
+                    
+                    closeChat.addEventListener('click', () => {
+                        chatWindow.style.display = 'none';
+                    });
+                    
+                    // Quick replies functionality
+                    quickReplies.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('quick-reply')) {
+                            const message = e.target.getAttribute('data-message');
+                            addMessage(message, 'user');
+                            setTimeout(() => {
+                                generateAIResponse(message);
+                            }, 500);
+                        }
+                    });
+                    
+                    sendMessage.addEventListener('click', () => {
+                        processUserMessage();
+                    });
+                    
+                    chatInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            processUserMessage();
+                        }
+                    });
+                    
+                    function processUserMessage() {
+                        if (chatInput.value.trim() !== '') {
+                            addMessage(chatInput.value, 'user');
+                            setTimeout(() => {
+                                generateAIResponse(chatInput.value);
+                            }, 500);
+                            chatInput.value = '';
+                        }
+                    }
+                    
+                    function addMessage(text, sender) {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.classList.add('message', sender);
+                        
+                        const avatar = document.createElement('div');
+                        avatar.classList.add('message-avatar');
+                        avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                        
+                        const content = document.createElement('div');
+                        content.classList.add('message-content');
+                        content.innerHTML = `<p>${text}</p>`;
+                        
+                        messageDiv.appendChild(avatar);
+                        messageDiv.appendChild(content);
+                        
+                        chatMessages.appendChild(messageDiv);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }
+                    
+                    function generateAIResponse(userMessage) {
+                        const message = userMessage.toLowerCase();
+                        let response = aiResponses.default;
+                        
+                        if (message.includes('hello') || message.includes('hi')) {
+                            response = aiResponses.hello;
+                        } else if (message.includes('service')) {
+                            response = aiResponses.services;
+                        } else if (message.includes('price') || message.includes('cost') || message.includes('how much')) {
+                            response = aiResponses.pricing;
+                        } else if (message.includes('web') || message.includes('design')) {
+                            response = aiResponses["web design"];
+                        } else if (message.includes('contact') || message.includes('where') || message.includes('how to reach')) {
+                            response = aiResponses.contact;
+                        } else if (message.includes('support') || message.includes('help')) {
+                            response = aiResponses.support;
+                        } else if (message.includes('time') || message.includes('hour')) {
+                            response = aiResponses.time;
+                        }
+                        
+                        addMessage(response, 'bot');
+                    }
+                }
+            }
+    
+            function initCookieConsent() {
+                const cookieConsent = document.getElementById('cookieConsent');
+                const acceptCookies = document.getElementById('acceptCookies');
+                
+                if (!localStorage.getItem('cookiesAccepted')) {
+                    setTimeout(() => {
+                        cookieConsent.classList.add('visible');
+                    }, 2000);
+                }
+                
+                acceptCookies.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    cookieConsent.classList.remove('visible');
                 });
             }
-        }
-    </script>
-</body>
-</html>
+    
+            function initLazyLoading() {
+                const lazyImages = document.querySelectorAll('.lazy-load');
+                
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                img.classList.add('loaded');
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    });
+                    
+                    lazyImages.forEach(img => {
+                        imageObserver.observe(img);
+                    });
+                } else {
+                    // Fallback for browsers without IntersectionObserver support
+                    lazyImages.forEach(img => {
+                        img.classList.add('loaded');
+                    });
+                }
+            }
+        </script>
+    </body>
+    </html>
