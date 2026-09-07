@@ -224,12 +224,35 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
             background: #ffa500;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Ripple effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+        }
+        
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
         }
         
         .btn-fiverr {
@@ -328,11 +351,12 @@
             color: var(--primary);
             margin-bottom: 20px;
             transition: var(--transition);
+            display: inline-block;
         }
         
         .service-item:hover i {
             color: var(--accent);
-            transform: scale(1.1);
+            transform: scale(1.2) rotate(15deg);
         }
         
         .service-item h3 {
@@ -761,7 +785,7 @@
         
         .social-icons a:hover {
             background: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(10deg);
         }
         
         .footer-bottom {
@@ -802,7 +826,7 @@
         .admin-key:hover {
             background: var(--accent);
             color: var(--dark);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(15deg);
         }
         
         /* Modal Styles */
@@ -1088,6 +1112,7 @@
         
         .service-tab:hover:not(.active) {
             background: #e5e5e5;
+            transform: translateY(-3px);
         }
         
         /* Testimonial Quote Marks */
@@ -1114,6 +1139,13 @@
             font-weight: 700;
             font-size: 14px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: pulseBadge 2s infinite;
+        }
+        
+        @keyframes pulseBadge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         /* Hover Effect for Team Members */
@@ -1121,6 +1153,12 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .team-member-overlay {
@@ -1234,6 +1272,7 @@
         .client-logo:hover {
             opacity: 1;
             filter: grayscale(0%);
+            transform: scale(1.1);
         }
         
         /* Call to Action Section */
@@ -1255,6 +1294,15 @@
             gap: 20px;
             margin-top: 30px;
             flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            animation: floatButton 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatButton {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         /* Team Section */
@@ -1289,6 +1337,11 @@
             z-index: 2;
             background: white;
             padding: 0 15px;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
         }
         
         .step-number {
@@ -1303,6 +1356,13 @@
             margin: 0 auto 15px;
             font-size: 24px;
             font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-number {
+            background: var(--accent);
+            color: var(--dark);
+            transform: scale(1.1);
         }
         
         /* NEW: Advanced AI Chat Widget */
@@ -1329,7 +1389,7 @@
         
         .chat-btn:hover {
             background: var(--secondary);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
         }
         
         .chat-window {
@@ -1344,6 +1404,12 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
+            animation: chatSlideIn 0.3s ease;
+        }
+        
+        @keyframes chatSlideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .chat-header {
@@ -1538,6 +1604,40 @@
         
         .skip-to-content:focus {
             top: 0;
+        }
+        
+        /* NEW: Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+        
+        .reveal-right {
+            transform: translateX(50px);
+        }
+        
+        .reveal-up {
+            transform: translateY(50px);
+        }
+        
+        .reveal-zoom {
+            transform: scale(0.8);
+        }
+        
+        .reveal-left.reveal-visible,
+        .reveal-right.reveal-visible,
+        .reveal-up.reveal-visible,
+        .reveal-zoom.reveal-visible {
+            transform: translateY(0) scale(1);
         }
         
         /* Responsive Design */
@@ -1802,7 +1902,7 @@
         </section>
 
         <!-- Clients Section -->
-        <section style="background: white; padding: 40px 0;">
+        <section style="background: white; padding: 40px 0;" class="reveal">
             <div class="container">
                 <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Trusted by Industry Leaders</h3>
                 <div class="client-logos">
@@ -1967,7 +2067,7 @@
         </section>
 
         <!-- Process Section -->
-        <section style="background: var(--light);">
+        <section style="background: var(--light);" class="reveal">
             <div class="container">
                 <div class="section-title">
                     <h2>Our Process</h2>
@@ -2154,7 +2254,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section style="background: var(--light);">
+        <section style="background: var(--light);" class="reveal">
             <div class="container">
                 <div class="section-title">
                     <h2>Frequently Asked Questions</h2>
@@ -2213,7 +2313,7 @@
                     <p>Learn more about our company and mission</p>
                 </div>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text reveal reveal-left">
                         <h3>We Provide Quality IT Services</h3>
                         <p>CYBER Expert IT Solutions is a leading provider of comprehensive IT services based in Patna, Bihar. With years of experience in the industry, we have helped numerous businesses achieve their technology goals.</p>
                         <p>Our team of skilled professionals is dedicated to delivering top-notch solutions tailored to your specific needs. Whether you need software development, data analysis, or hardware support, we have the expertise to help your business thrive.</p>
@@ -2238,7 +2338,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="about-image">
+                    <div class="about-image reveal reveal-right">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Team" class="lazy-load" onerror="this.classList.add('loaded')">
                     </div>
                 </div>
@@ -2250,7 +2350,7 @@
                 </div>
                 
                 <div class="team-grid">
-                    <div class="team-member">
+                    <div class="team-member reveal reveal-up">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" style="width: 100%; height: 300px; object-fit: cover;" class="lazy-load" onerror="this.classList.add('loaded')">
                         <div class="team-member-overlay">
                             <h3>Aman Kumar</h3>
@@ -2258,7 +2358,7 @@
                         </div>
                     </div>
                     
-                    <div class="team-member">
+                    <div class="team-member reveal reveal-up">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" style="width: 100%; height: 300px; object-fit: cover;" class="lazy-load" onerror="this.classList.add('loaded')">
                         <div class="team-member-overlay">
                             <h3>Priya Sharma</h3>
@@ -2266,7 +2366,7 @@
                         </div>
                     </div>
                     
-                    <div class="team-member">
+                    <div class="team-member reveal reveal-up">
                         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" style="width: 100%; height: 300px; object-fit: cover;" class="lazy-load" onerror="this.classList.add('loaded')">
                         <div class="team-member-overlay">
                             <h3>Rahul Singh</h3>
@@ -2274,7 +2374,7 @@
                         </div>
                     </div>
                     
-                    <div class="team-member">
+                    <div class="team-member reveal reveal-up">
                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" style="width: 100%; height: 300px; object-fit: cover;" class="lazy-load" onerror="this.classList.add('loaded')">
                         <div class="team-member-overlay">
                             <h3>Neha Gupta</h3>
@@ -2308,7 +2408,7 @@
                     <p>Get in touch with us for any queries or support</p>
                 </div>
                 <div class="contact-container">
-                    <div class="contact-info">
+                    <div class="contact-info reveal reveal-left">
                         <h3>Contact Information</h3>
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
@@ -2333,7 +2433,7 @@
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="contact-form">
+                    <div class="contact-form reveal reveal-right">
                         <h3>Send us a Message</h3>
                         <form id="contactForm">
                             <div class="form-group">
@@ -2359,7 +2459,7 @@
                             <button type="submit" class="btn">Send Message</button>
                         </form>
                     </div>
-                    <div class="map">
+                    <div class="map reveal">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.847853725914!2d85.1784973143662!3d25.60862172010825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5848d3cbb5c5%3A0x5a0b8b6a6e0f0b7a!2sChowk%2C%20Sheikhpura%2C%20Patna%20City%2C%20Patna%2C%20Bihar%20800009!5e0!3m2!1sen!2sin!4v1623939667594!5m2!1sen!2sin" allowfullscreen="" loading="lazy" title="Our Location"></iframe>
                     </div>
                 </div>
@@ -2782,6 +2882,7 @@
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             initializeApp();
+            initScrollReveal();
         });
 
         function initializeApp() {
@@ -2798,6 +2899,23 @@
             initAIChatbot();
             initCookieConsent();
             initLazyLoading();
+        }
+
+        // NEW: Scroll Reveal Animation
+        function initScrollReveal() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
         }
 
         function initLoadingBar() {
