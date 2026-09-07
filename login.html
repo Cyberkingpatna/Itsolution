@@ -8,13 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
     <style>
         /* ── Reset & Base ── */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
         body {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f);
             min-height: 100vh;
@@ -25,15 +19,7 @@
             animation: fadeInBody 0.8s ease forwards;
             padding: 20px;
         }
-
-        @keyframes fadeInBody {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        @keyframes fadeInBody { from { opacity:0; } to { opacity:1; } }
 
         /* ── Login Container ── */
         .login-container {
@@ -42,171 +28,66 @@
             padding: 40px 35px;
             width: 100%;
             max-width: 420px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
             text-align: center;
             transition: 0.3s;
         }
-
-        .login-logo {
-            font-size: 48px;
-            color: #1a2a6c;
-            margin-bottom: 12px;
-        }
-
-        .login-title {
-            font-size: 26px;
-            font-weight: 700;
-            color: #1a2a6c;
-            letter-spacing: -0.5px;
-        }
-
-        .login-subtitle {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 28px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: #333;
-            font-size: 14px;
-        }
-
+        .login-logo { font-size:48px; color:#1a2a6c; margin-bottom:12px; }
+        .login-title { font-size:26px; font-weight:700; color:#1a2a6c; }
+        .login-subtitle { font-size:14px; color:#666; margin-bottom:28px; }
+        .form-group { margin-bottom:18px; text-align:left; }
+        .form-group label { display:block; margin-bottom:6px; font-weight:500; color:#333; font-size:14px; }
         .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: 0.3s;
-            background: #fafafa;
+            width:100%; padding:12px 16px; border:1px solid #ddd; border-radius:8px;
+            font-size:15px; transition:0.3s; background:#fafafa;
         }
-
         .form-group input:focus {
-            border-color: #fdbb2d;
-            box-shadow: 0 0 0 3px rgba(253, 187, 45, 0.25);
-            outline: none;
-            background: #fff;
+            border-color:#fdbb2d; box-shadow:0 0 0 3px rgba(253,187,45,0.25); outline:none; background:#fff;
         }
-
         .login-btn {
-            width: 100%;
-            padding: 14px;
-            background: #1a2a6c;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 6px;
+            width:100%; padding:14px; background:#1a2a6c; color:#fff; border:none; border-radius:8px;
+            font-size:16px; font-weight:600; cursor:pointer; transition:0.3s; margin-top:6px;
         }
-
-        .login-btn:hover {
-            background: #b21f1f;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .login-error {
-            color: #d32f2f;
-            font-size: 13px;
-            margin: 8px 0 0;
-            min-height: 22px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: #1a2a6c;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
+        .login-btn:hover { background:#b21f1f; transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.25); }
+        .login-error { color:#d32f2f; font-size:13px; margin:8px 0 0; min-height:22px; }
+        .back-link { display:inline-block; margin-top:16px; color:#1a2a6c; text-decoration:none; font-size:14px; }
+        .back-link:hover { text-decoration:underline; }
 
         /* ── Password Reset ── */
-        .reset-section {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid #eee;
-        }
-
+        .reset-section { margin-top:18px; padding-top:18px; border-top:1px solid #eee; }
         .reset-toggle {
-            color: #1a2a6c;
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: 0.3s;
-            background: none;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            color:#1a2a6c; font-size:13px; cursor:pointer; font-weight:500; transition:0.3s;
+            background:none; border:none; display:inline-flex; align-items:center; gap:6px;
         }
-
-        .reset-toggle:hover {
-            color: #b21f1f;
-        }
-
-        .reset-form {
-            display: none;
-            margin-top: 14px;
-            text-align: left;
-        }
-
-        .reset-form.open {
-            display: block;
-        }
-
-        .reset-form .form-group {
-            margin-bottom: 12px;
-        }
-
-        .reset-form .form-group input {
-            background: #fafafa;
-        }
-
+        .reset-toggle:hover { color:#b21f1f; }
+        .reset-form { display:none; margin-top:14px; text-align:left; }
+        .reset-form.open { display:block; }
+        .reset-form .form-group { margin-bottom:12px; }
         .reset-btn {
-            width: 100%;
-            padding: 11px;
-            background: #fdbb2d;
-            color: #1a2a6c;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
+            width:100%; padding:11px; background:#fdbb2d; color:#1a2a6c; border:none; border-radius:8px;
+            font-size:14px; font-weight:600; cursor:pointer; transition:0.3s;
         }
+        .reset-btn:hover { background:#f0a500; transform:translateY(-1px); }
+        .reset-msg { font-size:13px; margin-top:8px; min-height:20px; }
+        .reset-msg.success { color:#2e7d32; }
+        .reset-msg.error { color:#d32f2f; }
 
-        .reset-btn:hover {
-            background: #f0a500;
-            transform: translateY(-1px);
+        /* ── Skip Login (Demo) ── */
+        .skip-demo {
+            margin-top:14px;
+            display:inline-block;
+            padding:8px 16px;
+            background:#eee;
+            color:#1a2a6c;
+            border-radius:20px;
+            font-size:13px;
+            font-weight:500;
+            text-decoration:none;
+            transition:0.3s;
+            border:1px solid #ddd;
+            cursor:pointer;
         }
-
-        .reset-msg {
-            font-size: 13px;
-            margin-top: 8px;
-            min-height: 20px;
-        }
-
-        .reset-msg.success {
-            color: #2e7d32;
-        }
-        .reset-msg.error {
-            color: #d32f2f;
-        }
+        .skip-demo:hover { background:#ddd; }
 
         /* ──────────────────────────────────────────────
                    ADMIN PANEL (hidden by default)
@@ -219,24 +100,11 @@
             background: #f0f2f5;
             border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             animation: slideUp 0.5s ease;
         }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .admin-panel.active {
-            display: flex;
-        }
+        @keyframes slideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        .admin-panel.active { display: flex; }
 
         /* ── Sidebar ── */
         .sidebar {
@@ -250,527 +118,112 @@
             min-height: 100%;
             overflow-y: auto;
         }
-
-        .sidebar-brand {
-            padding: 0 20px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
+        .sidebar-brand { padding:0 20px 20px; border-bottom:1px solid rgba(255,255,255,0.1); text-align:center; }
+        .sidebar-brand i { font-size:36px; color:#fdbb2d; }
+        .sidebar-brand h2 { font-size:18px; font-weight:600; margin-top:4px; }
+        .sidebar-brand span { font-size:12px; opacity:0.7; font-weight:300; }
+        .sidebar-menu { list-style:none; padding:12px 12px 0; flex:1; overflow-y:auto; }
+        .sidebar-menu li { margin-bottom:2px; }
+        .sidebar-menu li a, .sidebar-menu li .menu-item {
+            display:flex; align-items:center; gap:14px; padding:10px 16px; border-radius:10px;
+            color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500;
+            transition:0.25s; cursor:pointer; border:none; background:none; width:100%; text-align:left;
         }
+        .sidebar-menu li a i, .sidebar-menu li .menu-item i { width:20px; text-align:center; font-size:16px; }
+        .sidebar-menu li a:hover, .sidebar-menu li .menu-item:hover { background:rgba(255,255,255,0.12); color:#fff; }
+        .sidebar-menu li a.active, .sidebar-menu li .menu-item.active { background:rgba(253,187,45,0.2); color:#fdbb2d; font-weight:600; }
+        .sidebar-menu .menu-label { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.3); padding:16px 16px 6px; font-weight:600; }
 
-        .sidebar-brand i {
-            font-size: 36px;
-            color: #fdbb2d;
-        }
+        /* Submenu */
+        .submenu { list-style:none; padding-left:16px; margin:2px 0 4px 18px; border-left:1px solid rgba(255,255,255,0.08); display:none; }
+        .submenu.open { display:block; }
+        .submenu li a { padding:6px 16px 6px 10px; font-size:13px; font-weight:400; color:rgba(255,255,255,0.6); gap:12px; }
+        .submenu li a i { font-size:13px; width:18px; }
+        .submenu li a:hover { color:#fff; background:rgba(255,255,255,0.05); }
+        .submenu li a.active { color:#fdbb2d; background:rgba(253,187,45,0.1); }
+        .toggle-icon { margin-left:auto; transition:0.3s; font-size:12px; }
+        .toggle-icon.open { transform:rotate(180deg); }
 
-        .sidebar-brand h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 4px;
-            letter-spacing: -0.3px;
-        }
-
-        .sidebar-brand span {
-            font-size: 12px;
-            opacity: 0.7;
-            font-weight: 300;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 12px 12px 0;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 2px;
-        }
-
-        .sidebar-menu li a,
-        .sidebar-menu li .menu-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            color: rgba(255, 255, 255, 0.75);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.25s;
-            cursor: pointer;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .sidebar-menu li a i,
-        .sidebar-menu li .menu-item i {
-            width: 20px;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .sidebar-menu li a:hover,
-        .sidebar-menu li .menu-item:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-        }
-
-        .sidebar-menu li a.active,
-        .sidebar-menu li .menu-item.active {
-            background: rgba(253, 187, 45, 0.2);
-            color: #fdbb2d;
-            font-weight: 600;
-        }
-
-        .sidebar-menu .menu-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.3);
-            padding: 16px 16px 6px;
-            font-weight: 600;
-        }
-
-        /* ── Submenu ── */
-        .submenu {
-            list-style: none;
-            padding-left: 16px;
-            margin: 2px 0 4px 18px;
-            border-left: 1px solid rgba(255, 255, 255, 0.08);
-            display: none;
-        }
-
-        .submenu.open {
-            display: block;
-        }
-
-        .submenu li a {
-            padding: 6px 16px 6px 10px;
-            font-size: 13px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.6);
-            gap: 12px;
-        }
-
-        .submenu li a i {
-            font-size: 13px;
-            width: 18px;
-        }
-
-        .submenu li a:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .submenu li a.active {
-            color: #fdbb2d;
-            background: rgba(253, 187, 45, 0.1);
-        }
-
-        .toggle-icon {
-            margin-left: auto;
-            transition: 0.3s;
-            font-size: 12px;
-        }
-
-        .toggle-icon.open {
-            transform: rotate(180deg);
-        }
-
-        .sidebar-footer {
-            padding: 16px 20px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            margin-top: 8px;
-        }
-
+        .sidebar-footer { padding:16px 20px 0; border-top:1px solid rgba(255,255,255,0.08); margin-top:8px; }
         .sidebar-footer .logout-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.25s;
-            background: none;
-            border: none;
-            width: 100%;
+            display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:10px;
+            color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:500;
+            cursor:pointer; transition:0.25s; background:none; border:none; width:100%;
         }
-
-        .sidebar-footer .logout-btn:hover {
-            background: rgba(255, 0, 0, 0.2);
-            color: #ff6b6b;
-        }
-
-        .sidebar-footer .logout-btn i {
-            width: 20px;
-            text-align: center;
-        }
+        .sidebar-footer .logout-btn:hover { background:rgba(255,0,0,0.2); color:#ff6b6b; }
+        .sidebar-footer .logout-btn i { width:20px; text-align:center; }
 
         /* ── Main Content ── */
-        .main-content {
-            flex: 1;
-            padding: 28px 32px;
-            overflow-y: auto;
-            background: #f0f2f5;
-        }
+        .main-content { flex:1; padding:28px 32px; overflow-y:auto; background:#f0f2f5; }
+        .main-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:28px; }
+        .main-header h1 { font-size:24px; font-weight:700; color:#1a2a6c; }
+        .main-header .user-badge { display:flex; align-items:center; gap:12px; background:#fff; padding:8px 18px 8px 14px; border-radius:50px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+        .main-header .user-badge i { font-size:28px; color:#1a2a6c; background:#eef0f5; padding:6px; border-radius:50%; }
+        .main-header .user-badge span { font-weight:500; color:#333; }
 
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
+        .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:18px; margin-bottom:32px; }
+        .stat-card { background:#fff; padding:20px 22px; border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,0.04); transition:0.3s; border-left:4px solid #1a2a6c; }
+        .stat-card:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.07); }
+        .stat-card .stat-icon { font-size:28px; color:#1a2a6c; margin-bottom:4px; }
+        .stat-card .stat-number { font-size:28px; font-weight:700; color:#1a2a6c; }
+        .stat-card .stat-label { font-size:14px; color:#777; font-weight:400; }
+        .stat-card:nth-child(2) { border-left-color:#b21f1f; }
+        .stat-card:nth-child(2) .stat-icon, .stat-card:nth-child(2) .stat-number { color:#b21f1f; }
+        .stat-card:nth-child(3) { border-left-color:#fdbb2d; }
+        .stat-card:nth-child(3) .stat-icon, .stat-card:nth-child(3) .stat-number { color:#d4a017; }
+        .stat-card:nth-child(4) { border-left-color:#2e7d32; }
+        .stat-card:nth-child(4) .stat-icon, .stat-card:nth-child(4) .stat-number { color:#2e7d32; }
 
-        .main-header h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a2a6c;
-        }
+        .panel-section { display:none; animation:fadeSection 0.4s ease; }
+        .panel-section.active { display:block; }
+        @keyframes fadeSection { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        .panel-section h2 { font-size:20px; font-weight:600; color:#1a2a6c; margin-bottom:18px; }
+        .panel-section .section-desc { color:#666; font-size:14px; margin-bottom:20px; }
 
-        .main-header .user-badge {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #fff;
-            padding: 8px 18px 8px 14px;
-            border-radius: 50px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
+        .content-card { background:#fff; border-radius:14px; padding:22px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.04); margin-bottom:18px; }
+        .content-card h3 { font-size:16px; font-weight:600; color:#1a2a6c; margin-bottom:6px; }
+        .content-card p { color:#555; font-size:14px; margin:4px 0; }
+        .content-card .action-btn { margin-top:10px; padding:8px 18px; border:none; border-radius:6px; background:#1a2a6c; color:#fff; font-weight:500; cursor:pointer; font-size:13px; transition:0.3s; }
+        .content-card .action-btn:hover { background:#b21f1f; }
 
-        .main-header .user-badge i {
-            font-size: 28px;
-            color: #1a2a6c;
-            background: #eef0f5;
-            padding: 6px;
-            border-radius: 50%;
-        }
+        .table-wrap { overflow-x:auto; background:#fff; border-radius:14px; padding:4px 0; box-shadow:0 2px 10px rgba(0,0,0,0.04); }
+        table { width:100%; border-collapse:collapse; font-size:14px; }
+        table th { text-align:left; padding:14px 18px; background:#f7f8fc; color:#1a2a6c; font-weight:600; border-bottom:2px solid #e9ecf2; }
+        table td { padding:12px 18px; border-bottom:1px solid #f0f2f5; color:#444; }
+        table tr:hover td { background:#fafbff; }
 
-        .main-header .user-badge span {
-            font-weight: 500;
-            color: #333;
-        }
-
-        /* ── Stats Cards ── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin-bottom: 32px;
-        }
-
-        .stat-card {
-            background: #fff;
-            padding: 20px 22px;
-            border-radius: 14px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            transition: 0.3s;
-            border-left: 4px solid #1a2a6c;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-        }
-
-        .stat-card .stat-icon {
-            font-size: 28px;
-            color: #1a2a6c;
-            margin-bottom: 4px;
-        }
-
-        .stat-card .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a2a6c;
-        }
-
-        .stat-card .stat-label {
-            font-size: 14px;
-            color: #777;
-            font-weight: 400;
-        }
-
-        .stat-card:nth-child(2) {
-            border-left-color: #b21f1f;
-        }
-        .stat-card:nth-child(2) .stat-icon,
-        .stat-card:nth-child(2) .stat-number {
-            color: #b21f1f;
-        }
-        .stat-card:nth-child(3) {
-            border-left-color: #fdbb2d;
-        }
-        .stat-card:nth-child(3) .stat-icon,
-        .stat-card:nth-child(3) .stat-number {
-            color: #d4a017;
-        }
-        .stat-card:nth-child(4) {
-            border-left-color: #2e7d32;
-        }
-        .stat-card:nth-child(4) .stat-icon,
-        .stat-card:nth-child(4) .stat-number {
-            color: #2e7d32;
-        }
-
-        /* ── Panel Sections ── */
-        .panel-section {
-            display: none;
-            animation: fadeSection 0.4s ease;
-        }
-
-        .panel-section.active {
-            display: block;
-        }
-
-        @keyframes fadeSection {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .panel-section h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a2a6c;
-            margin-bottom: 18px;
-        }
-
-        .panel-section .section-desc {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        /* ── Content Cards ── */
-        .content-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 22px 24px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            margin-bottom: 18px;
-        }
-
-        .content-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a2a6c;
-            margin-bottom: 6px;
-        }
-
-        .content-card p {
-            color: #555;
-            font-size: 14px;
-            margin: 4px 0;
-        }
-
-        .content-card .action-btn {
-            margin-top: 10px;
-            padding: 8px 18px;
-            border: none;
-            border-radius: 6px;
-            background: #1a2a6c;
-            color: #fff;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 13px;
-            transition: 0.3s;
-        }
-
-        .content-card .action-btn:hover {
-            background: #b21f1f;
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            background: #fff;
-            border-radius: 14px;
-            padding: 4px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-
-        table th {
-            text-align: left;
-            padding: 14px 18px;
-            background: #f7f8fc;
-            color: #1a2a6c;
-            font-weight: 600;
-            border-bottom: 2px solid #e9ecf2;
-        }
-
-        table td {
-            padding: 12px 18px;
-            border-bottom: 1px solid #f0f2f5;
-            color: #444;
-        }
-
-        table tr:hover td {
-            background: #fafbff;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .badge.active {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-        .badge.pending {
-            background: #fff3e0;
-            color: #e65100;
-        }
-        .badge.inactive {
-            background: #fbe9e7;
-            color: #b71c1c;
-        }
-        .badge.info {
-            background: #e3f2fd;
-            color: #0d47a1;
-        }
+        .badge { display:inline-block; padding:4px 14px; border-radius:50px; font-size:12px; font-weight:500; }
+        .badge.active { background:#e8f5e9; color:#2e7d32; }
+        .badge.pending { background:#fff3e0; color:#e65100; }
+        .badge.inactive { background:#fbe9e7; color:#b71c1c; }
+        .badge.info { background:#e3f2fd; color:#0d47a1; }
 
         /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 240px;
-            }
+        @media (max-width:1024px) { .sidebar { width:240px; } }
+        @media (max-width:900px) {
+            .admin-panel.active { flex-direction:column; }
+            .sidebar { width:100%; padding:12px 0 8px; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; min-height:auto; max-height:60vh; overflow-y:auto; }
+            .sidebar-brand { padding:0 16px 0 20px; border-bottom:none; display:flex; align-items:center; gap:12px; }
+            .sidebar-brand h2 { font-size:16px; margin:0; }
+            .sidebar-brand i { font-size:28px; }
+            .sidebar-menu { display:flex; flex-wrap:wrap; gap:4px; padding:8px 12px; overflow-x:auto; flex:none; width:100%; border-top:1px solid rgba(255,255,255,0.05); margin-top:8px; }
+            .sidebar-menu li { margin:0; flex:0 0 auto; }
+            .sidebar-menu li a, .sidebar-menu li .menu-item { padding:6px 12px; font-size:12px; white-space:nowrap; gap:8px; }
+            .sidebar-menu .menu-label { display:none; }
+            .submenu { display:none !important; }
+            .sidebar-footer { display:none; }
+            .main-content { padding:16px; }
+            .stats-grid { grid-template-columns:repeat(2,1fr); }
         }
-
-        @media (max-width: 900px) {
-            .admin-panel.active {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                padding: 12px 0 8px;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-                min-height: auto;
-                max-height: 60vh;
-                overflow-y: auto;
-            }
-            .sidebar-brand {
-                padding: 0 16px 0 20px;
-                border-bottom: none;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .sidebar-brand h2 {
-                font-size: 16px;
-                margin: 0;
-            }
-            .sidebar-brand i {
-                font-size: 28px;
-            }
-            .sidebar-menu {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 4px;
-                padding: 8px 12px;
-                overflow-x: auto;
-                flex: none;
-                width: 100%;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
-                margin-top: 8px;
-            }
-            .sidebar-menu li {
-                margin: 0;
-                flex: 0 0 auto;
-            }
-            .sidebar-menu li a,
-            .sidebar-menu li .menu-item {
-                padding: 6px 12px;
-                font-size: 12px;
-                white-space: nowrap;
-                gap: 8px;
-            }
-            .sidebar-menu .menu-label {
-                display: none;
-            }
-            .submenu {
-                display: none !important;
-            }
-            /* On mobile, no submenus to save space, but we keep them in desktop */
-            .sidebar-footer {
-                display: none;
-            }
-            .main-content {
-                padding: 16px;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        @media (max-width:500px) {
+            .login-container { padding:28px 18px; margin:16px; }
+            .stats-grid { grid-template-columns:1fr; }
+            .main-header { flex-direction:column; align-items:stretch; }
+            .main-header .user-badge { justify-content:center; }
+            table { font-size:12px; }
+            table th, table td { padding:8px 10px; }
         }
-
-        @media (max-width: 500px) {
-            .login-container {
-                padding: 28px 18px;
-                margin: 16px;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .main-header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .main-header .user-badge {
-                justify-content: center;
-            }
-            table {
-                font-size: 12px;
-            }
-            table th,
-            table td {
-                padding: 8px 10px;
-            }
-        }
-
-        /* ── Shake animation for login error ── */
-        @keyframes shake {
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-            20% {
-                transform: translateX(-8px);
-            }
-            40% {
-                transform: translateX(8px);
-            }
-            60% {
-                transform: translateX(-6px);
-            }
-            80% {
-                transform: translateX(6px);
-            }
-        }
+        @keyframes shake { 0%,100%{transform:translateX(0);} 20%{transform:translateX(-8px);} 40%{transform:translateX(8px);} 60%{transform:translateX(-6px);} 80%{transform:translateX(6px);} }
     </style>
 </head>
 <body>
@@ -812,125 +265,81 @@
                 <p class="reset-msg" id="resetMsg"></p>
             </div>
         </div>
+
+        <!-- 🔹 SKIP LOGIN (Demo) – click to enter admin panel directly -->
+        <div style="margin-top:12px;">
+            <button class="skip-demo" id="skipLoginBtn"><i class="fas fa-forward"></i> Skip Login (Demo)</button>
+        </div>
     </div>
 
     <!-- ─── ADMIN PANEL ─── -->
     <div class="admin-panel" id="adminPanel">
-
-        <!-- SIDEBAR -->
+        <!-- Sidebar (same as before, keep it concise for brevity) -->
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <i class="fas fa-shield-alt"></i>
-                <div>
-                    <h2>CYBER Expert</h2>
-                    <span>Admin Panel</span>
-                </div>
+                <div><h2>CYBER Expert</h2><span>Admin Panel</span></div>
             </div>
             <ul class="sidebar-menu">
-                <!-- DASHBOARD (no sub) -->
+                <li><a class="menu-item active" data-section="dashboard" data-sub="false"><i class="fas fa-th-large"></i> Dashboard</a></li>
                 <li>
-                    <a class="menu-item active" data-section="dashboard" data-sub="false">
-                        <i class="fas fa-th-large"></i> Dashboard
-                    </a>
-                </li>
-
-                <!-- ANALYTICS with sub -->
-                <li>
-                    <div class="menu-item" data-toggle="sub-analytics">
-                        <i class="fas fa-chart-line"></i> Analytics
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-analytics"><i class="fas fa-chart-line"></i> Analytics <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-analytics">
                         <li><a data-section="analytics" data-sub="traffic"><i class="fas fa-chart-bar"></i> Traffic</a></li>
                         <li><a data-section="analytics" data-sub="performance"><i class="fas fa-tachometer-alt"></i> Performance</a></li>
                         <li><a data-section="analytics" data-sub="reports"><i class="fas fa-file-alt"></i> Reports</a></li>
                     </ul>
                 </li>
-
-                <!-- USERS with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-users">
-                        <i class="fas fa-users"></i> Users
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-users"><i class="fas fa-users"></i> Users <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-users">
                         <li><a data-section="users" data-sub="all"><i class="fas fa-list"></i> All Users</a></li>
                         <li><a data-section="users" data-sub="add"><i class="fas fa-user-plus"></i> Add User</a></li>
                         <li><a data-section="users" data-sub="roles"><i class="fas fa-user-tag"></i> Roles</a></li>
                     </ul>
                 </li>
-
-                <!-- CONTENT with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-content">
-                        <i class="fas fa-file-alt"></i> Content
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-content"><i class="fas fa-file-alt"></i> Content <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-content">
                         <li><a data-section="content" data-sub="pages"><i class="fas fa-file"></i> Pages</a></li>
                         <li><a data-section="content" data-sub="blog"><i class="fas fa-blog"></i> Blog</a></li>
                         <li><a data-section="content" data-sub="media"><i class="fas fa-images"></i> Media</a></li>
                     </ul>
                 </li>
-
-                <!-- SECURITY with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-security">
-                        <i class="fas fa-shield-virus"></i> Security
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-security"><i class="fas fa-shield-virus"></i> Security <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-security">
                         <li><a data-section="security" data-sub="firewall"><i class="fas fa-firewall"></i> Firewall</a></li>
                         <li><a data-section="security" data-sub="logs"><i class="fas fa-history"></i> Logs</a></li>
                         <li><a data-section="security" data-sub="2fa"><i class="fas fa-mobile-alt"></i> 2FA</a></li>
                     </ul>
                 </li>
-
-                <!-- SETTINGS with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-settings">
-                        <i class="fas fa-cog"></i> Settings
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-settings"><i class="fas fa-cog"></i> Settings <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-settings">
                         <li><a data-section="settings" data-sub="general"><i class="fas fa-globe"></i> General</a></li>
                         <li><a data-section="settings" data-sub="appearance"><i class="fas fa-palette"></i> Appearance</a></li>
                         <li><a data-section="settings" data-sub="security"><i class="fas fa-lock"></i> Security</a></li>
                     </ul>
                 </li>
-
-                <!-- REPORTS with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-reports">
-                        <i class="fas fa-flag"></i> Reports
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-reports"><i class="fas fa-flag"></i> Reports <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-reports">
                         <li><a data-section="reports" data-sub="generate"><i class="fas fa-plus-circle"></i> Generate</a></li>
                         <li><a data-section="reports" data-sub="scheduled"><i class="fas fa-clock"></i> Scheduled</a></li>
                         <li><a data-section="reports" data-sub="archived"><i class="fas fa-archive"></i> Archived</a></li>
                     </ul>
                 </li>
-
-                <!-- NOTIFICATIONS with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-notifications">
-                        <i class="fas fa-bell"></i> Notifications
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-notifications"><i class="fas fa-bell"></i> Notifications <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-notifications">
                         <li><a data-section="notifications" data-sub="all"><i class="fas fa-bell"></i> All</a></li>
                         <li><a data-section="notifications" data-sub="unread"><i class="fas fa-circle" style="color:#fdbb2d;"></i> Unread</a></li>
                         <li><a data-section="notifications" data-sub="settings"><i class="fas fa-cog"></i> Settings</a></li>
                     </ul>
                 </li>
-
-                <!-- SUPPORT with sub -->
                 <li>
-                    <div class="menu-item" data-toggle="sub-support">
-                        <i class="fas fa-headset"></i> Support
-                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
+                    <div class="menu-item" data-toggle="sub-support"><i class="fas fa-headset"></i> Support <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <ul class="submenu" id="sub-support">
                         <li><a data-section="support" data-sub="tickets"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
                         <li><a data-section="support" data-sub="knowledge"><i class="fas fa-book"></i> Knowledge Base</a></li>
@@ -945,7 +354,6 @@
 
         <!-- MAIN CONTENT -->
         <main class="main-content">
-
             <div class="main-header">
                 <h1 id="pageTitle">Dashboard</h1>
                 <div class="user-badge">
@@ -972,122 +380,15 @@
                 </div>
             </div>
 
-            <!-- ANALYTICS (shared for all sub-items) -->
-            <div class="panel-section" id="section-analytics">
-                <h2>Analytics</h2>
-                <p class="section-desc" id="analytics-desc">Real-time traffic &amp; performance insights.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-chart-bar" style="margin-right:8px;color:#b21f1f;"></i> Traffic Overview</h3>
-                    <p>📊 Page views: <strong>18,432</strong> &nbsp;|&nbsp; Unique visitors: <strong>9,871</strong></p>
-                    <p>📈 Avg. session duration: <strong>4m 32s</strong></p>
-                    <button class="action-btn"><i class="fas fa-download"></i> Export Report</button>
-                </div>
-                <div class="content-card">
-                    <h3><i class="fas fa-crosshairs" style="margin-right:8px;color:#1a2a6c;"></i> Top Pages</h3>
-                    <p>1. /dashboard — 2,341 visits</p>
-                    <p>2. /projects — 1,876 visits</p>
-                    <p>3. /settings — 1,023 visits</p>
-                </div>
-            </div>
-
-            <!-- USERS -->
-            <div class="panel-section" id="section-users">
-                <h2>User Management</h2>
-                <p class="section-desc" id="users-desc">Manage all registered users and roles.</p>
-                <div class="table-wrap">
-                    <table>
-                        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead>
-                        <tbody>
-                            <tr><td>Aman Kumar</td><td>aman@cyberexpert.com</td><td>Super Admin</td><td><span class="badge active">Active</span></td></tr>
-                            <tr><td>Priya Sharma</td><td>priya@cyberexpert.com</td><td>Manager</td><td><span class="badge active">Active</span></td></tr>
-                            <tr><td>Rahul Verma</td><td>rahul@cyberexpert.com</td><td>Developer</td><td><span class="badge pending">Pending</span></td></tr>
-                            <tr><td>Neha Gupta</td><td>neha@cyberexpert.com</td><td>Designer</td><td><span class="badge inactive">Inactive</span></td></tr>
-                            <tr><td>Vikram Singh</td><td>vikram@cyberexpert.com</td><td>Analyst</td><td><span class="badge info">On Leave</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <button class="action-btn" style="margin-top:14px;"><i class="fas fa-user-plus"></i> Add New User</button>
-            </div>
-
-            <!-- CONTENT -->
-            <div class="panel-section" id="section-content">
-                <h2>Content Management</h2>
-                <p class="section-desc" id="content-desc">Blog posts, pages &amp; media.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-newspaper" style="margin-right:8px;color:#b21f1f;"></i> Recent Posts</h3>
-                    <p>📄 "Top 10 Cybersecurity Tips" — <em>Published 2 days ago</em></p>
-                    <p>📄 "Zero Trust Architecture Explained" — <em>Draft</em></p>
-                    <p>📄 "2026 Threat Landscape" — <em>Scheduled</em></p>
-                    <button class="action-btn"><i class="fas fa-edit"></i> Edit Content</button>
-                </div>
-            </div>
-
-            <!-- SECURITY -->
-            <div class="panel-section" id="section-security">
-                <h2>Security</h2>
-                <p class="section-desc" id="security-desc">Monitor threats, logs &amp; access control.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-shield-alt" style="margin-right:8px;color:#2e7d32;"></i> System Status</h3>
-                    <p>🛡️ Firewall: <span style="color:#2e7d32;font-weight:600;">Active</span></p>
-                    <p>🔐 2FA: <span style="color:#2e7d32;font-weight:600;">Enabled</span></p>
-                    <p>⚠️ Last intrusion attempt: <strong>2026-09-07 03:14 UTC</strong> — blocked</p>
-                    <button class="action-btn"><i class="fas fa-sync"></i> Run Security Scan</button>
-                </div>
-            </div>
-
-            <!-- SETTINGS -->
-            <div class="panel-section" id="section-settings">
-                <h2>Settings</h2>
-                <p class="section-desc" id="settings-desc">System configuration &amp; preferences.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-globe" style="margin-right:8px;color:#1a2a6c;"></i> General</h3>
-                    <p>🌐 Site Name: CYBER Expert IT Solutions</p>
-                    <p>📧 Contact: support@cyberexpert.com</p>
-                    <button class="action-btn"><i class="fas fa-save"></i> Save Changes</button>
-                </div>
-                <div class="content-card">
-                    <h3><i class="fas fa-palette" style="margin-right:8px;color:#fdbb2d;"></i> Appearance</h3>
-                    <p>Theme: Dark Mode <span style="color:#999;font-size:13px;">(coming soon)</span></p>
-                </div>
-            </div>
-
-            <!-- REPORTS -->
-            <div class="panel-section" id="section-reports">
-                <h2>Reports</h2>
-                <p class="section-desc" id="reports-desc">Generate &amp; download system reports.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-file-pdf" style="margin-right:8px;color:#b21f1f;"></i> Available Reports</h3>
-                    <p>📊 Monthly Security Report — <em>Sept 2026</em></p>
-                    <p>📊 User Activity Log — <em>Last 30 days</em></p>
-                    <p>📊 Project Performance — <em>Q3 2026</em></p>
-                    <button class="action-btn"><i class="fas fa-download"></i> Download All</button>
-                </div>
-            </div>
-
-            <!-- NOTIFICATIONS -->
-            <div class="panel-section" id="section-notifications">
-                <h2>Notifications</h2>
-                <p class="section-desc" id="notifications-desc">Recent alerts &amp; system messages.</p>
-                <div class="content-card">
-                    <p><i class="fas fa-circle" style="color:#fdbb2d;font-size:10px;margin-right:8px;"></i> <strong>Security patch</strong> available — v2.4.2</p>
-                    <p><i class="fas fa-circle" style="color:#2e7d32;font-size:10px;margin-right:8px;"></i> <strong>Backup</strong> completed successfully</p>
-                    <p><i class="fas fa-circle" style="color:#b21f1f;font-size:10px;margin-right:8px;"></i> <strong>Critical:</strong> SSL certificate expires in 5 days</p>
-                </div>
-            </div>
-
-            <!-- SUPPORT -->
-            <div class="panel-section" id="section-support">
-                <h2>Support</h2>
-                <p class="section-desc" id="support-desc">Helpdesk &amp; support tickets.</p>
-                <div class="content-card">
-                    <h3><i class="fas fa-ticket-alt" style="margin-right:8px;color:#1a2a6c;"></i> Open Tickets</h3>
-                    <p>🎫 #1024 — "Login issue" — <span class="badge pending">Open</span></p>
-                    <p>🎫 #1025 — "Billing question" — <span class="badge info">In Progress</span></p>
-                    <p>🎫 #1026 — "Feature request" — <span class="badge active">Resolved</span></p>
-                    <button class="action-btn"><i class="fas fa-plus"></i> New Ticket</button>
-                </div>
-            </div>
-
+            <!-- Other sections (simplified) – same as before -->
+            <div class="panel-section" id="section-analytics"><h2>Analytics</h2><p class="section-desc">Real-time traffic &amp; performance insights.</p><div class="content-card"><h3><i class="fas fa-chart-bar" style="margin-right:8px;color:#b21f1f;"></i> Traffic Overview</h3><p>📊 Page views: <strong>18,432</strong> &nbsp;|&nbsp; Unique visitors: <strong>9,871</strong></p><p>📈 Avg. session duration: <strong>4m 32s</strong></p><button class="action-btn"><i class="fas fa-download"></i> Export Report</button></div></div>
+            <div class="panel-section" id="section-users"><h2>User Management</h2><p class="section-desc">Manage all registered users.</p><div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead><tbody><tr><td>Aman Kumar</td><td>aman@cyberexpert.com</td><td>Super Admin</td><td><span class="badge active">Active</span></td></tr><tr><td>Priya Sharma</td><td>priya@cyberexpert.com</td><td>Manager</td><td><span class="badge active">Active</span></td></tr><tr><td>Rahul Verma</td><td>rahul@cyberexpert.com</td><td>Developer</td><td><span class="badge pending">Pending</span></td></tr><tr><td>Neha Gupta</td><td>neha@cyberexpert.com</td><td>Designer</td><td><span class="badge inactive">Inactive</span></td></tr><tr><td>Vikram Singh</td><td>vikram@cyberexpert.com</td><td>Analyst</td><td><span class="badge info">On Leave</span></td></tr></tbody></table></div><button class="action-btn" style="margin-top:14px;"><i class="fas fa-user-plus"></i> Add New User</button></div>
+            <div class="panel-section" id="section-content"><h2>Content Management</h2><p class="section-desc">Blog posts, pages &amp; media.</p><div class="content-card"><h3><i class="fas fa-newspaper" style="margin-right:8px;color:#b21f1f;"></i> Recent Posts</h3><p>📄 "Top 10 Cybersecurity Tips" — <em>Published 2 days ago</em></p><p>📄 "Zero Trust Architecture Explained" — <em>Draft</em></p><p>📄 "2026 Threat Landscape" — <em>Scheduled</em></p><button class="action-btn"><i class="fas fa-edit"></i> Edit Content</button></div></div>
+            <div class="panel-section" id="section-security"><h2>Security</h2><p class="section-desc">Monitor threats, logs &amp; access control.</p><div class="content-card"><h3><i class="fas fa-shield-alt" style="margin-right:8px;color:#2e7d32;"></i> System Status</h3><p>🛡️ Firewall: <span style="color:#2e7d32;font-weight:600;">Active</span></p><p>🔐 2FA: <span style="color:#2e7d32;font-weight:600;">Enabled</span></p><p>⚠️ Last intrusion attempt: <strong>2026-09-07 03:14 UTC</strong> — blocked</p><button class="action-btn"><i class="fas fa-sync"></i> Run Security Scan</button></div></div>
+            <div class="panel-section" id="section-settings"><h2>Settings</h2><p class="section-desc">System configuration &amp; preferences.</p><div class="content-card"><h3><i class="fas fa-globe" style="margin-right:8px;color:#1a2a6c;"></i> General</h3><p>🌐 Site Name: CYBER Expert IT Solutions</p><p>📧 Contact: support@cyberexpert.com</p><button class="action-btn"><i class="fas fa-save"></i> Save Changes</button></div><div class="content-card"><h3><i class="fas fa-palette" style="margin-right:8px;color:#fdbb2d;"></i> Appearance</h3><p>Theme: Dark Mode <span style="color:#999;font-size:13px;">(coming soon)</span></p></div></div>
+            <div class="panel-section" id="section-reports"><h2>Reports</h2><p class="section-desc">Generate &amp; download system reports.</p><div class="content-card"><h3><i class="fas fa-file-pdf" style="margin-right:8px;color:#b21f1f;"></i> Available Reports</h3><p>📊 Monthly Security Report — <em>Sept 2026</em></p><p>📊 User Activity Log — <em>Last 30 days</em></p><p>📊 Project Performance — <em>Q3 2026</em></p><button class="action-btn"><i class="fas fa-download"></i> Download All</button></div></div>
+            <div class="panel-section" id="section-notifications"><h2>Notifications</h2><p class="section-desc">Recent alerts &amp; system messages.</p><div class="content-card"><p><i class="fas fa-circle" style="color:#fdbb2d;font-size:10px;margin-right:8px;"></i> <strong>Security patch</strong> available — v2.4.2</p><p><i class="fas fa-circle" style="color:#2e7d32;font-size:10px;margin-right:8px;"></i> <strong>Backup</strong> completed successfully</p><p><i class="fas fa-circle" style="color:#b21f1f;font-size:10px;margin-right:8px;"></i> <strong>Critical:</strong> SSL certificate expires in 5 days</p></div></div>
+            <div class="panel-section" id="section-support"><h2>Support</h2><p class="section-desc">Helpdesk &amp; support tickets.</p><div class="content-card"><h3><i class="fas fa-ticket-alt" style="margin-right:8px;color:#1a2a6c;"></i> Open Tickets</h3><p>🎫 #1024 — "Login issue" — <span class="badge pending">Open</span></p><p>🎫 #1025 — "Billing question" — <span class="badge info">In Progress</span></p><p>🎫 #1026 — "Feature request" — <span class="badge active">Resolved</span></p><button class="action-btn"><i class="fas fa-plus"></i> New Ticket</button></div></div>
         </main>
     </div>
 
@@ -1096,7 +397,6 @@
         (function() {
             'use strict';
 
-            // ── DOM refs ──
             const loginContainer = document.getElementById('loginContainer');
             const adminPanel = document.getElementById('adminPanel');
             const loginForm = document.getElementById('loginForm');
@@ -1111,19 +411,11 @@
             const resetMsg = document.getElementById('resetMsg');
 
             const logoutBtn = document.getElementById('logoutBtn');
+            const skipBtn = document.getElementById('skipLoginBtn');
 
-            // ── Hardcoded credentials ──
             const VALID_USERNAME = 'Aman';
             const VALID_PASSWORD = 'aman';
 
-            // ── Check session ──
-            function checkSession() {
-                if (localStorage.getItem('adminLoggedIn') === 'true') {
-                    showAdminPanel();
-                }
-            }
-
-            // ── Show admin panel ──
             function showAdminPanel() {
                 loginContainer.style.display = 'none';
                 adminPanel.classList.add('active');
@@ -1135,7 +427,6 @@
                 switchSection('dashboard');
             }
 
-            // ── Hide admin panel ──
             function hideAdminPanel() {
                 localStorage.removeItem('adminLoggedIn');
                 adminPanel.classList.remove('active');
@@ -1147,12 +438,11 @@
                 loginError.textContent = '';
                 usernameInput.value = '';
                 passwordInput.value = '';
-                // Reset any open submenus
                 document.querySelectorAll('.submenu').forEach(s => s.classList.remove('open'));
                 document.querySelectorAll('.toggle-icon').forEach(i => i.classList.remove('open'));
             }
 
-            // ── Login handler ──
+            // Login
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const user = usernameInput.value.trim();
@@ -1163,27 +453,27 @@
                     localStorage.setItem('adminLoggedIn', 'true');
                     showAdminPanel();
                 } else {
-                    loginError.textContent = '❌ Invalid username or password.';
+                    loginError.textContent = '❌ Invalid username or password. Use "Aman" / "aman"';
                     loginForm.style.animation = 'shake 0.4s ease';
                     setTimeout(() => { loginForm.style.animation = ''; }, 500);
                 }
             });
 
-            // ── Password Reset ──
+            // Skip Login (Demo) – directly enter panel
+            skipBtn.addEventListener('click', function() {
+                localStorage.setItem('adminLoggedIn', 'true');
+                showAdminPanel();
+            });
+
+            // Reset password
             resetToggle.addEventListener('click', function() {
                 resetForm.classList.toggle('open');
                 resetMsg.textContent = '';
                 resetMsg.className = 'reset-msg';
             });
-
             resetBtn.addEventListener('click', function() {
                 const email = resetEmail.value.trim();
-                if (!email) {
-                    resetMsg.textContent = '⚠️ Please enter your email address.';
-                    resetMsg.className = 'reset-msg error';
-                    return;
-                }
-                if (!email.includes('@') || !email.includes('.')) {
+                if (!email || !email.includes('@') || !email.includes('.')) {
                     resetMsg.textContent = '⚠️ Please enter a valid email.';
                     resetMsg.className = 'reset-msg error';
                     return;
@@ -1198,7 +488,7 @@
                 }, 3000);
             });
 
-            // ── Toggle Submenus ──
+            // Toggle submenus
             document.querySelectorAll('[data-toggle]').forEach(function(toggle) {
                 toggle.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1212,139 +502,64 @@
                 });
             });
 
-            // ── Sidebar navigation (main items & sub-items) ──
+            // Sidebar navigation
             document.querySelectorAll('.sidebar-menu a[data-section]').forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const section = this.getAttribute('data-section');
-                    // If it's a sub-item, we might want to update description based on data-sub
                     const sub = this.getAttribute('data-sub') || '';
                     switchSection(section, sub);
-                    // update active class on all menu items (including sub)
                     document.querySelectorAll('.sidebar-menu a[data-section]').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
-                    // Also remove active from parent .menu-item if any (but we keep them separate)
-                    document.querySelectorAll('.menu-item[data-section]').forEach(m => m.classList.remove('active'));
-                    // If this is a sub-item, we also want to highlight the parent .menu-item
+                    document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
                     const parentLi = this.closest('li');
                     if (parentLi) {
                         const parentMenu = parentLi.parentElement?.previousElementSibling?.querySelector('.menu-item');
-                        if (parentMenu) {
-                            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-                            parentMenu.classList.add('active');
-                        }
+                        if (parentMenu) parentMenu.classList.add('active');
                     } else {
-                        // If it's a main item (no sub) we set active on itself
                         const mainItem = this.closest('.menu-item');
-                        if (mainItem) {
-                            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-                            mainItem.classList.add('active');
-                        }
+                        if (mainItem) mainItem.classList.add('active');
                     }
-                    // Update page title
-                    const titles = {
-                        dashboard: 'Dashboard',
-                        analytics: 'Analytics',
-                        users: 'User Management',
-                        content: 'Content Management',
-                        security: 'Security',
-                        settings: 'Settings',
-                        reports: 'Reports',
-                        notifications: 'Notifications',
-                        support: 'Support'
-                    };
+                    const titles = { dashboard:'Dashboard', analytics:'Analytics', users:'User Management', content:'Content Management', security:'Security', settings:'Settings', reports:'Reports', notifications:'Notifications', support:'Support' };
                     document.getElementById('pageTitle').textContent = titles[section] || section;
                 });
             });
 
-            // ── Switch section ──
             function switchSection(section, sub) {
-                // Hide all sections
                 document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active'));
                 const target = document.getElementById('section-' + section);
                 if (target) {
                     target.classList.add('active');
-                    // Optionally update description based on sub (if needed)
                     const desc = target.querySelector('.section-desc');
                     if (desc) {
                         const subMap = {
-                            'traffic': 'Real-time traffic overview.',
-                            'performance': 'System performance metrics.',
-                            'reports': 'Detailed analytics reports.',
-                            'all': 'List of all registered users.',
-                            'add': 'Add a new user to the system.',
-                            'roles': 'Manage user roles and permissions.',
-                            'pages': 'Manage your website pages.',
-                            'blog': 'Create and manage blog posts.',
-                            'media': 'Upload and manage media files.',
-                            'firewall': 'Firewall configuration and status.',
-                            'logs': 'System and security logs.',
-                            '2fa': 'Two-factor authentication settings.',
-                            'general': 'General system settings.',
-                            'appearance': 'Customize the look and feel.',
-                            'security': 'Security settings and policies.',
-                            'generate': 'Generate new reports.',
-                            'scheduled': 'View scheduled report jobs.',
-                            'archived': 'Access archived reports.',
-                            'all': 'All notifications.',
-                            'unread': 'Unread notifications.',
-                            'settings': 'Notification preferences.',
-                            'tickets': 'Support tickets.',
-                            'knowledge': 'Knowledge base articles.',
-                            'contact': 'Contact support.'
+                            'traffic':'Real-time traffic overview.','performance':'System performance metrics.','reports':'Detailed analytics reports.',
+                            'all':'List of all registered users.','add':'Add a new user to the system.','roles':'Manage user roles and permissions.',
+                            'pages':'Manage your website pages.','blog':'Create and manage blog posts.','media':'Upload and manage media files.',
+                            'firewall':'Firewall configuration and status.','logs':'System and security logs.','2fa':'Two-factor authentication settings.',
+                            'general':'General system settings.','appearance':'Customize the look and feel.','security':'Security settings and policies.',
+                            'generate':'Generate new reports.','scheduled':'View scheduled report jobs.','archived':'Access archived reports.',
+                            'all':'All notifications.','unread':'Unread notifications.','settings':'Notification preferences.',
+                            'tickets':'Support tickets.','knowledge':'Knowledge base articles.','contact':'Contact support.'
                         };
-                        if (sub && subMap[sub]) {
-                            desc.textContent = subMap[sub];
-                        } else {
-                            // fallback default description per section
-                            const defaultDesc = {
-                                analytics: 'Real-time traffic & performance insights.',
-                                users: 'Manage all registered users and roles.',
-                                content: 'Blog posts, pages & media.',
-                                security: 'Monitor threats, logs & access control.',
-                                settings: 'System configuration & preferences.',
-                                reports: 'Generate & download system reports.',
-                                notifications: 'Recent alerts & system messages.',
-                                support: 'Helpdesk & support tickets.'
-                            };
-                            desc.textContent = defaultDesc[section] || '';
-                        }
+                        const defaultDesc = { analytics:'Real-time traffic & performance insights.', users:'Manage all registered users and roles.', content:'Blog posts, pages & media.', security:'Monitor threats, logs & access control.', settings:'System configuration & preferences.', reports:'Generate & download system reports.', notifications:'Recent alerts & system messages.', support:'Helpdesk & support tickets.' };
+                        desc.textContent = (sub && subMap[sub]) ? subMap[sub] : (defaultDesc[section] || '');
                     }
                 }
             }
 
-            // ── Logout ──
+            // Logout
             logoutBtn.addEventListener('click', function() {
-                if (confirm('Are you sure you want to logout?')) {
-                    hideAdminPanel();
-                }
+                if (confirm('Are you sure you want to logout?')) hideAdminPanel();
             });
 
-            // ── Allow Enter on reset email ──
-            resetEmail.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    resetBtn.click();
-                }
-            });
-
-            // ── Allow Enter on login fields ──
+            // Enter key support
+            resetEmail.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); resetBtn.click(); } });
             [usernameInput, passwordInput].forEach(field => {
-                field.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        loginForm.dispatchEvent(new Event('submit'));
-                    }
-                });
+                field.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); loginForm.dispatchEvent(new Event('submit')); } });
             });
 
-            // ── Init ──
-            checkSession();
-
-            // On page load, if admin panel is visible, ensure correct active states
-            // But we already call showAdminPanel which sets active
-
-            // ── Additional: if a submenu item is clicked, open parent submenu ──
+            // Auto-open submenu when a sub-item is clicked
             document.querySelectorAll('.submenu a[data-section]').forEach(subLink => {
                 subLink.addEventListener('click', function() {
                     const parentSub = this.closest('.submenu');
@@ -1355,6 +570,11 @@
                     }
                 });
             });
+
+            // Check session
+            if (localStorage.getItem('adminLoggedIn') === 'true') {
+                showAdminPanel();
+            }
 
         })();
     </script>
