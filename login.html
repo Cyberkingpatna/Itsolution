@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CYBER Expert IT - Admin Panel</title>
-    <meta name="description" content="Login to CYBER Expert IT Solutions." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
     <style>
@@ -24,6 +23,7 @@
             justify-content: center;
             opacity: 0;
             animation: fadeInBody 0.8s ease forwards;
+            padding: 20px;
         }
 
         @keyframes fadeInBody {
@@ -214,7 +214,7 @@
         .admin-panel {
             display: none;
             width: 100%;
-            max-width: 1300px;
+            max-width: 1400px;
             min-height: 90vh;
             background: #f0f2f5;
             border-radius: 18px;
@@ -240,18 +240,19 @@
 
         /* ── Sidebar ── */
         .sidebar {
-            width: 260px;
+            width: 280px;
             background: #1a2a6c;
             color: #fff;
-            padding: 24px 0 20px;
+            padding: 20px 0 16px;
             display: flex;
             flex-direction: column;
             flex-shrink: 0;
             min-height: 100%;
+            overflow-y: auto;
         }
 
         .sidebar-brand {
-            padding: 0 20px 28px;
+            padding: 0 20px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
         }
@@ -276,20 +277,21 @@
 
         .sidebar-menu {
             list-style: none;
-            padding: 20px 12px 0;
+            padding: 12px 12px 0;
             flex: 1;
             overflow-y: auto;
         }
 
         .sidebar-menu li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
-        .sidebar-menu li a {
+        .sidebar-menu li a,
+        .sidebar-menu li .menu-item {
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 12px 16px;
+            padding: 10px 16px;
             border-radius: 10px;
             color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
@@ -297,20 +299,27 @@
             font-weight: 500;
             transition: 0.25s;
             cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
         }
 
-        .sidebar-menu li a i {
+        .sidebar-menu li a i,
+        .sidebar-menu li .menu-item i {
             width: 20px;
             text-align: center;
             font-size: 16px;
         }
 
-        .sidebar-menu li a:hover {
+        .sidebar-menu li a:hover,
+        .sidebar-menu li .menu-item:hover {
             background: rgba(255, 255, 255, 0.12);
             color: #fff;
         }
 
-        .sidebar-menu li a.active {
+        .sidebar-menu li a.active,
+        .sidebar-menu li .menu-item.active {
             background: rgba(253, 187, 45, 0.2);
             color: #fdbb2d;
             font-weight: 600;
@@ -321,8 +330,54 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.3);
-            padding: 16px 16px 8px;
+            padding: 16px 16px 6px;
             font-weight: 600;
+        }
+
+        /* ── Submenu ── */
+        .submenu {
+            list-style: none;
+            padding-left: 16px;
+            margin: 2px 0 4px 18px;
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            display: none;
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu li a {
+            padding: 6px 16px 6px 10px;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            gap: 12px;
+        }
+
+        .submenu li a i {
+            font-size: 13px;
+            width: 18px;
+        }
+
+        .submenu li a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .submenu li a.active {
+            color: #fdbb2d;
+            background: rgba(253, 187, 45, 0.1);
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            transition: 0.3s;
+            font-size: 12px;
+        }
+
+        .toggle-icon.open {
+            transform: rotate(180deg);
         }
 
         .sidebar-footer {
@@ -500,7 +555,7 @@
             margin-bottom: 20px;
         }
 
-        /* ── Table / Cards ── */
+        /* ── Content Cards ── */
         .content-card {
             background: #fff;
             border-radius: 14px;
@@ -519,6 +574,7 @@
         .content-card p {
             color: #555;
             font-size: 14px;
+            margin: 4px 0;
         }
 
         .content-card .action-btn {
@@ -597,18 +653,26 @@
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+        }
+
         @media (max-width: 900px) {
             .admin-panel.active {
                 flex-direction: column;
             }
             .sidebar {
                 width: 100%;
-                padding: 16px 0 10px;
+                padding: 12px 0 8px;
                 flex-direction: row;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: space-between;
                 min-height: auto;
+                max-height: 60vh;
+                overflow-y: auto;
             }
             .sidebar-brand {
                 padding: 0 16px 0 20px;
@@ -628,26 +692,36 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 4px;
-                padding: 10px 12px;
+                padding: 8px 12px;
                 overflow-x: auto;
                 flex: none;
+                width: 100%;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                margin-top: 8px;
             }
             .sidebar-menu li {
                 margin: 0;
+                flex: 0 0 auto;
             }
-            .sidebar-menu li a {
-                padding: 8px 14px;
-                font-size: 13px;
+            .sidebar-menu li a,
+            .sidebar-menu li .menu-item {
+                padding: 6px 12px;
+                font-size: 12px;
                 white-space: nowrap;
+                gap: 8px;
             }
             .sidebar-menu .menu-label {
                 display: none;
             }
+            .submenu {
+                display: none !important;
+            }
+            /* On mobile, no submenus to save space, but we keep them in desktop */
             .sidebar-footer {
                 display: none;
             }
             .main-content {
-                padding: 18px 16px;
+                padding: 16px;
             }
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -675,6 +749,26 @@
             table th,
             table td {
                 padding: 8px 10px;
+            }
+        }
+
+        /* ── Shake animation for login error ── */
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-8px);
+            }
+            40% {
+                transform: translateX(8px);
+            }
+            60% {
+                transform: translateX(-6px);
+            }
+            80% {
+                transform: translateX(6px);
             }
         }
     </style>
@@ -733,20 +827,116 @@
                 </div>
             </div>
             <ul class="sidebar-menu">
-                <li class="menu-label">Main</li>
-                <li><a class="active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
-                <li><a data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <!-- DASHBOARD (no sub) -->
+                <li>
+                    <a class="menu-item active" data-section="dashboard" data-sub="false">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
+                </li>
 
-                <li class="menu-label">Management</li>
-                <li><a data-section="users"><i class="fas fa-users"></i> Users</a></li>
-                <li><a data-section="content"><i class="fas fa-file-alt"></i> Content</a></li>
-                <li><a data-section="security"><i class="fas fa-shield-virus"></i> Security</a></li>
+                <!-- ANALYTICS with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-analytics">
+                        <i class="fas fa-chart-line"></i> Analytics
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-analytics">
+                        <li><a data-section="analytics" data-sub="traffic"><i class="fas fa-chart-bar"></i> Traffic</a></li>
+                        <li><a data-section="analytics" data-sub="performance"><i class="fas fa-tachometer-alt"></i> Performance</a></li>
+                        <li><a data-section="analytics" data-sub="reports"><i class="fas fa-file-alt"></i> Reports</a></li>
+                    </ul>
+                </li>
 
-                <li class="menu-label">System</li>
-                <li><a data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a data-section="reports"><i class="fas fa-flag"></i> Reports</a></li>
-                <li><a data-section="notifications"><i class="fas fa-bell"></i> Notifications</a></li>
-                <li><a data-section="support"><i class="fas fa-headset"></i> Support</a></li>
+                <!-- USERS with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-users">
+                        <i class="fas fa-users"></i> Users
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-users">
+                        <li><a data-section="users" data-sub="all"><i class="fas fa-list"></i> All Users</a></li>
+                        <li><a data-section="users" data-sub="add"><i class="fas fa-user-plus"></i> Add User</a></li>
+                        <li><a data-section="users" data-sub="roles"><i class="fas fa-user-tag"></i> Roles</a></li>
+                    </ul>
+                </li>
+
+                <!-- CONTENT with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-content">
+                        <i class="fas fa-file-alt"></i> Content
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-content">
+                        <li><a data-section="content" data-sub="pages"><i class="fas fa-file"></i> Pages</a></li>
+                        <li><a data-section="content" data-sub="blog"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a data-section="content" data-sub="media"><i class="fas fa-images"></i> Media</a></li>
+                    </ul>
+                </li>
+
+                <!-- SECURITY with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-security">
+                        <i class="fas fa-shield-virus"></i> Security
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-security">
+                        <li><a data-section="security" data-sub="firewall"><i class="fas fa-firewall"></i> Firewall</a></li>
+                        <li><a data-section="security" data-sub="logs"><i class="fas fa-history"></i> Logs</a></li>
+                        <li><a data-section="security" data-sub="2fa"><i class="fas fa-mobile-alt"></i> 2FA</a></li>
+                    </ul>
+                </li>
+
+                <!-- SETTINGS with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-settings">
+                        <i class="fas fa-cog"></i> Settings
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-settings">
+                        <li><a data-section="settings" data-sub="general"><i class="fas fa-globe"></i> General</a></li>
+                        <li><a data-section="settings" data-sub="appearance"><i class="fas fa-palette"></i> Appearance</a></li>
+                        <li><a data-section="settings" data-sub="security"><i class="fas fa-lock"></i> Security</a></li>
+                    </ul>
+                </li>
+
+                <!-- REPORTS with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-reports">
+                        <i class="fas fa-flag"></i> Reports
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-reports">
+                        <li><a data-section="reports" data-sub="generate"><i class="fas fa-plus-circle"></i> Generate</a></li>
+                        <li><a data-section="reports" data-sub="scheduled"><i class="fas fa-clock"></i> Scheduled</a></li>
+                        <li><a data-section="reports" data-sub="archived"><i class="fas fa-archive"></i> Archived</a></li>
+                    </ul>
+                </li>
+
+                <!-- NOTIFICATIONS with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-notifications">
+                        <i class="fas fa-bell"></i> Notifications
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-notifications">
+                        <li><a data-section="notifications" data-sub="all"><i class="fas fa-bell"></i> All</a></li>
+                        <li><a data-section="notifications" data-sub="unread"><i class="fas fa-circle" style="color:#fdbb2d;"></i> Unread</a></li>
+                        <li><a data-section="notifications" data-sub="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    </ul>
+                </li>
+
+                <!-- SUPPORT with sub -->
+                <li>
+                    <div class="menu-item" data-toggle="sub-support">
+                        <i class="fas fa-headset"></i> Support
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <ul class="submenu" id="sub-support">
+                        <li><a data-section="support" data-sub="tickets"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
+                        <li><a data-section="support" data-sub="knowledge"><i class="fas fa-book"></i> Knowledge Base</a></li>
+                        <li><a data-section="support" data-sub="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="sidebar-footer">
                 <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
@@ -782,10 +972,10 @@
                 </div>
             </div>
 
-            <!-- ANALYTICS -->
+            <!-- ANALYTICS (shared for all sub-items) -->
             <div class="panel-section" id="section-analytics">
                 <h2>Analytics</h2>
-                <p class="section-desc">Real-time traffic &amp; performance insights.</p>
+                <p class="section-desc" id="analytics-desc">Real-time traffic &amp; performance insights.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-chart-bar" style="margin-right:8px;color:#b21f1f;"></i> Traffic Overview</h3>
                     <p>📊 Page views: <strong>18,432</strong> &nbsp;|&nbsp; Unique visitors: <strong>9,871</strong></p>
@@ -803,7 +993,7 @@
             <!-- USERS -->
             <div class="panel-section" id="section-users">
                 <h2>User Management</h2>
-                <p class="section-desc">Manage all registered users and roles.</p>
+                <p class="section-desc" id="users-desc">Manage all registered users and roles.</p>
                 <div class="table-wrap">
                     <table>
                         <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead>
@@ -822,7 +1012,7 @@
             <!-- CONTENT -->
             <div class="panel-section" id="section-content">
                 <h2>Content Management</h2>
-                <p class="section-desc">Blog posts, pages &amp; media.</p>
+                <p class="section-desc" id="content-desc">Blog posts, pages &amp; media.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-newspaper" style="margin-right:8px;color:#b21f1f;"></i> Recent Posts</h3>
                     <p>📄 "Top 10 Cybersecurity Tips" — <em>Published 2 days ago</em></p>
@@ -835,7 +1025,7 @@
             <!-- SECURITY -->
             <div class="panel-section" id="section-security">
                 <h2>Security</h2>
-                <p class="section-desc">Monitor threats, logs &amp; access control.</p>
+                <p class="section-desc" id="security-desc">Monitor threats, logs &amp; access control.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-shield-alt" style="margin-right:8px;color:#2e7d32;"></i> System Status</h3>
                     <p>🛡️ Firewall: <span style="color:#2e7d32;font-weight:600;">Active</span></p>
@@ -848,7 +1038,7 @@
             <!-- SETTINGS -->
             <div class="panel-section" id="section-settings">
                 <h2>Settings</h2>
-                <p class="section-desc">System configuration &amp; preferences.</p>
+                <p class="section-desc" id="settings-desc">System configuration &amp; preferences.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-globe" style="margin-right:8px;color:#1a2a6c;"></i> General</h3>
                     <p>🌐 Site Name: CYBER Expert IT Solutions</p>
@@ -864,7 +1054,7 @@
             <!-- REPORTS -->
             <div class="panel-section" id="section-reports">
                 <h2>Reports</h2>
-                <p class="section-desc">Generate &amp; download system reports.</p>
+                <p class="section-desc" id="reports-desc">Generate &amp; download system reports.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-file-pdf" style="margin-right:8px;color:#b21f1f;"></i> Available Reports</h3>
                     <p>📊 Monthly Security Report — <em>Sept 2026</em></p>
@@ -877,7 +1067,7 @@
             <!-- NOTIFICATIONS -->
             <div class="panel-section" id="section-notifications">
                 <h2>Notifications</h2>
-                <p class="section-desc">Recent alerts &amp; system messages.</p>
+                <p class="section-desc" id="notifications-desc">Recent alerts &amp; system messages.</p>
                 <div class="content-card">
                     <p><i class="fas fa-circle" style="color:#fdbb2d;font-size:10px;margin-right:8px;"></i> <strong>Security patch</strong> available — v2.4.2</p>
                     <p><i class="fas fa-circle" style="color:#2e7d32;font-size:10px;margin-right:8px;"></i> <strong>Backup</strong> completed successfully</p>
@@ -888,7 +1078,7 @@
             <!-- SUPPORT -->
             <div class="panel-section" id="section-support">
                 <h2>Support</h2>
-                <p class="section-desc">Helpdesk &amp; support tickets.</p>
+                <p class="section-desc" id="support-desc">Helpdesk &amp; support tickets.</p>
                 <div class="content-card">
                     <h3><i class="fas fa-ticket-alt" style="margin-right:8px;color:#1a2a6c;"></i> Open Tickets</h3>
                     <p>🎫 #1024 — "Login issue" — <span class="badge pending">Open</span></p>
@@ -941,13 +1131,11 @@
                 document.body.style.minHeight = '100vh';
                 document.body.style.alignItems = 'flex-start';
                 document.body.style.padding = '20px';
-                // reset any body animation
                 document.body.style.animation = 'none';
-                // set default section
                 switchSection('dashboard');
             }
 
-            // ── Hide admin panel (logout) ──
+            // ── Hide admin panel ──
             function hideAdminPanel() {
                 localStorage.removeItem('adminLoggedIn');
                 adminPanel.classList.remove('active');
@@ -959,6 +1147,9 @@
                 loginError.textContent = '';
                 usernameInput.value = '';
                 passwordInput.value = '';
+                // Reset any open submenus
+                document.querySelectorAll('.submenu').forEach(s => s.classList.remove('open'));
+                document.querySelectorAll('.toggle-icon').forEach(i => i.classList.remove('open'));
             }
 
             // ── Login handler ──
@@ -973,7 +1164,6 @@
                     showAdminPanel();
                 } else {
                     loginError.textContent = '❌ Invalid username or password.';
-                    // Shake effect
                     loginForm.style.animation = 'shake 0.4s ease';
                     setTimeout(() => { loginForm.style.animation = ''; }, 500);
                 }
@@ -998,7 +1188,6 @@
                     resetMsg.className = 'reset-msg error';
                     return;
                 }
-                // Simulate sending reset link
                 resetMsg.textContent = '✅ Reset link sent to ' + email + ' (demo)';
                 resetMsg.className = 'reset-msg success';
                 resetEmail.value = '';
@@ -1009,16 +1198,50 @@
                 }, 3000);
             });
 
-            // ── Sidebar navigation ──
+            // ── Toggle Submenus ──
+            document.querySelectorAll('[data-toggle]').forEach(function(toggle) {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const targetId = this.getAttribute('data-toggle');
+                    const sub = document.getElementById(targetId);
+                    if (sub) {
+                        sub.classList.toggle('open');
+                        const icon = this.querySelector('.toggle-icon');
+                        if (icon) icon.classList.toggle('open');
+                    }
+                });
+            });
+
+            // ── Sidebar navigation (main items & sub-items) ──
             document.querySelectorAll('.sidebar-menu a[data-section]').forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const section = this.getAttribute('data-section');
-                    switchSection(section);
-                    // update active class
+                    // If it's a sub-item, we might want to update description based on data-sub
+                    const sub = this.getAttribute('data-sub') || '';
+                    switchSection(section, sub);
+                    // update active class on all menu items (including sub)
                     document.querySelectorAll('.sidebar-menu a[data-section]').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
-                    // update page title
+                    // Also remove active from parent .menu-item if any (but we keep them separate)
+                    document.querySelectorAll('.menu-item[data-section]').forEach(m => m.classList.remove('active'));
+                    // If this is a sub-item, we also want to highlight the parent .menu-item
+                    const parentLi = this.closest('li');
+                    if (parentLi) {
+                        const parentMenu = parentLi.parentElement?.previousElementSibling?.querySelector('.menu-item');
+                        if (parentMenu) {
+                            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+                            parentMenu.classList.add('active');
+                        }
+                    } else {
+                        // If it's a main item (no sub) we set active on itself
+                        const mainItem = this.closest('.menu-item');
+                        if (mainItem) {
+                            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+                            mainItem.classList.add('active');
+                        }
+                    }
+                    // Update page title
                     const titles = {
                         dashboard: 'Dashboard',
                         analytics: 'Analytics',
@@ -1034,10 +1257,60 @@
                 });
             });
 
-            function switchSection(section) {
+            // ── Switch section ──
+            function switchSection(section, sub) {
+                // Hide all sections
                 document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active'));
                 const target = document.getElementById('section-' + section);
-                if (target) target.classList.add('active');
+                if (target) {
+                    target.classList.add('active');
+                    // Optionally update description based on sub (if needed)
+                    const desc = target.querySelector('.section-desc');
+                    if (desc) {
+                        const subMap = {
+                            'traffic': 'Real-time traffic overview.',
+                            'performance': 'System performance metrics.',
+                            'reports': 'Detailed analytics reports.',
+                            'all': 'List of all registered users.',
+                            'add': 'Add a new user to the system.',
+                            'roles': 'Manage user roles and permissions.',
+                            'pages': 'Manage your website pages.',
+                            'blog': 'Create and manage blog posts.',
+                            'media': 'Upload and manage media files.',
+                            'firewall': 'Firewall configuration and status.',
+                            'logs': 'System and security logs.',
+                            '2fa': 'Two-factor authentication settings.',
+                            'general': 'General system settings.',
+                            'appearance': 'Customize the look and feel.',
+                            'security': 'Security settings and policies.',
+                            'generate': 'Generate new reports.',
+                            'scheduled': 'View scheduled report jobs.',
+                            'archived': 'Access archived reports.',
+                            'all': 'All notifications.',
+                            'unread': 'Unread notifications.',
+                            'settings': 'Notification preferences.',
+                            'tickets': 'Support tickets.',
+                            'knowledge': 'Knowledge base articles.',
+                            'contact': 'Contact support.'
+                        };
+                        if (sub && subMap[sub]) {
+                            desc.textContent = subMap[sub];
+                        } else {
+                            // fallback default description per section
+                            const defaultDesc = {
+                                analytics: 'Real-time traffic & performance insights.',
+                                users: 'Manage all registered users and roles.',
+                                content: 'Blog posts, pages & media.',
+                                security: 'Monitor threats, logs & access control.',
+                                settings: 'System configuration & preferences.',
+                                reports: 'Generate & download system reports.',
+                                notifications: 'Recent alerts & system messages.',
+                                support: 'Helpdesk & support tickets.'
+                            };
+                            desc.textContent = defaultDesc[section] || '';
+                        }
+                    }
+                }
             }
 
             // ── Logout ──
@@ -1047,23 +1320,7 @@
                 }
             });
 
-            // ── Shake animation (injected) ──
-            const styleShake = document.createElement('style');
-            styleShake.textContent = `
-                        @keyframes shake {
-                            0%, 100% { transform: translateX(0); }
-                            20% { transform: translateX(-8px); }
-                            40% { transform: translateX(8px); }
-                            60% { transform: translateX(-6px); }
-                            80% { transform: translateX(6px); }
-                        }
-                    `;
-            document.head.appendChild(styleShake);
-
-            // ── Init ──
-            checkSession();
-
-            // Also allow Enter key on reset email field
+            // ── Allow Enter on reset email ──
             resetEmail.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -1071,12 +1328,30 @@
                 }
             });
 
-            // Allow Enter on login fields too
+            // ── Allow Enter on login fields ──
             [usernameInput, passwordInput].forEach(field => {
                 field.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter') {
                         e.preventDefault();
                         loginForm.dispatchEvent(new Event('submit'));
+                    }
+                });
+            });
+
+            // ── Init ──
+            checkSession();
+
+            // On page load, if admin panel is visible, ensure correct active states
+            // But we already call showAdminPanel which sets active
+
+            // ── Additional: if a submenu item is clicked, open parent submenu ──
+            document.querySelectorAll('.submenu a[data-section]').forEach(subLink => {
+                subLink.addEventListener('click', function() {
+                    const parentSub = this.closest('.submenu');
+                    if (parentSub && !parentSub.classList.contains('open')) {
+                        parentSub.classList.add('open');
+                        const toggleIcon = parentSub.parentElement?.querySelector('.toggle-icon');
+                        if (toggleIcon) toggleIcon.classList.add('open');
                     }
                 });
             });
