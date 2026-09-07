@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CYBER Expert IT Solutions</title>
-    <meta name="description" content="Login to CYBER Expert IT Solutions.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CYBER Expert IT - Admin Panel</title>
+    <meta name="description" content="Login to CYBER Expert IT Solutions." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
     <style>
-        :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
-            --accent: #fdbb2d;
-            --light: #f5f7fa;
-            --dark: #333;
-            --gray: #666;
-        }
-
+        /* ── Reset & Base ── */
         * {
             margin: 0;
             padding: 0;
@@ -25,99 +17,116 @@
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            animation: fadeInBody 1s ease forwards;
+            animation: fadeInBody 0.8s ease forwards;
         }
 
         @keyframes fadeInBody {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
+        /* ── Login Container ── */
         .login-container {
-            background: white;
+            background: #fff;
             border-radius: 15px;
-            padding: 40px;
+            padding: 40px 35px;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             text-align: center;
+            transition: 0.3s;
         }
 
         .login-logo {
-            font-size: 50px;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 48px;
+            color: #1a2a6c;
+            margin-bottom: 12px;
         }
 
         .login-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
+            color: #1a2a6c;
+            letter-spacing: -0.5px;
         }
 
         .login-subtitle {
             font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 30px;
+            color: #666;
+            margin-bottom: 28px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
-            color: var(--dark);
+            color: #333;
+            font-size: 14px;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px 16px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            font-size: 15px;
+            transition: 0.3s;
+            background: #fafafa;
         }
 
         .form-group input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(253, 187, 45, 0.2);
+            border-color: #fdbb2d;
+            box-shadow: 0 0 0 3px rgba(253, 187, 45, 0.25);
             outline: none;
+            background: #fff;
         }
 
         .login-btn {
             width: 100%;
             padding: 14px;
-            background: var(--primary);
-            color: white;
+            background: #1a2a6c;
+            color: #fff;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            margin-top: 6px;
         }
 
         .login-btn:hover {
-            background: var(--secondary);
+            background: #b21f1f;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .login-error {
+            color: #d32f2f;
+            font-size: 13px;
+            margin: 8px 0 0;
+            min-height: 22px;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 20px;
-            color: var(--primary);
+            margin-top: 16px;
+            color: #1a2a6c;
             text-decoration: none;
             font-size: 14px;
         }
@@ -125,39 +134,955 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        /* ── Password Reset ── */
+        .reset-section {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+        }
+
+        .reset-toggle {
+            color: #1a2a6c;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .reset-toggle:hover {
+            color: #b21f1f;
+        }
+
+        .reset-form {
+            display: none;
+            margin-top: 14px;
+            text-align: left;
+        }
+
+        .reset-form.open {
+            display: block;
+        }
+
+        .reset-form .form-group {
+            margin-bottom: 12px;
+        }
+
+        .reset-form .form-group input {
+            background: #fafafa;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 11px;
+            background: #fdbb2d;
+            color: #1a2a6c;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .reset-btn:hover {
+            background: #f0a500;
+            transform: translateY(-1px);
+        }
+
+        .reset-msg {
+            font-size: 13px;
+            margin-top: 8px;
+            min-height: 20px;
+        }
+
+        .reset-msg.success {
+            color: #2e7d32;
+        }
+        .reset-msg.error {
+            color: #d32f2f;
+        }
+
+        /* ──────────────────────────────────────────────
+                   ADMIN PANEL (hidden by default)
+                   ────────────────────────────────────────────── */
+        .admin-panel {
+            display: none;
+            width: 100%;
+            max-width: 1300px;
+            min-height: 90vh;
+            background: #f0f2f5;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .admin-panel.active {
+            display: flex;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 260px;
+            background: #1a2a6c;
+            color: #fff;
+            padding: 24px 0 20px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            min-height: 100%;
+        }
+
+        .sidebar-brand {
+            padding: 0 20px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .sidebar-brand i {
+            font-size: 36px;
+            color: #fdbb2d;
+        }
+
+        .sidebar-brand h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .sidebar-brand span {
+            font-size: 12px;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 12px 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .sidebar-menu li a i {
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .sidebar-menu li a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .sidebar-menu li a.active {
+            background: rgba(253, 187, 45, 0.2);
+            color: #fdbb2d;
+            font-weight: 600;
+        }
+
+        .sidebar-menu .menu-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.3);
+            padding: 16px 16px 8px;
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 8px;
+        }
+
+        .sidebar-footer .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            background: none;
+            border: none;
+            width: 100%;
+        }
+
+        .sidebar-footer .logout-btn:hover {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+        }
+
+        .sidebar-footer .logout-btn i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ── Main Content ── */
+        .main-content {
+            flex: 1;
+            padding: 28px 32px;
+            overflow-y: auto;
+            background: #f0f2f5;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .main-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2a6c;
+        }
+
+        .main-header .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 8px 18px 8px 14px;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .main-header .user-badge i {
+            font-size: 28px;
+            color: #1a2a6c;
+            background: #eef0f5;
+            padding: 6px;
+            border-radius: 50%;
+        }
+
+        .main-header .user-badge span {
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* ── Stats Cards ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 20px 22px;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+            border-left: 4px solid #1a2a6c;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .stat-card .stat-icon {
+            font-size: 28px;
+            color: #1a2a6c;
+            margin-bottom: 4px;
+        }
+
+        .stat-card .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a2a6c;
+        }
+
+        .stat-card .stat-label {
+            font-size: 14px;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .stat-card:nth-child(2) {
+            border-left-color: #b21f1f;
+        }
+        .stat-card:nth-child(2) .stat-icon,
+        .stat-card:nth-child(2) .stat-number {
+            color: #b21f1f;
+        }
+        .stat-card:nth-child(3) {
+            border-left-color: #fdbb2d;
+        }
+        .stat-card:nth-child(3) .stat-icon,
+        .stat-card:nth-child(3) .stat-number {
+            color: #d4a017;
+        }
+        .stat-card:nth-child(4) {
+            border-left-color: #2e7d32;
+        }
+        .stat-card:nth-child(4) .stat-icon,
+        .stat-card:nth-child(4) .stat-number {
+            color: #2e7d32;
+        }
+
+        /* ── Panel Sections ── */
+        .panel-section {
+            display: none;
+            animation: fadeSection 0.4s ease;
+        }
+
+        .panel-section.active {
+            display: block;
+        }
+
+        @keyframes fadeSection {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a2a6c;
+            margin-bottom: 18px;
+        }
+
+        .panel-section .section-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* ── Table / Cards ── */
+        .content-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            margin-bottom: 18px;
+        }
+
+        .content-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a2a6c;
+            margin-bottom: 6px;
+        }
+
+        .content-card p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .content-card .action-btn {
+            margin-top: 10px;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #1a2a6c;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .content-card .action-btn:hover {
+            background: #b21f1f;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 14px;
+            padding: 4px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        table th {
+            text-align: left;
+            padding: 14px 18px;
+            background: #f7f8fc;
+            color: #1a2a6c;
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecf2;
+        }
+
+        table td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #f0f2f5;
+            color: #444;
+        }
+
+        table tr:hover td {
+            background: #fafbff;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge.active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .badge.pending {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .badge.inactive {
+            background: #fbe9e7;
+            color: #b71c1c;
+        }
+        .badge.info {
+            background: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .admin-panel.active {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 16px 0 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                min-height: auto;
+            }
+            .sidebar-brand {
+                padding: 0 16px 0 20px;
+                border-bottom: none;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .sidebar-brand h2 {
+                font-size: 16px;
+                margin: 0;
+            }
+            .sidebar-brand i {
+                font-size: 28px;
+            }
+            .sidebar-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                padding: 10px 12px;
+                overflow-x: auto;
+                flex: none;
+            }
+            .sidebar-menu li {
+                margin: 0;
+            }
+            .sidebar-menu li a {
+                padding: 8px 14px;
+                font-size: 13px;
+                white-space: nowrap;
+            }
+            .sidebar-menu .menu-label {
+                display: none;
+            }
+            .sidebar-footer {
+                display: none;
+            }
+            .main-content {
+                padding: 18px 16px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 28px 18px;
+                margin: 16px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .main-header .user-badge {
+                justify-content: center;
+            }
+            table {
+                font-size: 12px;
+            }
+            table th,
+            table td {
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-logo">
-            <i class="fas fa-laptop-code"></i>
-        </div>
+
+    <!-- ─── LOGIN ─── -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-logo"><i class="fas fa-laptop-code"></i></div>
         <h1 class="login-title">CYBER Expert IT</h1>
         <p class="login-subtitle">Login to your account</p>
 
         <form id="loginForm">
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="username"><i class="fas fa-user" style="margin-right:6px;color:#1a2a6c;"></i> Username</label>
+                <input type="text" id="username" placeholder="Enter username" required autocomplete="off" />
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
+                <label for="password"><i class="fas fa-lock" style="margin-right:6px;color:#1a2a6c;"></i> Password</label>
+                <input type="password" id="password" placeholder="Enter password" required />
             </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt" style="margin-right:8px;"></i> Login</button>
+            <p class="login-error" id="loginError"></p>
         </form>
 
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <a href="#" class="back-link" onclick="window.location.reload();"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+        <!-- Password Reset -->
+        <div class="reset-section">
+            <button class="reset-toggle" id="resetToggle" type="button">
+                <i class="fas fa-key"></i> Forgot password?
+            </button>
+            <div class="reset-form" id="resetForm">
+                <div class="form-group">
+                    <label for="resetEmail">Enter your registered email</label>
+                    <input type="email" id="resetEmail" placeholder="your@email.com" />
+                </div>
+                <button class="reset-btn" id="resetBtn" type="button">
+                    <i class="fas fa-paper-plane" style="margin-right:6px;"></i> Send Reset Link
+                </button>
+                <p class="reset-msg" id="resetMsg"></p>
+            </div>
+        </div>
     </div>
 
+    <!-- ─── ADMIN PANEL ─── -->
+    <div class="admin-panel" id="adminPanel">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h2>CYBER Expert</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-label">Main</li>
+                <li><a class="active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                <li><a data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</a></li>
+
+                <li class="menu-label">Management</li>
+                <li><a data-section="users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a data-section="content"><i class="fas fa-file-alt"></i> Content</a></li>
+                <li><a data-section="security"><i class="fas fa-shield-virus"></i> Security</a></li>
+
+                <li class="menu-label">System</li>
+                <li><a data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a data-section="reports"><i class="fas fa-flag"></i> Reports</a></li>
+                <li><a data-section="notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a data-section="support"><i class="fas fa-headset"></i> Support</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <div class="main-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="user-badge">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Aman</span>
+                    <span style="font-size:12px;color:#999;font-weight:400;">Admin</span>
+                </div>
+            </div>
+
+            <!-- DASHBOARD -->
+            <div class="panel-section active" id="section-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-number">1,284</div><div class="stat-label">Total Users</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-file-signature"></i></div><div class="stat-number">47</div><div class="stat-label">Active Projects</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div><div class="stat-number">3</div><div class="stat-label">Security Alerts</div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="fas fa-check-circle"></i></div><div class="stat-number">92%</div><div class="stat-label">System Uptime</div></div>
+                </div>
+                <div class="content-card">
+                    <h3><i class="fas fa-clock" style="margin-right:8px;color:#fdbb2d;"></i> Recent Activity</h3>
+                    <p>• User <strong>john_doe</strong> logged in at 10:32 AM</p>
+                    <p>• New project <strong>"Firewall Audit"</strong> created by Aman</p>
+                    <p>• Security patch v2.4.1 installed successfully</p>
+                    <p>• 2 new support tickets opened</p>
+                </div>
+            </div>
+
+            <!-- ANALYTICS -->
+            <div class="panel-section" id="section-analytics">
+                <h2>Analytics</h2>
+                <p class="section-desc">Real-time traffic &amp; performance insights.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-chart-bar" style="margin-right:8px;color:#b21f1f;"></i> Traffic Overview</h3>
+                    <p>📊 Page views: <strong>18,432</strong> &nbsp;|&nbsp; Unique visitors: <strong>9,871</strong></p>
+                    <p>📈 Avg. session duration: <strong>4m 32s</strong></p>
+                    <button class="action-btn"><i class="fas fa-download"></i> Export Report</button>
+                </div>
+                <div class="content-card">
+                    <h3><i class="fas fa-crosshairs" style="margin-right:8px;color:#1a2a6c;"></i> Top Pages</h3>
+                    <p>1. /dashboard — 2,341 visits</p>
+                    <p>2. /projects — 1,876 visits</p>
+                    <p>3. /settings — 1,023 visits</p>
+                </div>
+            </div>
+
+            <!-- USERS -->
+            <div class="panel-section" id="section-users">
+                <h2>User Management</h2>
+                <p class="section-desc">Manage all registered users and roles.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td>Aman Kumar</td><td>aman@cyberexpert.com</td><td>Super Admin</td><td><span class="badge active">Active</span></td></tr>
+                            <tr><td>Priya Sharma</td><td>priya@cyberexpert.com</td><td>Manager</td><td><span class="badge active">Active</span></td></tr>
+                            <tr><td>Rahul Verma</td><td>rahul@cyberexpert.com</td><td>Developer</td><td><span class="badge pending">Pending</span></td></tr>
+                            <tr><td>Neha Gupta</td><td>neha@cyberexpert.com</td><td>Designer</td><td><span class="badge inactive">Inactive</span></td></tr>
+                            <tr><td>Vikram Singh</td><td>vikram@cyberexpert.com</td><td>Analyst</td><td><span class="badge info">On Leave</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="action-btn" style="margin-top:14px;"><i class="fas fa-user-plus"></i> Add New User</button>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="panel-section" id="section-content">
+                <h2>Content Management</h2>
+                <p class="section-desc">Blog posts, pages &amp; media.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-newspaper" style="margin-right:8px;color:#b21f1f;"></i> Recent Posts</h3>
+                    <p>📄 "Top 10 Cybersecurity Tips" — <em>Published 2 days ago</em></p>
+                    <p>📄 "Zero Trust Architecture Explained" — <em>Draft</em></p>
+                    <p>📄 "2026 Threat Landscape" — <em>Scheduled</em></p>
+                    <button class="action-btn"><i class="fas fa-edit"></i> Edit Content</button>
+                </div>
+            </div>
+
+            <!-- SECURITY -->
+            <div class="panel-section" id="section-security">
+                <h2>Security</h2>
+                <p class="section-desc">Monitor threats, logs &amp; access control.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-shield-alt" style="margin-right:8px;color:#2e7d32;"></i> System Status</h3>
+                    <p>🛡️ Firewall: <span style="color:#2e7d32;font-weight:600;">Active</span></p>
+                    <p>🔐 2FA: <span style="color:#2e7d32;font-weight:600;">Enabled</span></p>
+                    <p>⚠️ Last intrusion attempt: <strong>2026-09-07 03:14 UTC</strong> — blocked</p>
+                    <button class="action-btn"><i class="fas fa-sync"></i> Run Security Scan</button>
+                </div>
+            </div>
+
+            <!-- SETTINGS -->
+            <div class="panel-section" id="section-settings">
+                <h2>Settings</h2>
+                <p class="section-desc">System configuration &amp; preferences.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-globe" style="margin-right:8px;color:#1a2a6c;"></i> General</h3>
+                    <p>🌐 Site Name: CYBER Expert IT Solutions</p>
+                    <p>📧 Contact: support@cyberexpert.com</p>
+                    <button class="action-btn"><i class="fas fa-save"></i> Save Changes</button>
+                </div>
+                <div class="content-card">
+                    <h3><i class="fas fa-palette" style="margin-right:8px;color:#fdbb2d;"></i> Appearance</h3>
+                    <p>Theme: Dark Mode <span style="color:#999;font-size:13px;">(coming soon)</span></p>
+                </div>
+            </div>
+
+            <!-- REPORTS -->
+            <div class="panel-section" id="section-reports">
+                <h2>Reports</h2>
+                <p class="section-desc">Generate &amp; download system reports.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-file-pdf" style="margin-right:8px;color:#b21f1f;"></i> Available Reports</h3>
+                    <p>📊 Monthly Security Report — <em>Sept 2026</em></p>
+                    <p>📊 User Activity Log — <em>Last 30 days</em></p>
+                    <p>📊 Project Performance — <em>Q3 2026</em></p>
+                    <button class="action-btn"><i class="fas fa-download"></i> Download All</button>
+                </div>
+            </div>
+
+            <!-- NOTIFICATIONS -->
+            <div class="panel-section" id="section-notifications">
+                <h2>Notifications</h2>
+                <p class="section-desc">Recent alerts &amp; system messages.</p>
+                <div class="content-card">
+                    <p><i class="fas fa-circle" style="color:#fdbb2d;font-size:10px;margin-right:8px;"></i> <strong>Security patch</strong> available — v2.4.2</p>
+                    <p><i class="fas fa-circle" style="color:#2e7d32;font-size:10px;margin-right:8px;"></i> <strong>Backup</strong> completed successfully</p>
+                    <p><i class="fas fa-circle" style="color:#b21f1f;font-size:10px;margin-right:8px;"></i> <strong>Critical:</strong> SSL certificate expires in 5 days</p>
+                </div>
+            </div>
+
+            <!-- SUPPORT -->
+            <div class="panel-section" id="section-support">
+                <h2>Support</h2>
+                <p class="section-desc">Helpdesk &amp; support tickets.</p>
+                <div class="content-card">
+                    <h3><i class="fas fa-ticket-alt" style="margin-right:8px;color:#1a2a6c;"></i> Open Tickets</h3>
+                    <p>🎫 #1024 — "Login issue" — <span class="badge pending">Open</span></p>
+                    <p>🎫 #1025 — "Billing question" — <span class="badge info">In Progress</span></p>
+                    <p>🎫 #1026 — "Feature request" — <span class="badge active">Resolved</span></p>
+                    <button class="action-btn"><i class="fas fa-plus"></i> New Ticket</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ─── JAVASCRIPT ─── -->
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Simple demo: store login state and redirect
-            localStorage.setItem('userLoggedIn', 'true');
-            alert('Login successful! Redirecting...');
-            window.location.href = 'index.html';
-        });
+        (function() {
+            'use strict';
+
+            // ── DOM refs ──
+            const loginContainer = document.getElementById('loginContainer');
+            const adminPanel = document.getElementById('adminPanel');
+            const loginForm = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginError = document.getElementById('loginError');
+
+            const resetToggle = document.getElementById('resetToggle');
+            const resetForm = document.getElementById('resetForm');
+            const resetBtn = document.getElementById('resetBtn');
+            const resetEmail = document.getElementById('resetEmail');
+            const resetMsg = document.getElementById('resetMsg');
+
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // ── Hardcoded credentials ──
+            const VALID_USERNAME = 'Aman';
+            const VALID_PASSWORD = 'aman';
+
+            // ── Check session ──
+            function checkSession() {
+                if (localStorage.getItem('adminLoggedIn') === 'true') {
+                    showAdminPanel();
+                }
+            }
+
+            // ── Show admin panel ──
+            function showAdminPanel() {
+                loginContainer.style.display = 'none';
+                adminPanel.classList.add('active');
+                document.body.style.background = '#f0f2f5';
+                document.body.style.minHeight = '100vh';
+                document.body.style.alignItems = 'flex-start';
+                document.body.style.padding = '20px';
+                // reset any body animation
+                document.body.style.animation = 'none';
+                // set default section
+                switchSection('dashboard');
+            }
+
+            // ── Hide admin panel (logout) ──
+            function hideAdminPanel() {
+                localStorage.removeItem('adminLoggedIn');
+                adminPanel.classList.remove('active');
+                loginContainer.style.display = 'block';
+                document.body.style.background = 'linear-gradient(135deg, #1a2a6c, #b21f1f)';
+                document.body.style.alignItems = 'center';
+                document.body.style.padding = '20px';
+                document.body.style.animation = 'fadeInBody 0.8s ease forwards';
+                loginError.textContent = '';
+                usernameInput.value = '';
+                passwordInput.value = '';
+            }
+
+            // ── Login handler ──
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const user = usernameInput.value.trim();
+                const pass = passwordInput.value.trim();
+
+                if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
+                    loginError.textContent = '';
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    showAdminPanel();
+                } else {
+                    loginError.textContent = '❌ Invalid username or password.';
+                    // Shake effect
+                    loginForm.style.animation = 'shake 0.4s ease';
+                    setTimeout(() => { loginForm.style.animation = ''; }, 500);
+                }
+            });
+
+            // ── Password Reset ──
+            resetToggle.addEventListener('click', function() {
+                resetForm.classList.toggle('open');
+                resetMsg.textContent = '';
+                resetMsg.className = 'reset-msg';
+            });
+
+            resetBtn.addEventListener('click', function() {
+                const email = resetEmail.value.trim();
+                if (!email) {
+                    resetMsg.textContent = '⚠️ Please enter your email address.';
+                    resetMsg.className = 'reset-msg error';
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    resetMsg.textContent = '⚠️ Please enter a valid email.';
+                    resetMsg.className = 'reset-msg error';
+                    return;
+                }
+                // Simulate sending reset link
+                resetMsg.textContent = '✅ Reset link sent to ' + email + ' (demo)';
+                resetMsg.className = 'reset-msg success';
+                resetEmail.value = '';
+                setTimeout(() => {
+                    resetForm.classList.remove('open');
+                    resetMsg.textContent = '';
+                    resetMsg.className = 'reset-msg';
+                }, 3000);
+            });
+
+            // ── Sidebar navigation ──
+            document.querySelectorAll('.sidebar-menu a[data-section]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    switchSection(section);
+                    // update active class
+                    document.querySelectorAll('.sidebar-menu a[data-section]').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    // update page title
+                    const titles = {
+                        dashboard: 'Dashboard',
+                        analytics: 'Analytics',
+                        users: 'User Management',
+                        content: 'Content Management',
+                        security: 'Security',
+                        settings: 'Settings',
+                        reports: 'Reports',
+                        notifications: 'Notifications',
+                        support: 'Support'
+                    };
+                    document.getElementById('pageTitle').textContent = titles[section] || section;
+                });
+            });
+
+            function switchSection(section) {
+                document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active'));
+                const target = document.getElementById('section-' + section);
+                if (target) target.classList.add('active');
+            }
+
+            // ── Logout ──
+            logoutBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    hideAdminPanel();
+                }
+            });
+
+            // ── Shake animation (injected) ──
+            const styleShake = document.createElement('style');
+            styleShake.textContent = `
+                        @keyframes shake {
+                            0%, 100% { transform: translateX(0); }
+                            20% { transform: translateX(-8px); }
+                            40% { transform: translateX(8px); }
+                            60% { transform: translateX(-6px); }
+                            80% { transform: translateX(6px); }
+                        }
+                    `;
+            document.head.appendChild(styleShake);
+
+            // ── Init ──
+            checkSession();
+
+            // Also allow Enter key on reset email field
+            resetEmail.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    resetBtn.click();
+                }
+            });
+
+            // Allow Enter on login fields too
+            [usernameInput, passwordInput].forEach(field => {
+                field.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        loginForm.dispatchEvent(new Event('submit'));
+                    }
+                });
+            });
+
+        })();
     </script>
+
 </body>
 </html>
