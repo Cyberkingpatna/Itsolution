@@ -9,6 +9,30 @@
     <meta name="author" content="CYBER Expert IT Solutions">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Google Analytics (Replace G-XXXXXXX with your Measurement ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 ID
+    </script>
+
+    <!-- Facebook Pixel (Replace PIXEL_ID with your Pixel ID) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'PIXEL_ID'); // Replace with your Pixel ID
+        fbq('track', 'PageView');
+    </script>
+
     <style>
         :root {
             --primary: #1a2a6c;
@@ -133,6 +157,7 @@
             transition: var(--transition);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin-left: 15px;
+            cursor: pointer;
         }
         
         .login-btn:hover {
@@ -394,6 +419,28 @@
             font-weight: bold;
         }
         
+        /* Order Now button is now a modal opener */
+        .order-now-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            margin-top: 10px;
+        }
+        
+        .order-now-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+        
         /* Gallery */
         .gallery {
             background: var(--light);
@@ -445,6 +492,60 @@
         
         .gallery-item:hover .gallery-overlay {
             transform: translateY(0);
+        }
+        
+        /* Portfolio / Case Studies */
+        .portfolio-section {
+            background: var(--light);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .portfolio-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+        }
+        
+        .portfolio-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-content p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-results {
+            background: var(--light);
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--secondary);
         }
         
         /* Reviews */
@@ -534,6 +635,12 @@
         .slider-btn:hover {
             background: var(--accent);
             color: var(--dark);
+        }
+        
+        .submit-review-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
         }
         
         /* About */
@@ -685,7 +792,8 @@
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -695,7 +803,8 @@
         }
         
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(253, 187, 45, 0.2);
             outline: none;
@@ -825,7 +934,7 @@
             transform: scale(1.1) rotate(15deg);
         }
         
-        /* Modal Styles */
+        /* Modal Styles (Booking, Review, Login) */
         .modal {
             display: none;
             position: fixed;
@@ -844,10 +953,12 @@
             padding: 30px;
             border-radius: 10px;
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: modalFadeIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
         @keyframes modalFadeIn {
@@ -862,12 +973,76 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--gray);
+            background: none;
+            border: none;
         }
         
         .modal-title {
             text-align: center;
             margin-bottom: 20px;
             color: var(--primary);
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 997;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: #1ebe57;
+        }
+        
+        /* Client Login Modal */
+        .client-login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .client-login-modal .modal-content {
+            max-width: 400px;
+        }
+        
+        /* Live Chat - Human Support Button */
+        .chat-human-btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .chat-human-btn:hover {
+            background: #ffa500;
         }
         
         /* Admin Panel Styles */
@@ -1055,7 +1230,7 @@
         .back-to-top {
             position: fixed;
             bottom: 90px;
-            right: 30px;
+            left: 30px;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -1705,7 +1880,8 @@
         
         @media (max-width: 768px) {
             .services-grid,
-            .gallery-grid {
+            .gallery-grid,
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1766,6 +1942,11 @@
                 margin-right: 0;
                 margin-bottom: 15px;
             }
+            
+            .whatsapp-float {
+                bottom: 170px;
+                right: 20px;
+            }
         }
 
         /* Order Now Button */
@@ -1814,6 +1995,11 @@
         <button class="btn" id="acceptCookies">Accept</button>
     </div>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917004863268?text=Hello%20CYBER%20Expert%20IT%20Solutions!%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Advanced AI Chat Widget -->
     <div class="ai-chatbot">
         <div class="chat-btn" id="chatBtn" aria-label="Open chat">
@@ -1848,6 +2034,9 @@
                 <div class="quick-reply" data-message="How can I contact you?">Contact Info</div>
                 <div class="quick-reply" data-message="Do you offer support?">Support</div>
             </div>
+            <button class="chat-human-btn" id="chatHumanBtn" onclick="window.open('https://wa.me/917004863268?text=Hello%2C%20I%20want%20to%20talk%20to%20a%20human%20support%20agent.', '_blank')">
+                <i class="fas fa-user"></i> Chat with Human
+            </button>
             <div class="chat-input">
                 <input type="text" placeholder="Type your message..." id="chatInput">
                 <button id="sendMessage" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
@@ -1869,12 +2058,14 @@
                 <ul id="mainNavigation">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="https://www.fiverr.com/aman70503" target="_blank" class="fiverr-btn"><i class="fab fa-fiverr"></i> Order Now</a></li>
-                    <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
+                    <!-- Client Login Button -->
+                    <li><button class="login-btn" id="clientLoginBtn"><i class="fas fa-user"></i> Login</button></li>
                 </ul>
             </nav>
         </div>
@@ -1946,7 +2137,8 @@
                             <li>Mail merge services</li>
                             <li>Advanced formatting</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <!-- Integrated Order Now button with booking modal -->
+                        <button class="order-now-btn" onclick="openBookingModal('MS Word')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="software">
                         <i class="fas fa-file-excel"></i>
@@ -1959,7 +2151,7 @@
                             <li>Macro development</li>
                             <li>Dashboard creation</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('MS Excel')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="software">
                         <i class="fas fa-file-powerpoint"></i>
@@ -1972,7 +2164,7 @@
                             <li>Animation effects</li>
                             <li>Brand alignment</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('MS PowerPoint')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="software">
                         <i class="fas fa-database"></i>
@@ -1985,7 +2177,7 @@
                             <li>Data migration</li>
                             <li>Report generation</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('MS Access')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="data">
                         <i class="fas fa-broom"></i>
@@ -1998,7 +2190,7 @@
                             <li>Format standardization</li>
                             <li>Error correction</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Data Cleaning')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="data">
                         <div class="pricing-badge">Best Value</div>
@@ -2012,7 +2204,7 @@
                             <li>Predictive modeling</li>
                             <li>Visualization</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Data Analysis')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="web">
                         <i class="fas fa-code"></i>
@@ -2025,7 +2217,7 @@
                             <li>E-commerce solutions</li>
                             <li>Content management</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Web Design')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="software">
                         <i class="fas fa-cogs"></i>
@@ -2038,7 +2230,7 @@
                             <li>Desktop applications</li>
                             <li>Mobile apps</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Software Solutions')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="hardware">
                         <i class="fas fa-server"></i>
@@ -2051,10 +2243,10 @@
                             <li>Maintenance services</li>
                             <li>Troubleshooting</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Hardware Solutions')">Order Now</button>
                     </div>
 
-                    <!-- Added Services (Google Ads, Facebook Ads, SEO, Social Media, Mobile App, E-commerce, Cloud, Backup, Website Maintenance) -->
+                    <!-- Added Services (Google Ads, Facebook Ads, SEO, Social Media Marketing, Mobile App, E-commerce, Cloud Services, Backup, Website Maintenance) -->
                     <div class="service-item" data-category="web">
                         <i class="fab fa-google"></i>
                         <h3>Google Ads Run</h3>
@@ -2066,7 +2258,7 @@
                             <li>Ad optimization</li>
                             <li>Performance reporting</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Google Ads Run')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="web">
                         <i class="fab fa-facebook"></i>
@@ -2079,7 +2271,7 @@
                             <li>Ad design</li>
                             <li>Performance tracking</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Facebook Ads Run')">Order Now</button>
                     </div>
 
                     <!-- SEO -->
@@ -2094,7 +2286,7 @@
                             <li>Backlink building</li>
                             <li>Monthly reports</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('SEO')">Order Now</button>
                     </div>
 
                     <!-- Social Media Marketing -->
@@ -2109,7 +2301,7 @@
                             <li>Engagement boost</li>
                             <li>Ad campaigns</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Social Media Marketing')">Order Now</button>
                     </div>
 
                     <!-- Mobile App Development -->
@@ -2124,7 +2316,7 @@
                             <li>Testing</li>
                             <li>App store submission</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Mobile App Development')">Order Now</button>
                     </div>
 
                     <!-- E-commerce Website Development -->
@@ -2139,7 +2331,7 @@
                             <li>Secure payment integration</li>
                             <li>Inventory management</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('E-commerce Website')">Order Now</button>
                     </div>
 
                     <!-- Cloud Services -->
@@ -2154,7 +2346,7 @@
                             <li>Security configuration</li>
                             <li>24/7 support</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Cloud Services & Migration')">Order Now</button>
                     </div>
 
                     <!-- Backup & Data Recovery -->
@@ -2169,7 +2361,7 @@
                             <li>Restoration services</li>
                             <li>Data integrity</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Backup & Data Recovery')">Order Now</button>
                     </div>
 
                     <!-- Website Maintenance & Support -->
@@ -2184,7 +2376,43 @@
                             <li>Uptime monitoring</li>
                             <li>Bug fixes</li>
                         </ul>
-                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                        <button class="order-now-btn" onclick="openBookingModal('Website Maintenance')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section (New) -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Portfolio</h2>
+                    <p>Some of our recent successful projects and case studies</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity Project">
+                        <div class="portfolio-content">
+                            <h3>Enterprise Security Setup</h3>
+                            <p>Deployed a comprehensive security infrastructure for a mid-sized manufacturing company in Patna.</p>
+                            <div class="portfolio-results">Result: Reduced security incidents by 90% in 6 months.</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development">
+                        <div class="portfolio-content">
+                            <h3>E-commerce Website for Fashion Brand</h3>
+                            <p>Built a fully responsive e-commerce website with payment gateway integration and inventory management.</p>
+                            <div class="portfolio-results">Result: Online sales increased by 45% within 3 months.</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analytics">
+                        <div class="portfolio-content">
+                            <h3>Sales Data Analytics Dashboard</h3>
+                            <p>Developed an interactive dashboard for a retail chain to track sales and inventory across multiple stores.</p>
+                            <div class="portfolio-results">Result: Improved decision-making speed, reduced manual reporting time by 80%.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2374,6 +2602,8 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
+                <!-- Submit Review Button -->
+                <button class="btn submit-review-btn" onclick="openReviewModal()">Submit Your Review</button>
             </div>
         </section>
 
@@ -2603,6 +2833,7 @@
                     <h3>Quick Links</h3>
                     <p><a href="#home" style="color: white;">Home</a></p>
                     <p><a href="#services" style="color: white;">Services</a></p>
+                    <p><a href="#portfolio" style="color: white;">Portfolio</a></p>
                     <p><a href="#gallery" style="color: white;">Gallery</a></p>
                     <p><a href="#contact" style="color: white;">Contact</a></p>
                 </div>
@@ -2635,7 +2866,7 @@
         </div>
     </div>
 
-    <!-- Login Modal -->
+    <!-- Admin Login Modal -->
     <div class="modal" id="loginModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -2654,7 +2885,91 @@
         </div>
     </div>
 
-    <!-- Admin Panel -->
+    <!-- Client Login Modal (New) -->
+    <div class="client-login-modal" id="clientLoginModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeClientLogin()">&times;</span>
+            <h2 class="modal-title">Client Login</h2>
+            <form id="clientLoginForm">
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPassword">Password</label>
+                    <input type="password" id="clientPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p style="margin-top: 10px; text-align: center;">New client? <a href="#" onclick="alert('Please contact us to create your account.')">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal (New - Improved) -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+            <h2 class="modal-title">Order Booking</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="bookingService">Service</label>
+                    <input type="text" id="bookingService" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="bookingName">Name</label>
+                    <input type="text" id="bookingName" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingMobile">Mobile Number</label>
+                    <input type="tel" id="bookingMobile" placeholder="Your mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingAddress">Address</label>
+                    <textarea id="bookingAddress" placeholder="Your full address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDetails">Project Details (Optional)</label>
+                    <textarea id="bookingDetails" placeholder="Describe your project requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Review Submission Modal (New) -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeReviewModal()">&times;</span>
+            <h2 class="modal-title">Submit Your Review</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Name</label>
+                    <input type="text" id="reviewName" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewEmail">Email</label>
+                    <input type="email" id="reviewEmail" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewRating">Rating</label>
+                    <select id="reviewRating" required>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★☆</option>
+                        <option value="3">★★★☆☆</option>
+                        <option value="2">★★☆☆☆</option>
+                        <option value="1">★☆☆☆☆</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" placeholder="Write your review here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel (same as before) -->
     <div class="admin-panel" id="adminPanel">
         <div class="admin-header">
             <h2>CYBER Expert IT Solutions - Admin Dashboard</h2>
@@ -3007,6 +3322,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeApp();
             initScrollReveal();
+            initModals();
+            initClientLogin();
         });
 
         function initializeApp() {
@@ -3042,6 +3359,72 @@
             });
         }
 
+        // Modal functions for booking, review, client login
+        function initModals() {
+            // Booking modal
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const service = document.getElementById('bookingService').value;
+                const name = document.getElementById('bookingName').value;
+                const mobile = document.getElementById('bookingMobile').value;
+                const address = document.getElementById('bookingAddress').value;
+                const details = document.getElementById('bookingDetails').value;
+                const message = `New Order Request:\n\nService: ${service}\nName: ${name}\nMobile: ${mobile}\nAddress: ${address}\nDetails: ${details}`;
+                const whatsappUrl = `https://wa.me/917004863268?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                closeBookingModal();
+                this.reset();
+                showToast('Order submitted! We will contact you soon.');
+            });
+
+            // Review modal
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Thank you for your review! It will be published soon.');
+                closeReviewModal();
+                this.reset();
+            });
+        }
+
+        function initClientLogin() {
+            const clientLoginBtn = document.getElementById('clientLoginBtn');
+            const clientLoginModal = document.getElementById('clientLoginModal');
+            const clientLoginForm = document.getElementById('clientLoginForm');
+
+            clientLoginBtn.addEventListener('click', () => {
+                clientLoginModal.style.display = 'flex';
+            });
+
+            clientLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login functionality is not implemented yet. This is a demo.');
+            });
+        }
+
+        function closeClientLogin() {
+            document.getElementById('clientLoginModal').style.display = 'none';
+        }
+
+        function openBookingModal(service) {
+            const modal = document.getElementById('bookingModal');
+            document.getElementById('bookingService').value = service;
+            modal.style.display = 'flex';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function openReviewModal() {
+            const modal = document.getElementById('reviewModal');
+            modal.style.display = 'flex';
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
+
+        // Loading Bar
         function initLoadingBar() {
             const loadingBar = document.getElementById('loadingBar');
             if (loadingBar) {
@@ -3061,15 +3444,14 @@
             }
         }
 
+        // Smooth Scrolling
         function initSmoothScrolling() {
             document.querySelectorAll('nav a, .footer-section a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     if (this.getAttribute('href').startsWith('#')) {
                         e.preventDefault();
-                        
                         const targetId = this.getAttribute('href');
                         const targetSection = document.querySelector(targetId);
-                        
                         if (targetSection) {
                             window.scrollTo({
                                 top: targetSection.offsetTop - 70,
@@ -3081,6 +3463,7 @@
             });
         }
 
+        // Back to Top
         function initBackToTop() {
             const backToTopBtn = document.getElementById('backToTop');
             window.addEventListener('scroll', () => {
@@ -3090,169 +3473,113 @@
                     backToTopBtn.classList.remove('visible');
                 }
             });
-            
             backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
+        // Reviews Slider
         function initReviewsSlider() {
             const track = document.getElementById('reviewsTrack');
             const nextBtn = document.getElementById('nextBtn');
             const prevBtn = document.getElementById('prevBtn');
             let currentPosition = 0;
-
             if (nextBtn && prevBtn && track) {
                 nextBtn.addEventListener('click', () => {
                     currentPosition -= 330;
-                    if (currentPosition < -1320) {
-                        currentPosition = 0;
-                    }
+                    if (currentPosition < -1320) currentPosition = 0;
                     track.style.transform = `translateX(${currentPosition}px)`;
                 });
-
                 prevBtn.addEventListener('click', () => {
                     currentPosition += 330;
-                    if (currentPosition > 0) {
-                        currentPosition = -1320;
-                    }
+                    if (currentPosition > 0) currentPosition = -1320;
                     track.style.transform = `translateX(${currentPosition}px)`;
                 });
-
-                // Auto slide reviews
                 setInterval(() => {
                     currentPosition -= 330;
-                    if (currentPosition < -1320) {
-                        currentPosition = 0;
-                    }
+                    if (currentPosition < -1320) currentPosition = 0;
                     track.style.transform = `translateX(${currentPosition}px)`;
                 }, 5000);
             }
         }
 
+        // Service Tabs
         function initServiceTabs() {
             const serviceTabs = document.querySelectorAll('.service-tab');
             const serviceItems = document.querySelectorAll('.service-item');
-            
             serviceTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     serviceTabs.forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
-                    
                     const category = tab.getAttribute('data-category');
-                    
                     serviceItems.forEach(item => {
                         if (category === 'all' || item.getAttribute('data-category') === category) {
                             item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 10);
+                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 10);
                         } else {
                             item.style.opacity = '0';
                             item.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
+                            setTimeout(() => { item.style.display = 'none'; }, 300);
                         }
                     });
                 });
             });
         }
 
+        // FAQ
         function initFAQ() {
             const faqItems = document.querySelectorAll('.faq-item');
-            
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-                
                 question.addEventListener('click', () => {
                     item.classList.toggle('active');
-                    
                     faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
+                        if (otherItem !== item) otherItem.classList.remove('active');
                     });
                 });
             });
         }
 
+        // Counters
         function initCounters() {
             const counters = document.querySelectorAll('.counter');
             const speed = 200;
-            
             function animateCounters() {
                 counters.forEach(counter => {
                     const target = +counter.getAttribute('data-target');
                     const count = +counter.innerText;
                     const increment = Math.ceil(target / speed);
-                    
                     if (count < target) {
                         counter.innerText = Math.min(count + increment, target);
                         setTimeout(animateCounters, 1);
                     }
                 });
             }
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
+                    if (entry.isIntersecting) { animateCounters(); observer.unobserve(entry.target); }
                 });
             }, { threshold: 0.5 });
-            
             const statsSection = document.querySelector('.about-stats');
-            if (statsSection) {
-                observer.observe(statsSection);
-            }
+            if (statsSection) observer.observe(statsSection);
         }
 
+        // Contact Form
         function initContactForm() {
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     let isValid = true;
-                    
                     const nameInput = document.getElementById('name');
-                    if (!nameInput.value.trim()) {
-                        nameInput.parentElement.classList.add('error');
-                        isValid = false;
-                    } else {
-                        nameInput.parentElement.classList.remove('error');
-                    }
-                    
+                    if (!nameInput.value.trim()) { nameInput.parentElement.classList.add('error'); isValid = false; } else { nameInput.parentElement.classList.remove('error'); }
                     const emailInput = document.getElementById('email');
                     const emailRegex = /^[^\s@]+@[^\s@]+@[^\s@]+$/;
-                    if (!emailRegex.test(emailInput.value)) {
-                        emailInput.parentElement.classList.add('error');
-                        isValid = false;
-                    } else {
-                        emailInput.parentElement.classList.remove('error');
-                    }
-                    
+                    if (!emailRegex.test(emailInput.value)) { emailInput.parentElement.classList.add('error'); isValid = false; } else { emailInput.parentElement.classList.remove('error'); }
                     const subjectInput = document.getElementById('subject');
-                    if (!subjectInput.value.trim()) {
-                        subjectInput.parentElement.classList.add('error');
-                        isValid = false;
-                    } else {
-                        subjectInput.parentElement.classList.remove('error');
-                    }
-                    
+                    if (!subjectInput.value.trim()) { subjectInput.parentElement.classList.add('error'); isValid = false; } else { subjectInput.parentElement.classList.remove('error'); }
                     const messageInput = document.getElementById('message');
-                    if (!messageInput.value.trim()) {
-                        messageInput.parentElement.classList.add('error');
-                        isValid = false;
-                    } else {
-                        messageInput.parentElement.classList.remove('error');
-                    }
-                    
+                    if (!messageInput.value.trim()) { messageInput.parentElement.classList.add('error'); isValid = false; } else { messageInput.parentElement.classList.remove('error'); }
                     if (isValid) {
                         showToast('Thank you for your message! We will get back to you soon.');
                         this.reset();
@@ -3261,20 +3588,18 @@
             }
         }
 
+        // Toast
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('visible');
-            
-            setTimeout(() => {
-                toast.classList.remove('visible');
-            }, 3000);
+            setTimeout(() => { toast.classList.remove('visible'); }, 3000);
         }
 
+        // Mobile Menu
         function initMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mainNavigation = document.getElementById('mainNavigation');
-            
             if (mobileMenuBtn && mainNavigation) {
                 mobileMenuBtn.addEventListener('click', () => {
                     const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
@@ -3284,20 +3609,18 @@
             }
         }
 
+        // Admin Features
         function initAdminFeatures() {
             document.getElementById('adminKey').addEventListener('click', function() {
                 document.getElementById('loginModal').style.display = 'flex';
             });
-
             document.querySelector('.close-modal').addEventListener('click', function() {
                 document.getElementById('loginModal').style.display = 'none';
             });
-
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
-                
                 if (username === 'Admin' && password === 'Admin') {
                     document.getElementById('loginModal').style.display = 'none';
                     document.getElementById('adminPanel').style.display = 'block';
@@ -3306,207 +3629,138 @@
                     alert('Invalid credentials. Please try again.');
                 }
             });
-
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 document.getElementById('adminPanel').style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    document.getElementById('username').value = '';
-                    document.getElementById('password').value = '';
+                document.body.style.overflow = 'auto';
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            });
+            document.querySelectorAll('.admin-nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.admin-nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelectorAll('.admin-section').forEach(section => section.classList.remove('active'));
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
                 });
-    
-                document.querySelectorAll('.admin-nav-link').forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        document.querySelectorAll('.admin-nav-link').forEach(l => {
-                            l.classList.remove('active');
-                        });
-                        
-                        this.classList.add('active');
-                        
-                        document.querySelectorAll('.admin-section').forEach(section => {
-                            section.classList.remove('active');
-                        });
-                        
-                        const targetId = this.getAttribute('href').substring(1);
-                        document.getElementById(targetId).classList.add('active');
-                    });
-                });
-    
-                document.querySelectorAll('.action-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        if (this.classList.contains('edit-btn')) {
-                            alert('Edit functionality would open a form here.');
-                        } else if (this.classList.contains('delete-btn')) {
-                            if (confirm('Are you sure you want to delete this item?')) {
-                                alert('Item would be deleted in a real application.');
-                            }
-                        }
-                    });
-                });
-            }
-    
-            function initAIChatbot() {
-                const chatBtn = document.getElementById('chatBtn');
-                const chatWindow = document.getElementById('chatWindow');
-                const closeChat = document.getElementById('closeChat');
-                const sendMessage = document.getElementById('sendMessage');
-                const chatInput = document.getElementById('chatInput');
-                const chatMessages = document.getElementById('chatMessages');
-                const quickReplies = document.getElementById('quickReplies');
-                
-                // AI responses database
-                const aiResponses = {
-                    "hello": "Hello! How can I help you with our IT services today?",
-                    "hi": "Hi there! What can I assist you with?",
-                    "services": "We offer a wide range of IT services including: MS Office solutions, data analysis, web design, software development, and hardware support. Which service are you interested in?",
-                    "pricing": "Our pricing varies based on the service: MS Office projects start at ₹499, data analysis at ₹1,499, and web design at ₹9,999. Would you like more specific pricing information?",
-                    "web design": "Our web design service includes responsive design, SEO optimization, e-commerce solutions, and content management systems. Starting at ₹9,999 per website.",
-                    "contact": "You can contact us at +91 7004863268, email cyberexpertpatna@gmail.com, or through WhatsApp. Our address is Chowk Shikarpur, Patna City, Patna, Bihar.",
-                    "support": "Yes, we offer ongoing support and maintenance services. We have different support packages available based on your needs.",
-                    "time": "Our business hours are 9 AM to 6 PM, Monday to Saturday. We're available for emergency support outside these hours as well.",
-                    "default": "I'm sorry, I didn't understand that. Could you please rephrase? You can ask me about our services, pricing, or contact information."
-                };
-                
-                if (chatBtn && chatWindow) {
-                    chatBtn.addEventListener('click', () => {
-                        chatWindow.style.display = 'flex';
-                        chatInput.focus();
-                    });
-                    
-                    closeChat.addEventListener('click', () => {
-                        chatWindow.style.display = 'none';
-                    });
-                    
-                    // Quick replies functionality
-                    quickReplies.addEventListener('click', (e) => {
-                        if (e.target.classList.contains('quick-reply')) {
-                            const message = e.target.getAttribute('data-message');
-                            addMessage(message, 'user');
-                            setTimeout(() => {
-                                generateAIResponse(message);
-                            }, 500);
-                        }
-                    });
-                    
-                    sendMessage.addEventListener('click', () => {
-                        processUserMessage();
-                    });
-                    
-                    chatInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
-                            processUserMessage();
-                        }
-                    });
-                    
-                    function processUserMessage() {
-                        if (chatInput.value.trim() !== '') {
-                            addMessage(chatInput.value, 'user');
-                            setTimeout(() => {
-                                generateAIResponse(chatInput.value);
-                            }, 500);
-                            chatInput.value = '';
+            });
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.classList.contains('edit-btn')) {
+                        alert('Edit functionality would open a form here.');
+                    } else if (this.classList.contains('delete-btn')) {
+                        if (confirm('Are you sure you want to delete this item?')) {
+                            alert('Item would be deleted in a real application.');
                         }
                     }
-                    
-                    function addMessage(text, sender) {
-                        const messageDiv = document.createElement('div');
-                        messageDiv.classList.add('message', sender);
-                        
-                        const avatar = document.createElement('div');
-                        avatar.classList.add('message-avatar');
-                        avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                        
-                        const content = document.createElement('div');
-                        content.classList.add('message-content');
-                        content.innerHTML = `<p>${text}</p>`;
-                        
-                        messageDiv.appendChild(avatar);
-                        messageDiv.appendChild(content);
-                        
-                        chatMessages.appendChild(messageDiv);
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                });
+            });
+        }
+
+        // AI Chatbot
+        function initAIChatbot() {
+            const chatBtn = document.getElementById('chatBtn');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeChat = document.getElementById('closeChat');
+            const sendMessage = document.getElementById('sendMessage');
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const quickReplies = document.getElementById('quickReplies');
+            const aiResponses = {
+                "hello": "Hello! How can I help you with our IT services today?",
+                "hi": "Hi there! What can I assist you with?",
+                "services": "We offer a wide range of IT services including: MS Office solutions, data analysis, web design, software development, and hardware support. Which service are you interested in?",
+                "pricing": "Our pricing varies based on the service: MS Office projects start at ₹499, data analysis at ₹1,499, and web design at ₹9,999. Would you like more specific pricing information?",
+                "web design": "Our web design service includes responsive design, SEO optimization, e-commerce solutions, and content management systems. Starting at ₹9,999 per website.",
+                "contact": "You can contact us at +91 7004863268, email cyberexpertpatna@gmail.com, or through WhatsApp. Our address is Chowk Shikarpur, Patna City, Patna, Bihar.",
+                "support": "Yes, we offer ongoing support and maintenance services. We have different support packages available based on your needs.",
+                "time": "Our business hours are 9 AM to 6 PM, Monday to Saturday. We're available for emergency support outside these hours as well.",
+                "default": "I'm sorry, I didn't understand that. Could you please rephrase? You can ask me about our services, pricing, or contact information."
+            };
+            if (chatBtn && chatWindow) {
+                chatBtn.addEventListener('click', () => { chatWindow.style.display = 'flex'; chatInput.focus(); });
+                closeChat.addEventListener('click', () => { chatWindow.style.display = 'none'; });
+                quickReplies.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('quick-reply')) {
+                        const message = e.target.getAttribute('data-message');
+                        addMessage(message, 'user');
+                        setTimeout(() => { generateAIResponse(message); }, 500);
                     }
-                    
-                    function generateAIResponse(userMessage) {
-                        const message = userMessage.toLowerCase();
-                        let response = aiResponses.default;
-                        
-                        if (message.includes('hello') || message.includes('hi')) {
-                            response = aiResponses.hello;
-                        } else if (message.includes('service')) {
-                            response = aiResponses.services;
-                        } else if (message.includes('price') || message.includes('cost') || message.includes('how much')) {
-                            response = aiResponses.pricing;
-                        } else if (message.includes('web') || message.includes('design')) {
-                            response = aiResponses["web design"];
-                        } else if (message.includes('contact') || message.includes('where') || message.includes('how to reach')) {
-                            response = aiResponses.contact;
-                        } else if (message.includes('support') || message.includes('help')) {
-                            response = aiResponses.support;
-                        } else if (message.includes('time') || message.includes('hour')) {
-                            response = aiResponses.time;
+                });
+                sendMessage.addEventListener('click', () => processUserMessage());
+                chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processUserMessage(); });
+                function processUserMessage() {
+                    if (chatInput.value.trim() !== '') {
+                        addMessage(chatInput.value, 'user');
+                        setTimeout(() => { generateAIResponse(chatInput.value); }, 500);
+                        chatInput.value = '';
+                    }
+                }
+                function addMessage(text, sender) {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message', sender);
+                    const avatar = document.createElement('div');
+                    avatar.classList.add('message-avatar');
+                    avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                    const content = document.createElement('div');
+                    content.classList.add('message-content');
+                    content.innerHTML = `<p>${text}</p>`;
+                    messageDiv.appendChild(avatar);
+                    messageDiv.appendChild(content);
+                    chatMessages.appendChild(messageDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+                function generateAIResponse(userMessage) {
+                    const message = userMessage.toLowerCase();
+                    let response = aiResponses.default;
+                    if (message.includes('hello') || message.includes('hi')) response = aiResponses.hello;
+                    else if (message.includes('service')) response = aiResponses.services;
+                    else if (message.includes('price') || message.includes('cost') || message.includes('how much')) response = aiResponses.pricing;
+                    else if (message.includes('web') || message.includes('design')) response = aiResponses["web design"];
+                    else if (message.includes('contact') || message.includes('where') || message.includes('how to reach')) response = aiResponses.contact;
+                    else if (message.includes('support') || message.includes('help')) response = aiResponses.support;
+                    else if (message.includes('time') || message.includes('hour')) response = aiResponses.time;
+                    addMessage(response, 'bot');
+                }
+            }
+        }
+
+        // Cookie Consent
+        function initCookieConsent() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptCookies = document.getElementById('acceptCookies');
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => { cookieConsent.classList.add('visible'); }, 2000);
+            }
+            acceptCookies.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieConsent.classList.remove('visible');
+            });
+        }
+
+        // Lazy Loading
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            setTimeout(() => { lazyImages.forEach(img => img.classList.add('loaded')); }, 2000);
+            lazyImages.forEach(img => {
+                img.addEventListener('error', function() { this.classList.add('loaded'); });
+            });
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
                         }
-                        
-                        addMessage(response, 'bot');
-                    }
-                }
-            }
-    
-            function initCookieConsent() {
-                const cookieConsent = document.getElementById('cookieConsent');
-                const acceptCookies = document.getElementById('acceptCookies');
-                
-                if (!localStorage.getItem('cookiesAccepted')) {
-                    setTimeout(() => {
-                        cookieConsent.classList.add('visible');
-                    }, 2000);
-                }
-                
-                acceptCookies.addEventListener('click', () => {
-                    localStorage.setItem('cookiesAccepted', 'true');
-                    cookieConsent.classList.remove('visible');
-                });
-            }
-    
-            function initLazyLoading() {
-                const lazyImages = document.querySelectorAll('.lazy-load');
-                
-                // Fallback: Ensure all images become visible after 2 seconds regardless
-                setTimeout(() => {
-                    lazyImages.forEach(img => {
-                        img.classList.add('loaded');
-                    });
-                }, 2000);
-                
-                // Also attach error handlers to make images visible if they fail to load
-                lazyImages.forEach(img => {
-                    img.addEventListener('error', function() {
-                        this.classList.add('loaded');
                     });
                 });
-                
-                if ('IntersectionObserver' in window) {
-                    const imageObserver = new IntersectionObserver((entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                img.classList.add('loaded');
-                                imageObserver.unobserve(img);
-                            }
-                        });
-                    });
-                    
-                    lazyImages.forEach(img => {
-                        imageObserver.observe(img);
-                    });
-                } else {
-                    // Fallback for browsers without IntersectionObserver support
-                    lazyImages.forEach(img => {
-                        img.classList.add('loaded');
-                    });
-                }
+                lazyImages.forEach(img => imageObserver.observe(img));
+            } else {
+                lazyImages.forEach(img => img.classList.add('loaded'));
             }
-        </script>
-    </body>
-    </html>
+        }
+    </script>
+</body>
+</html>
