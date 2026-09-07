@@ -33,7 +33,6 @@
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            /* Entrance Animation */
             opacity: 0;
             animation: fadeInBody 1s ease forwards;
         }
@@ -122,7 +121,6 @@
             color: var(--accent);
         }
         
-        /* NEW: Login button in navigation */
         .login-btn {
             display: inline-flex;
             align-items: center;
@@ -147,7 +145,6 @@
             margin-right: 8px;
         }
         
-        /* NEW: Fiverr button in navigation */
         .fiverr-btn {
             display: inline-flex;
             align-items: center;
@@ -234,7 +231,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
-        /* Ripple effect */
         .btn::after {
             content: '';
             position: absolute;
@@ -1365,7 +1361,7 @@
             transform: scale(1.1);
         }
         
-        /* NEW: Advanced AI Chat Widget */
+        /* Advanced AI Chat Widget */
         .ai-chatbot {
             position: fixed;
             bottom: 30px;
@@ -1548,7 +1544,7 @@
             border-color: var(--primary);
         }
         
-        /* NEW: Cookie Consent Banner */
+        /* Cookie Consent Banner */
         .cookie-consent {
             position: fixed;
             bottom: 0;
@@ -1574,7 +1570,7 @@
             flex: 1;
         }
         
-        /* NEW: Loading Animation for Images */
+        /* Lazy Loading for Images */
         .lazy-load {
             opacity: 0;
             transition: opacity 0.3s;
@@ -1584,13 +1580,13 @@
             opacity: 1;
         }
         
-        /* NEW: Focus styles for accessibility */
+        /* Focus styles for accessibility */
         a:focus, button:focus, input:focus, textarea:focus {
             outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
         
-        /* NEW: Skip to content link for accessibility */
+        /* Skip to content link for accessibility */
         .skip-to-content {
             position: absolute;
             top: -40px;
@@ -1606,7 +1602,7 @@
             top: 0;
         }
         
-        /* NEW: Scroll Reveal Animation Classes */
+        /* Scroll Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transition: all 0.8s ease;
@@ -1678,7 +1674,6 @@
                 display: none;
             }
             
-            /* NEW: Mobile menu styles */
             .mobile-menu-btn {
                 display: block;
                 position: absolute;
@@ -1702,7 +1697,6 @@
                 margin: 10px 0;
             }
             
-            /* NEW: Fiverr button in mobile view */
             .fiverr-btn,
             .login-btn {
                 margin: 10px 0;
@@ -1753,7 +1747,6 @@
                 width: 100px;
             }
             
-            /* NEW: Mobile adjustments for chat */
             .ai-chatbot {
                 bottom: 100px;
                 right: 15px;
@@ -1764,7 +1757,6 @@
                 right: -20px;
             }
             
-            /* NEW: Cookie consent mobile */
             .cookie-consent {
                 flex-direction: column;
                 text-align: center;
@@ -1881,9 +1873,7 @@
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <!-- NEW: Fiverr button in navigation -->
                     <li><a href="https://www.fiverr.com/aman70503" target="_blank" class="fiverr-btn"><i class="fab fa-fiverr"></i> Order Now</a></li>
-                    <!-- NEW: Login Button -->
                     <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
                 </ul>
             </nav>
@@ -1943,6 +1933,7 @@
                 </div>
                 
                 <div class="services-grid">
+                    <!-- Original Services -->
                     <div class="service-item" data-category="software">
                         <div class="pricing-badge">Popular</div>
                         <i class="fas fa-file-word"></i>
@@ -2062,7 +2053,8 @@
                         </ul>
                         <a href="https://wa.me/917004863268" class="btn">Order Now</a>
                     </div>
-                    <!-- Newly added services: Google Ads Run and Facebook Ads Run -->
+
+                    <!-- Added Services (Google Ads, Facebook Ads, SEO, Social Media, Mobile App, E-commerce, Cloud, Backup, Website Maintenance) -->
                     <div class="service-item" data-category="web">
                         <i class="fab fa-google"></i>
                         <h3>Google Ads Run</h3>
@@ -2086,6 +2078,111 @@
                             <li>Audience targeting</li>
                             <li>Ad design</li>
                             <li>Performance tracking</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- SEO -->
+                    <div class="service-item" data-category="web">
+                        <i class="fas fa-search"></i>
+                        <h3>SEO (Search Engine Optimization)</h3>
+                        <div class="service-price">Starting at ₹3,000/Project</div>
+                        <p class="service-details">Improve your website's ranking on Google and other search engines to attract more organic traffic.</p>
+                        <ul class="service-features">
+                            <li>Keyword research</li>
+                            <li>On-page optimization</li>
+                            <li>Backlink building</li>
+                            <li>Monthly reports</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- Social Media Marketing -->
+                    <div class="service-item" data-category="web">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Social Media Marketing</h3>
+                        <div class="service-price">Starting at ₹2,000/Month</div>
+                        <p class="service-details">Complete social media management for Facebook, Instagram, LinkedIn to grow your brand presence.</p>
+                        <ul class="service-features">
+                            <li>Post scheduling</li>
+                            <li>Graphic design</li>
+                            <li>Engagement boost</li>
+                            <li>Ad campaigns</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- Mobile App Development -->
+                    <div class="service-item" data-category="software">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile App Development</h3>
+                        <div class="service-price">Starting at ₹25,000/App</div>
+                        <p class="service-details">Custom Android & iOS mobile applications for your business, e-commerce, or service needs.</p>
+                        <ul class="service-features">
+                            <li>UI/UX design</li>
+                            <li>Backend integration</li>
+                            <li>Testing</li>
+                            <li>App store submission</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- E-commerce Website Development -->
+                    <div class="service-item" data-category="web">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>E-commerce Website</h3>
+                        <div class="service-price">Starting at ₹15,000/Website</div>
+                        <p class="service-details">Online store setup with product management, payment gateway, and secure checkout.</p>
+                        <ul class="service-features">
+                            <li>Product listing</li>
+                            <li>Shopping cart</li>
+                            <li>Secure payment integration</li>
+                            <li>Inventory management</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- Cloud Services -->
+                    <div class="service-item" data-category="software">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Services & Migration</h3>
+                        <div class="service-price">Starting at ₹5,000/Project</div>
+                        <p class="service-details">Setup, migration, and management of cloud infrastructure (AWS, Google Cloud, Azure) with security.</p>
+                        <ul class="service-features">
+                            <li>Server setup</li>
+                            <li>Data transfer</li>
+                            <li>Security configuration</li>
+                            <li>24/7 support</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- Backup & Data Recovery -->
+                    <div class="service-item" data-category="data">
+                        <i class="fas fa-database"></i>
+                        <h3>Backup & Data Recovery</h3>
+                        <div class="service-price">Starting at ₹2,000/Month</div>
+                        <p class="service-details">Automated backups, disaster recovery solutions, and data restoration services for your business.</p>
+                        <ul class="service-features">
+                            <li>Automated backups</li>
+                            <li>Cloud storage</li>
+                            <li>Restoration services</li>
+                            <li>Data integrity</li>
+                        </ul>
+                        <a href="https://wa.me/917004863268" class="btn">Order Now</a>
+                    </div>
+
+                    <!-- Website Maintenance & Support -->
+                    <div class="service-item" data-category="web">
+                        <i class="fas fa-tools"></i>
+                        <h3>Website Maintenance</h3>
+                        <div class="service-price">Starting at ₹2,000/Month</div>
+                        <p class="service-details">Regular updates, bug fixes, security patches, and performance optimization for your website.</p>
+                        <ul class="service-features">
+                            <li>Monthly updates</li>
+                            <li>Security patches</li>
+                            <li>Uptime monitoring</li>
+                            <li>Bug fixes</li>
                         </ul>
                         <a href="https://wa.me/917004863268" class="btn">Order Now</a>
                     </div>
