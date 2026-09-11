@@ -2121,6 +2121,7 @@
                     <div class="service-tab" data-category="data">Data Services</div>
                     <div class="service-tab" data-category="web">Web & Design</div>
                     <div class="service-tab" data-category="hardware">Hardware</div>
+                    <div class="service-tab" data-category="meta">Meta & WhatsApp</div>
                 </div>
                 
                 <div class="services-grid">
@@ -2137,7 +2138,6 @@
                             <li>Mail merge services</li>
                             <li>Advanced formatting</li>
                         </ul>
-                        <!-- Integrated Order Now button with booking modal -->
                         <button class="order-now-btn" onclick="openBookingModal('MS Word')">Order Now</button>
                     </div>
                     <div class="service-item" data-category="software">
@@ -2260,7 +2260,7 @@
                         </ul>
                         <button class="order-now-btn" onclick="openBookingModal('Google Ads Run')">Order Now</button>
                     </div>
-                    <div class="service-item" data-category="web">
+                    <div class="service-item" data-category="meta">
                         <i class="fab fa-facebook"></i>
                         <h3>Facebook Ads Run</h3>
                         <div class="service-price">Starting at ₹5,000/Project</div>
@@ -2377,6 +2377,99 @@
                             <li>Bug fixes</li>
                         </ul>
                         <button class="order-now-btn" onclick="openBookingModal('Website Maintenance')">Order Now</button>
+                    </div>
+
+                    <!-- ========== NEW META & WHATSAPP SERVICES ========== -->
+                    <!-- WhatsApp Business API -->
+                    <div class="service-item" data-category="meta">
+                        <div class="pricing-badge">New</div>
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp Business API</h3>
+                        <div class="service-price">Starting at ₹4,999/Project</div>
+                        <p class="service-details">WhatsApp Business API setup, verification, message templates, automation, aur chatbot integration ke saath.</p>
+                        <ul class="service-features">
+                            <li>Business verification</li>
+                            <li>API integration</li>
+                            <li>Message templates</li>
+                            <li>Chatbot automation</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('WhatsApp Business API')">Order Now</button>
+                    </div>
+
+                    <!-- WhatsApp Marketing & Automation -->
+                    <div class="service-item" data-category="meta">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp Marketing & Automation</h3>
+                        <div class="service-price">Starting at ₹2,999/Month</div>
+                        <p class="service-details">WhatsApp par bulk messaging, automated replies, customer support aur marketing campaigns.</p>
+                        <ul class="service-features">
+                            <li>Bulk messaging</li>
+                            <li>Auto-reply setup</li>
+                            <li>Customer support</li>
+                            <li>Campaign management</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('WhatsApp Marketing & Automation')">Order Now</button>
+                    </div>
+
+                    <!-- Meta Ads (Facebook & Instagram) -->
+                    <div class="service-item" data-category="meta">
+                        <div class="pricing-badge">Popular</div>
+                        <i class="fab fa-facebook"></i>
+                        <h3>Meta Ads (Facebook & Instagram)</h3>
+                        <div class="service-price">Starting at ₹5,000/Project</div>
+                        <p class="service-details">Facebook aur Instagram par targeted ads chalane ke liye complete campaign setup aur optimization.</p>
+                        <ul class="service-features">
+                            <li>Campaign setup</li>
+                            <li>Audience targeting</li>
+                            <li>Ad design</li>
+                            <li>Performance tracking</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('Meta Ads (Facebook & Instagram)')">Order Now</button>
+                    </div>
+
+                    <!-- Meta Pixel & Conversion API -->
+                    <div class="service-item" data-category="meta">
+                        <i class="fas fa-code"></i>
+                        <h3>Meta Pixel & Conversion API</h3>
+                        <div class="service-price">Starting at ₹3,499/Project</div>
+                        <p class="service-details">Website par Meta Pixel aur Conversion API setup, taaki ads ka tracking aur retargeting accurate ho.</p>
+                        <ul class="service-features">
+                            <li>Pixel installation</li>
+                            <li>Conversion API setup</li>
+                            <li>Event tracking</li>
+                            <li>Retargeting setup</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('Meta Pixel & Conversion API')">Order Now</button>
+                    </div>
+
+                    <!-- Meta Data Analytics & Reporting -->
+                    <div class="service-item" data-category="meta">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Meta Data Analytics & Reporting</h3>
+                        <div class="service-price">Starting at ₹2,499/Project</div>
+                        <p class="service-details">Facebook, Instagram aur WhatsApp ka data analyse karke business growth ke liye reports aur insights.</p>
+                        <ul class="service-features">
+                            <li>Ad performance analysis</li>
+                            <li>Audience insights</li>
+                            <li>Custom reports</li>
+                            <li>ROI tracking</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('Meta Data Analytics & Reporting')">Order Now</button>
+                    </div>
+
+                    <!-- Facebook & Instagram Page Management -->
+                    <div class="service-item" data-category="meta">
+                        <i class="fab fa-instagram"></i>
+                        <h3>Facebook & Instagram Management</h3>
+                        <div class="service-price">Starting at ₹3,999/Month</div>
+                        <p class="service-details">Facebook page aur Instagram account ka complete management, posting, engagement aur growth.</p>
+                        <ul class="service-features">
+                            <li>Content posting</li>
+                            <li>Engagement handling</li>
+                            <li>Page optimization</li>
+                            <li>Monthly reporting</li>
+                        </ul>
+                        <button class="order-now-btn" onclick="openBookingModal('Facebook & Instagram Management')">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -3160,6 +3253,67 @@
                             <td>204</td>
                             <td>Data Analysis</td>
                             <td>₹2,499/project</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- New Meta & WhatsApp Services -->
+                        <tr>
+                            <td>205</td>
+                            <td>WhatsApp Business API</td>
+                            <td>₹4,999/Project</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>206</td>
+                            <td>WhatsApp Marketing & Automation</td>
+                            <td>₹2,999/Month</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>207</td>
+                            <td>Meta Ads (Facebook & Instagram)</td>
+                            <td>₹5,000/Project</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>208</td>
+                            <td>Meta Pixel & Conversion API</td>
+                            <td>₹3,499/Project</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>209</td>
+                            <td>Meta Data Analytics & Reporting</td>
+                            <td>₹2,499/Project</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>210</td>
+                            <td>Facebook & Instagram Management</td>
+                            <td>₹3,999/Month</td>
                             <td>Active</td>
                             <td>
                                 <button class="action-btn edit-btn">Edit</button>
